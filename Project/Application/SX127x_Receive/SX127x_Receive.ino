@@ -26,9 +26,9 @@
 // SX1278 has the following connections:
 // NSS pin:   10
 // DIO0 pin:  2
-// RESET pin: 9
+// RESET pin: 19 // LZR: prima era settato su 9
 // DIO1 pin:  3
-SX1278 radio = new Module(10, 2, 9, 3);
+SX1278 radio = new Module(10, 2, 19, 3); // LZR: vedi riga 29
 
 // or using RadioShield
 // https://github.com/jgromes/RadioShield
@@ -39,7 +39,7 @@ void setup() {
 
   // initialize SX1278 with default settings
   Serial.print(F("[SX1278] Initializing ... "));
-  int state = radio.begin();
+  int state = radio.begin(915.0, 125.0, 7, 7, 0x15  , 10, 8, 0);
   if (state == ERR_NONE) {
     Serial.println(F("success!"));
   } else {
