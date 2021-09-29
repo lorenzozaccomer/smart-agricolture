@@ -38,8 +38,8 @@ void setup() {
   Serial.begin(9600);
 
   // initialize SX1278 with default settings
-  Serial.print(F("[SX1278] Initializing ... "));
-  int state = radio.begin(915.0, 125.0, 7, 7, 0x15  , 10, 8, 0);
+  Serial.print(F("[SX1272] Initializing ... "));
+  int state = radio.begin(869.8, 125.0, 7); // LZR: sf = 7
   if (state == ERR_NONE) {
     Serial.println(F("success!"));
   } else {
@@ -50,7 +50,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print(F("[SX1278] Waiting for incoming transmission ... "));
+  Serial.print(F("[SX1272] Waiting for incoming transmission ... "));
 
   // you can receive data as an Arduino String
   // NOTE: receive() is a blocking method!
@@ -70,24 +70,24 @@ void loop() {
     Serial.println(F("success!"));
 
     // print the data of the packet
-    Serial.print(F("[SX1278] Data:\t\t\t"));
+    Serial.print(F("[SX1272] Data:\t\t\t"));
     Serial.println(str);
 
     // print the RSSI (Received Signal Strength Indicator)
     // of the last received packet
-    Serial.print(F("[SX1278] RSSI:\t\t\t"));
+    Serial.print(F("[SX1272] RSSI:\t\t\t"));
     Serial.print(radio.getRSSI());
     Serial.println(F(" dBm"));
 
     // print the SNR (Signal-to-Noise Ratio)
     // of the last received packet
-    Serial.print(F("[SX1278] SNR:\t\t\t"));
+    Serial.print(F("[SX1272] SNR:\t\t\t"));
     Serial.print(radio.getSNR());
     Serial.println(F(" dB"));
 
     // print frequency error
     // of the last received packet
-    Serial.print(F("[SX1278] Frequency error:\t"));
+    Serial.print(F("[SX1272] Frequency error:\t"));
     Serial.print(radio.getFrequencyError());
     Serial.println(F(" Hz"));
 
