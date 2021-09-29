@@ -22,9 +22,9 @@
 // SX1278 has the following connections:
 // NSS pin:   10
 // DIO0 pin:  2
-// RESET pin: 9
+// RESET pin: 19  // LZR: prima era a 9
 // DIO1 pin:  3
-SX1278 radio = new Module(10, 2, 9, 3);
+SX1278 radio = new Module(10, 2, 19, 3); // LZR: vedi riga 25
 
 // or using RadioShield
 // https://github.com/jgromes/RadioShield
@@ -34,8 +34,9 @@ void setup() {
   Serial.begin(9600);
 
   // initialize SX1278 with default settings
-  Serial.print(F("[SX1278] Initializing ... "));
-  int state = radio.begin();
+  Serial.print(F("[SX1272] Initializing ... "));
+  // LZR: freq - bandwidth - sf
+  int state = radio.begin(869.8, 125.0, 7);
   if (state == ERR_NONE) {
     Serial.println(F("success!"));
   } else {
@@ -56,7 +57,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print(F("[SX1278] Transmitting packet ... "));
+  Serial.print(F("[SX1272] Transmitting packet ... "));
 
   // you can transmit C-string or Arduino string up to
   // 256 characters long
@@ -76,7 +77,7 @@ void loop() {
     Serial.println(F(" success!"));
 
     // print measured data rate
-    Serial.print(F("[SX1278] Datarate:\t"));
+    Serial.print(F("[SX1272] Datarate:\t"));
     Serial.print(radio.getDataRate());
     Serial.println(F(" bps"));
 
