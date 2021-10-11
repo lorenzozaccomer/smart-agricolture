@@ -1,0 +1,26 @@
+pi@raspberrypi:~ $ rak811v3 get-config lora:status
+Work Mode: LoRaWAN
+Region: EU868
+MulticastEnable: false
+DutycycleEnable: false
+Send_repeat_cnt: 0
+Join_mode: ABP
+DevAddr: FE7986A0
+AppsKey: 60C5A8FFFE7986A0AC1F09FFF8680811
+NwksKey: 60C5A8FFFE7986A0AC1F09FFF8680811
+Class: A
+Joined Network:true
+IsConfirm: unconfirm
+AdrEnable: true
+EnableRepeaterSupport: false
+RX2_CHANNEL_FREQUENCY: 869525000, RX2_CHANNEL_DR:0
+RX_WINDOW_DURATION: 3000ms
+RECEIVE_DELAY_1: 1000ms
+RECEIVE_DELAY_2: 2000ms
+JOIN_ACCEPT_DELAY_1: 5000ms
+JOIN_ACCEPT_DELAY_2: 6000ms
+Current Datarate: 5
+Primeval Datarate: 5
+ChannelsTxPower: 0
+UpLinkCounter: 0
+DownLinkCounter: 0
