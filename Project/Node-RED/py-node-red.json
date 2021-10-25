@@ -10,7 +10,7 @@
         "id": "3ae8ecb24174d154",
         "type": "inject",
         "z": "0a092065bd450125",
-        "name": "",
+        "name": "Message Reception",
         "props": [
             {
                 "p": "payload"
@@ -22,7 +22,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 90,
+        "x": 120,
         "y": 120,
         "wires": [
             [
@@ -41,9 +41,9 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "lorapi_rcx",
-        "x": 300,
-        "y": 120,
+        "name": "LoraPi Receive Script",
+        "x": 180,
+        "y": 200,
         "wires": [
             [
                 "792f23653e114a3d"
@@ -60,7 +60,7 @@
         "id": "792f23653e114a3d",
         "type": "debug",
         "z": "0a092065bd450125",
-        "name": "",
+        "name": "Message received",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -69,7 +69,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 390,
         "y": 120,
         "wires": []
     }
