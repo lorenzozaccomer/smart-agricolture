@@ -2,27 +2,10 @@
     {
         "id": "80344593280a9f7c",
         "type": "tab",
-        "label": "LoraWAN Decrypt",
+        "label": "Decrypt LoraWAN Message",
         "disabled": false,
         "info": "This flow read a a payload in HEX, convert it\nin Base64, and put on output the message in ASCII",
         "env": []
-    },
-    {
-        "id": "52e16b4fdbfe23a6",
-        "type": "debug",
-        "z": "80344593280a9f7c",
-        "name": "Decrypted",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 310,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "91f0d0ae221ed31b",
@@ -49,8 +32,8 @@
         "type": "function",
         "z": "80344593280a9f7c",
         "name": "Sensor data to hex/decode",
-        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data playload\n\nnewbytes=Buffer.from(bytes, 'hex')\nnode.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nCPU_Load = (newbytes[0] << 8) | newbytes[1];\noTemperature = (newbytes[2] << 8) | newbytes[1];\n   \nmsg.payload.CPU_Load = CPU_Load / 100;\nmsg.payload.oTemperature = oTemperature / 100;\n  \nreturn msg;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
-        "outputs": 1,
+        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data playload\n\nnewbytes=Buffer.from(bytes, 'hex')\nnode.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nCPU_Load = (newbytes[0] << 8) | newbytes[4];\noTemperature = (newbytes[2] << 8) | newbytes[1];\n   \nmsg.payload.CPU_Load = CPU_Load / 100;\n\nmsg.payload.out = newbytes.toString();\nmsg.payload.DevAddr = msg.payload.buffers.DevAddr;\n  \nreturn msg;",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -59,8 +42,11 @@
         "y": 380,
         "wires": [
             [
-                "70f240572241bb3d"
-            ]
+                "70f240572241bb3d",
+                "b44c9ecb51bc7588",
+                "34aab6c1ebd7edd5"
+            ],
+            []
         ]
     },
     {
@@ -68,7 +54,7 @@
         "type": "debug",
         "z": "80344593280a9f7c",
         "name": "Sensor Data Decoded",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -138,8 +124,8 @@
         "y": 380,
         "wires": [
             [
-                "52e16b4fdbfe23a6",
-                "9227ceadbfd2841c"
+                "9227ceadbfd2841c",
+                "52e16b4fdbfe23a6"
             ]
         ]
     },
@@ -168,7 +154,9 @@
         "y": 180,
         "wires": [
             [
-                "d3c5d42d4930f587"
+                "d3c5d42d4930f587",
+                "ec7b8ecc15cf15a8",
+                "a0d483447bdea19f"
             ]
         ]
     },
@@ -208,5 +196,109 @@
         "x": 390,
         "y": 260,
         "wires": []
+    },
+    {
+        "id": "ec7b8ecc15cf15a8",
+        "type": "ui_text",
+        "z": "80344593280a9f7c",
+        "group": "675276356cb4ef46",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Encrypted Message",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 430,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "52e16b4fdbfe23a6",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "Decrypted",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b44c9ecb51bc7588",
+        "type": "ui_text",
+        "z": "80344593280a9f7c",
+        "group": "675276356cb4ef46",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Original Message",
+        "format": "{{msg.payload.out}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "34aab6c1ebd7edd5",
+        "type": "ui_text",
+        "z": "80344593280a9f7c",
+        "group": "675276356cb4ef46",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DevAddr",
+        "format": "{{msg.payload.DevAddr.data}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 740,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a0d483447bdea19f",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "HEX Message",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "675276356cb4ef46",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "87a869ccbb64bd1b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "87a869ccbb64bd1b",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
