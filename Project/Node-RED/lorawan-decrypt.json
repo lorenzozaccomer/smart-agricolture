@@ -1,0 +1,212 @@
+[
+    {
+        "id": "80344593280a9f7c",
+        "type": "tab",
+        "label": "LoraWAN Decrypt",
+        "disabled": false,
+        "info": "This flow read a a payload in HEX, convert it\nin Base64, and put on output the message in ASCII",
+        "env": []
+    },
+    {
+        "id": "52e16b4fdbfe23a6",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "Decrypted",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "91f0d0ae221ed31b",
+        "type": "function",
+        "z": "80344593280a9f7c",
+        "name": "Extract Packet",
+        "func": "devid=\"12345678901 \"\n\n// the lora lora-packet-converter package expect device id (12) as a string before the Lora wan Packet\nmvk=msg.payload // from the injection \n\nnode.warn(mvk)\n\nmsg.payload=mvk\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "5456cde6932747c7",
+                "ca3d68ad4764bef2"
+            ]
+        ]
+    },
+    {
+        "id": "9227ceadbfd2841c",
+        "type": "function",
+        "z": "80344593280a9f7c",
+        "name": "Sensor data to hex/decode",
+        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data playload\n\nnewbytes=Buffer.from(bytes, 'hex')\nnode.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nCPU_Load = (newbytes[0] << 8) | newbytes[1];\noTemperature = (newbytes[2] << 8) | newbytes[1];\n   \nmsg.payload.CPU_Load = CPU_Load / 100;\nmsg.payload.oTemperature = oTemperature / 100;\n  \nreturn msg;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 380,
+        "wires": [
+            [
+                "70f240572241bb3d"
+            ]
+        ]
+    },
+    {
+        "id": "70f240572241bb3d",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "Sensor Data Decoded",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5456cde6932747c7",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "InComing LoraWAN",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1b0d8baf8cb4b5e6",
+        "type": "comment",
+        "z": "80344593280a9f7c",
+        "name": "Example payload with CPU and temp",
+        "info": "{\n    \"value\": \"hello\",\n    \"type\": \"dev\",\n    \"msgid\": 0,\n    \"data\": {\n        \"rxpk\": [\n            {\n                \"data\": \"QIoaASYAYAABTqf1tMolR+Q=\",\n                \"time\": \"2019-10-16T02:43:52.558399Z\",\n                \"chan\": 0,\n                \"tmst\": 110465012,\n                \"stat\": 1,\n                \"modu\": \"LORA\",\n                \"lsnr\": 1,\n                \"rssi\": -113,\n                \"rfch\": 0,\n                \"codr\": \"4/5\",\n                \"freq\": 903.9,\n                \"datr\": \"SF7BW125\",\n                \"size\": 17\n            }\n        ]\n    }\n}",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8687d982af58e0d0",
+        "type": "comment",
+        "z": "80344593280a9f7c",
+        "name": "Network Key",
+        "info": "27E87B6710ACC5FB9098F19AE77DC62B",
+        "x": 750,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4f40e7459b7165aa",
+        "type": "comment",
+        "z": "80344593280a9f7c",
+        "name": "App Key",
+        "info": "B887FD00569BE0746E8020746EFC9BA8",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ca3d68ad4764bef2",
+        "type": "lorawan-packet-decrypt-nwkey-appkey",
+        "z": "80344593280a9f7c",
+        "name": "Decrypt LoRaWAN",
+        "nsw": "238792b74801de223b50ddd309b8f139",
+        "asw": "744826b8703e23a2e6cb8d79eed484bb",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "52e16b4fdbfe23a6",
+                "9227ceadbfd2841c"
+            ]
+        ]
+    },
+    {
+        "id": "3ca62871943f171d",
+        "type": "inject",
+        "z": "80344593280a9f7c",
+        "name": "Encrypted Message",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Encrypted Message",
+        "payload": "404A23C1AB0085010174F2F25959595D2BAC0E5D7F8B4DCFF7463930682D",
+        "payloadType": "str",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "d3c5d42d4930f587"
+            ]
+        ]
+    },
+    {
+        "id": "d3c5d42d4930f587",
+        "type": "function",
+        "z": "80344593280a9f7c",
+        "name": "HEX to base64",
+        "func": "\nmvk=msg.payload // from the injection \nvar base64String = Buffer.from(mvk, 'hex').toString('base64')\nnode.warn(base64String)\nmsg.payload=base64String\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "91f0d0ae221ed31b",
+                "7d62f045df530c33"
+            ]
+        ]
+    },
+    {
+        "id": "7d62f045df530c33",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "Base64 Message",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 260,
+        "wires": []
+    }
+]
