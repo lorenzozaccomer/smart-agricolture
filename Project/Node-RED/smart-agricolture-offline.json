@@ -1,0 +1,392 @@
+[
+    {
+        "id": "80344593280a9f7c",
+        "type": "tab",
+        "label": "SA (offline)",
+        "disabled": false,
+        "info": "This flow read a a payload in HEX, convert it\nin Base64, and put on output the message in ASCII\n\nThis is the OFFLINE version, to test it without a Pi",
+        "env": []
+    },
+    {
+        "id": "91f0d0ae221ed31b",
+        "type": "function",
+        "z": "80344593280a9f7c",
+        "name": "Extract Packet",
+        "func": "devid=\"12345678901 \"\n\n// the lora lora-packet-converter package expect device id (12) as a string before the Lora wan Packet\nmvk=msg.payload // from the injection \n//node.warn(mvk)\nmsg.payload=mvk\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "5456cde6932747c7",
+                "ca3d68ad4764bef2"
+            ]
+        ]
+    },
+    {
+        "id": "9227ceadbfd2841c",
+        "type": "function",
+        "z": "80344593280a9f7c",
+        "name": "Sensor data to hex/decode",
+        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data playload\n\nnewbytes=Buffer.from(bytes, 'hex')\n//node.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nmsg.payload.out = newbytes.toString();\n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "70f240572241bb3d",
+                "b44c9ecb51bc7588"
+            ]
+        ]
+    },
+    {
+        "id": "70f240572241bb3d",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "Sensor Data Decoded",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.out",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5456cde6932747c7",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "InComing LoraWAN",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ca3d68ad4764bef2",
+        "type": "lorawan-packet-decrypt-nwkey-appkey",
+        "z": "80344593280a9f7c",
+        "name": "Decrypt LoRaWAN",
+        "nsw": "238792b74801de223b50ddd309b8f139",
+        "asw": "744826b8703e23a2e6cb8d79eed484bb",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "9227ceadbfd2841c",
+                "52e16b4fdbfe23a6",
+                "00baf833c8b59756"
+            ]
+        ]
+    },
+    {
+        "id": "3ca62871943f171d",
+        "type": "inject",
+        "z": "80344593280a9f7c",
+        "name": "Encrypted Message (bytes)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Encrypted Message",
+        "payload": "b'40c76ac6aa00060001c738a8cbfb5fc6f2435609707cc314ec8a96edae30c18f4a9062baeb85e45790'",
+        "payloadType": "str",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "a0d483447bdea19f",
+                "ec7b8ecc15cf15a8",
+                "d3c5d42d4930f587"
+            ]
+        ]
+    },
+    {
+        "id": "d3c5d42d4930f587",
+        "type": "function",
+        "z": "80344593280a9f7c",
+        "name": "HEX to base64",
+        "func": "\nmvk=msg.payload // from the injection\n//node.warn(mvk)\nvar base64String = Buffer.from(mvk, 'hex').toString('base64')\n//node.warn(base64String)\nmsg.payload=base64String\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "91f0d0ae221ed31b",
+                "7d62f045df530c33"
+            ]
+        ]
+    },
+    {
+        "id": "7d62f045df530c33",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "Base64 Message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ec7b8ecc15cf15a8",
+        "type": "ui_text",
+        "z": "80344593280a9f7c",
+        "group": "675276356cb4ef46",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Encrypted Message",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 660,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "52e16b4fdbfe23a6",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "Decrypted",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 150,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b44c9ecb51bc7588",
+        "type": "ui_text",
+        "z": "80344593280a9f7c",
+        "group": "675276356cb4ef46",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Original Message",
+        "format": "{{msg.payload.out}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 790,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "34aab6c1ebd7edd5",
+        "type": "ui_text",
+        "z": "80344593280a9f7c",
+        "group": "675276356cb4ef46",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DevAddr",
+        "format": "{{msg.payload.DevAddr}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 380,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a0d483447bdea19f",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "HEX Message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "00baf833c8b59756",
+        "type": "function",
+        "z": "80344593280a9f7c",
+        "name": "Extract DevAddr",
+        "func": "\nlet HexString = \"\";\n\nDevAddr=msg.payload.buffers.DevAddr // sensor/LoraWAN data payload\n\n//node.warn(DevAddr)\n\nfor (let i = 0; i < DevAddr.length; i++)\n{\n  hex = DevAddr[i].toString(16).toUpperCase();\n  HexString += hex;\n}\n//node.warn(HexString);\n\nmsg.payload.DevAddr = HexString;\n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 560,
+        "wires": [
+            [
+                "34aab6c1ebd7edd5",
+                "46ae23ce131c5a6f"
+            ]
+        ]
+    },
+    {
+        "id": "46ae23ce131c5a6f",
+        "type": "debug",
+        "z": "80344593280a9f7c",
+        "name": "DevAddr",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.DevAddr",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b1dd60d6acb8ee3a",
+        "type": "ui_date_picker",
+        "z": "80344593280a9f7c",
+        "name": "",
+        "label": "date",
+        "group": "675276356cb4ef46",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 70,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9ca03f12d654346f",
+        "type": "ui_button",
+        "z": "80344593280a9f7c",
+        "name": "Start Reading (From Dashboard)",
+        "group": "675276356cb4ef46",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start Reading",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "40c76ac6aa00060001c738a8cbfb5fc6f2435609707cc314ec8a96edae30c18f4a9062baeb85e45790",
+        "payloadType": "str",
+        "topic": "message",
+        "topicType": "str",
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "ec7b8ecc15cf15a8",
+                "d3c5d42d4930f587",
+                "a0d483447bdea19f"
+            ]
+        ]
+    },
+    {
+        "id": "2c17b6a1bb0cb0b0",
+        "type": "inject",
+        "z": "80344593280a9f7c",
+        "name": "Encrypted Message (str)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Encrypted Message",
+        "payload": "40c76ac6aa00060001c738a8cbfb5fc6f2435609707cc314ec8a96edae30c18f4a9062baeb85e45790",
+        "payloadType": "str",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "ec7b8ecc15cf15a8",
+                "d3c5d42d4930f587",
+                "a0d483447bdea19f"
+            ]
+        ]
+    },
+    {
+        "id": "675276356cb4ef46",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "87a869ccbb64bd1b",
+        "order": 1,
+        "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "87a869ccbb64bd1b",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "tv",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
