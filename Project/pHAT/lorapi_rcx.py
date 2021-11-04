@@ -30,5 +30,5 @@ while True:
     lora.receive_p2p(1000)
     while lora.nb_downlinks > 0:
         message = lora.get_downlink()
-        data = message['data']
+        data = message['data'].decode('UTF-8')
         print(data)
