@@ -8,8 +8,17 @@
 #include <LoRaWanPacket.h>
 #include <RadioLib.h>
 
+/*
+ * How to set the DevAddr:
+ * 
+ * AAA  = STM32
+ * BB   = L1, CC = L4
+ * 0   = Progressive Number
+ * 4A   = INT, 4B = EXT
+ */
+
 SX1272 radio = new Module(10, 2, 19, 3);
-const char *devAddr = "abc1234a";
+const char *devAddr = "AAABB14A"; // AAA = STM32, BB = L1, 01 = Number, 4A == INT
 const char *nwkSKey = "238792b74801de223b50ddd309b8f139";
 const char *appSKey = "744826b8703e23a2e6cb8d79eed484bb";
 
@@ -35,7 +44,27 @@ void loop() {
   {
     Serial.print(F("[SX1272] Transmitting packet ... "));
     LoRaWanPacket.clear();
-    LoRaWanPacket.print("T:25:U:1566:X:111");
+    
+    // Temperature
+    LoRaWanPacket.print("Temp:"); // [°C]
+    LoRaWanPacket.print(random(-40,85));
+    LoRaWanPacket.print(" - ");
+    
+    // Humidity
+    LoRaWanPacket.print("Hum:"); // [percent]
+    LoRaWanPacket.print(float(random(0,100)));
+    LoRaWanPacket.print(" - ");
+    
+    // Pressure
+    LoRaWanPacket.print("Pres:"); // [hPa]
+    LoRaWanPacket.print(random(300,1100));
+    LoRaWanPacket.print(" - ");
+    
+    // UV
+    LoRaWanPacket.print("UV:"); // [nm]
+    LoRaWanPacket.print(random(320,410));
+    LoRaWanPacket.print(" - ");
+    
     if (LoRaWanPacket.encode()) 
     {
       //Serial.println("PACKET:");
