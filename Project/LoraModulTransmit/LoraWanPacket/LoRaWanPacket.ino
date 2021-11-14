@@ -15,6 +15,7 @@
  * BB   = L1, CC = L4
  * 0   = Progressive Number
  * 4A   = INT, 4B = EXT
+ * 
  */
 
 SX1272 radio = new Module(10, 2, 19, 3);
@@ -46,24 +47,28 @@ void loop() {
     LoRaWanPacket.clear();
     
     // Temperature
-    LoRaWanPacket.print("Temp:"); // [°C]
+    LoRaWanPacket.print("T:"); // [°C]
     LoRaWanPacket.print(random(-40,85));
-    LoRaWanPacket.print(" - ");
+    LoRaWanPacket.print("$");
     
     // Humidity
-    LoRaWanPacket.print("Hum:"); // [percent]
-    LoRaWanPacket.print(float(random(0,100)));
-    LoRaWanPacket.print(" - ");
+    LoRaWanPacket.print("H:"); // [percent]
+    LoRaWanPacket.print( (float) random(0,100) * 1.0);
+    LoRaWanPacket.print("$");
     
     // Pressure
-    LoRaWanPacket.print("Pres:"); // [hPa]
+    LoRaWanPacket.print("P:"); // [hPa]
     LoRaWanPacket.print(random(300,1100));
-    LoRaWanPacket.print(" - ");
+    LoRaWanPacket.print("$");
     
     // UV
-    LoRaWanPacket.print("UV:"); // [nm]
+    LoRaWanPacket.print("U:"); // [nm]
     LoRaWanPacket.print(random(320,410));
-    LoRaWanPacket.print(" - ");
+    LoRaWanPacket.print("$");
+    
+    // Humidity Soil
+    LoRaWanPacket.print("S:"); // [percent]
+    LoRaWanPacket.print(random(0,100));
     
     if (LoRaWanPacket.encode()) 
     {
