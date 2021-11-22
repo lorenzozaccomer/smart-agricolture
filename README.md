@@ -8,13 +8,15 @@ Klaid Shyti (klacs)
 
 
 
-## LORA MODULE STM32
+## P-NUCLEO-LRWAN1
 ### [RadioLib](https://github.com/jgromes/RadioLib)
 ### [LoRaWanPacket Encode / Decoder](https://github.com/ricaun/LoRaWanPacket)
+### [Low-power wireless Nucleo pack with Nucleo-L073RZ and LoRa expansion board](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html)
 
 
-## LORA MODULE Raspberry Pi
+## Raspberry Pi LoRa Node pHAT
 ### [RAK811 Python 3](https://github.com/AmedeeBulle/pyrak811)
+### [Getting Started with the Raspberry Pi LoRa Node pHAT](https://learn.pi-supply.com/make/getting-started-with-the-raspberry-pi-lora-node-phat/)
 
 
 ## Node-RED Palette
