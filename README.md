@@ -2,7 +2,7 @@
 Repository per il progetto del corso di laboratorio didattico, 
 sviluppato da:
 
-Lorenzo Zaccomer
+Lorenzo Zaccomer (@lorenzozaccomer)
 Ivan Di Betta (@Nasopieno)
 Klaid Shyti (klacs)
 
@@ -19,3 +19,4 @@ Klaid Shyti (klacs)
 
 ## Node-RED Palette
 ### [node-red-contrib-lorawan-packet-decrypt-nwkey-appkey](https://flows.nodered.org/node/node-red-contrib-lorawan-packet-decrypt-nwkey-appkey)
+### [node-red-contrib-os](https://flows.nodered.org/node/node-red-contrib-os)
