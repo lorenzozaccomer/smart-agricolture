@@ -1,64 +1,142 @@
 [
     {
-        "id": "6c4ef7206a54756d",
+        "id": "3d8febace6205935",
         "type": "subflow",
-        "name": "STM32 L4",
+        "name": "Device 2",
         "info": "",
         "category": "",
         "in": [
             {
                 "x": 40,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "529238d42c86208e"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 580,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "caccc1b89e1b2318",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 580,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "4447167e5a589afe",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 620,
                 "y": 280,
                 "wires": [
                     {
-                        "id": "c97d6785e5bdaf93"
+                        "id": "a871284ad0e93c78",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 600,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "52e70a3d8e69fdf2",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 580,
+                "y": 440,
+                "wires": [
+                    {
+                        "id": "dd9e68d8fa0b3c6d",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 680,
+                "y": 520,
+                "wires": [
+                    {
+                        "id": "8c6d4e91027b91cd",
+                        "port": 0
                     }
                 ]
             }
         ],
-        "out": [],
         "env": [],
         "meta": {},
-        "color": "#DDAA99"
+        "color": "#DDAA99",
+        "outputLabels": [
+            "Temperature",
+            "Humidity",
+            "Humidity Soil",
+            "Pressure",
+            "UV",
+            "UNUSED"
+        ]
     },
     {
-        "id": "c97d6785e5bdaf93",
+        "id": "529238d42c86208e",
         "type": "function",
-        "z": "6c4ef7206a54756d",
+        "z": "3d8febace6205935",
         "name": "Get Values",
-        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\nvar values = msg.payload.out\n\nnode.warn(values)\n\nvar temp = msg.payload.out.T\nvar hum = msg.payload.out.H\nvar soil = msg.payload.out.S\nvar pressure = msg.payload.out.P\nvar uv = msg.payload.out.U\n\nmsg1.topic = \"Temperature\"\nmsg1.payload = temp\n\nmsg2.topic = \"Humidity\"\nmsg2.payload = hum\n\nmsg3.topic = \"Humidity Soil\"\nmsg3.payload = soil\n\nmsg4.topic = \"Pressure\"\nmsg4.payload = pressure\n\nmsg5.topic = \"UV\"\nmsg5.payload = uv\n\nnode.send([msg1, msg2, msg3, msg4, msg5])",
-        "outputs": 5,
+        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\nvar values = msg.payload.out\n\nnode.warn(msg)\n\nvar temp = msg.payload.out.T\nvar hum = msg.payload.out.H\nvar soil = msg.payload.out.S\nvar pressure = msg.payload.out.P\nvar uv = msg.payload.out.U\n\nmsg1.topic = \"Temperature\"\nmsg1.payload = temp\n\nmsg2.topic = \"Humidity\"\nmsg2.payload = hum\n\nmsg3.topic = \"Humidity Soil\"\nmsg3.payload = soil\n\nmsg4.topic = \"Pressure\"\nmsg4.payload = pressure\n\nmsg5.topic = \"UV\"\nmsg5.payload = uv\n\nnode.send([msg1, msg2, msg3, msg4, msg5, null])",
+        "outputs": 6,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 190,
-        "y": 280,
+        "y": 260,
         "wires": [
             [
-                "2a47f29e59ce520f"
+                "9664801849a5b282",
+                "caccc1b89e1b2318"
             ],
             [
-                "6bc4b6a7a4f14d66"
+                "c3f715b653dc677c",
+                "4447167e5a589afe"
             ],
             [
-                "2dab14ac0fd0b471"
+                "d67b5ebebf2dd09a",
+                "a871284ad0e93c78"
             ],
             [
-                "978308b11282b63f"
+                "b6406f98d7aef7aa",
+                "52e70a3d8e69fdf2"
             ],
             [
-                "39225f7b3872b202"
+                "7b21859b3cf10c96",
+                "dd9e68d8fa0b3c6d"
+            ],
+            [
+                "747bd21d0827169a",
+                "8c6d4e91027b91cd"
             ]
         ]
     },
     {
-        "id": "2a47f29e59ce520f",
+        "id": "9664801849a5b282",
         "type": "ui_gauge",
-        "z": "6c4ef7206a54756d",
+        "z": "3d8febace6205935",
         "name": "Temp Gauge",
-        "group": "085614973771c19a",
-        "order": 2,
+        "group": "bd2a2a82569c3be5",
+        "order": 1,
         "width": 4,
         "height": 4,
         "gtype": "gage",
@@ -74,98 +152,20 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 570,
+        "x": 450,
         "y": 80,
         "wires": []
     },
     {
-        "id": "978308b11282b63f",
+        "id": "c3f715b653dc677c",
         "type": "ui_gauge",
-        "z": "6c4ef7206a54756d",
-        "name": "Pressure Gauge",
-        "group": "085614973771c19a",
-        "order": 3,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Pressure Gauge",
-        "label": "hPa",
-        "format": "{{value}}",
-        "min": "300",
-        "max": "1100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 520,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "39225f7b3872b202",
-        "type": "ui_gauge",
-        "z": "6c4ef7206a54756d",
-        "name": "UV Gauge",
-        "group": "085614973771c19a",
-        "order": 5,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "UV Gauge",
-        "label": "nm",
-        "format": "{{value}}",
-        "min": "0",
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 510,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "2dab14ac0fd0b471",
-        "type": "ui_gauge",
-        "z": "6c4ef7206a54756d",
-        "name": "Humidity Soil Gauge",
-        "group": "085614973771c19a",
-        "order": 3,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Humidity Soil Gauge",
-        "label": "nm",
-        "format": "{{value}}",
-        "min": "0",
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 540,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "6bc4b6a7a4f14d66",
-        "type": "ui_gauge",
-        "z": "6c4ef7206a54756d",
+        "z": "3d8febace6205935",
         "name": "Humidity Gauge",
-        "group": "085614973771c19a",
-        "order": 1,
+        "group": "bd2a2a82569c3be5",
+        "order": 2,
         "width": 4,
         "height": 4,
-        "gtype": "gage",
+        "gtype": "donut",
         "title": "Humidity Gauge",
         "label": "Percent",
         "format": "{{value}}",
@@ -178,762 +178,23 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 620,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "085614973771c19a",
-        "type": "ui_group",
-        "z": "6c4ef7206a54756d",
-        "name": "L4",
-        "tab": "0f6d015170083263",
-        "order": 2,
-        "disp": true,
-        "width": "4",
-        "collapse": true
-    },
-    {
-        "id": "4a812b20531a1393",
-        "type": "subflow",
-        "name": "STM32 L0",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 40,
-                "y": 80,
-                "wires": [
-                    {
-                        "id": "56b11f59f5b35828"
-                    }
-                ]
-            }
-        ],
-        "out": [],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "56b11f59f5b35828",
-        "type": "function",
-        "z": "4a812b20531a1393",
-        "name": "Get Values",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 80,
-        "wires": [
-            [
-                "b9b4e6fe3cfc52cb"
-            ]
-        ]
-    },
-    {
-        "id": "b9b4e6fe3cfc52cb",
-        "type": "ui_gauge",
-        "z": "4a812b20531a1393",
-        "name": "Temp Gauge",
-        "group": "043bca539eee9986",
-        "order": 4,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Temp Gauge",
-        "label": "°C",
-        "format": "{{msg.payload.out.T}}",
-        "min": "-40",
-        "max": "+85",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 420,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "043bca539eee9986",
-        "type": "ui_group",
-        "z": "4a812b20531a1393",
-        "name": "L0",
-        "tab": "0f6d015170083263",
-        "order": 3,
-        "disp": true,
-        "width": "4",
-        "collapse": true
-    },
-    {
-        "id": "53e10ede6ba0e308",
-        "type": "subflow",
-        "name": "STM32 L1",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 60,
-                "y": 80,
-                "wires": [
-                    {
-                        "id": "5b6558019bba99af"
-                    }
-                ]
-            }
-        ],
-        "out": [],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "5b6558019bba99af",
-        "type": "function",
-        "z": "53e10ede6ba0e308",
-        "name": "Get Values",
-        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\nvar values = msg.payload.out\n\nnode.warn(values)\n\nvar temp = msg.payload.out.T\nvar hum = msg.payload.out.H\nvar soil = msg.payload.out.S\nvar pressure = msg.payload.out.P\nvar uv = msg.payload.out.U\n\nmsg1.topic = \"Temperature\"\nmsg1.payload = temp\n\nmsg2.topic = \"Humidity\"\nmsg2.payload = hum\n\nmsg3.topic = \"Humidity Soil\"\nmsg3.payload = soil\n\nmsg4.topic = \"Pressure\"\nmsg4.payload = pressure\n\nmsg5.topic = \"UV\"\nmsg5.payload = uv\n\nnode.send([msg1, msg2, msg3, msg4, msg5])",
-        "outputs": 5,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 260,
-        "wires": [
-            [
-                "b6c82790ba9b608b"
-            ],
-            [
-                "7dd4d64b0d850396"
-            ],
-            [
-                "71f6996b68a4bf63"
-            ],
-            [
-                "159f1bdf67ec4372"
-            ],
-            [
-                "22034ecfaf5e3a1f"
-            ]
-        ]
-    },
-    {
-        "id": "b6c82790ba9b608b",
-        "type": "ui_gauge",
-        "z": "53e10ede6ba0e308",
-        "name": "Temp Gauge",
-        "group": "34ed68ac3c83ff92",
-        "order": 1,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Temp Gauge",
-        "label": "°C",
-        "format": "{{value}}",
-        "min": "-40",
-        "max": "+85",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 570,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "7dd4d64b0d850396",
-        "type": "ui_gauge",
-        "z": "53e10ede6ba0e308",
-        "name": "Humidity Gauge",
-        "group": "34ed68ac3c83ff92",
-        "order": 2,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Humidity Gauge",
-        "label": "Percent",
-        "format": "{{value}}",
-        "min": "0",
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 620,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "159f1bdf67ec4372",
-        "type": "ui_gauge",
-        "z": "53e10ede6ba0e308",
-        "name": "Pressure Gauge",
-        "group": "34ed68ac3c83ff92",
-        "order": 4,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Pressure Gauge",
-        "label": "hPa",
-        "format": "{{value}}",
-        "min": "300",
-        "max": "1100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 520,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "22034ecfaf5e3a1f",
-        "type": "ui_gauge",
-        "z": "53e10ede6ba0e308",
-        "name": "UV Gauge",
-        "group": "34ed68ac3c83ff92",
-        "order": 3,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "UV Gauge",
-        "label": "nm",
-        "format": "{{value}}",
-        "min": "0",
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 510,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "71f6996b68a4bf63",
-        "type": "ui_gauge",
-        "z": "53e10ede6ba0e308",
-        "name": "Humidity Soil Gauge",
-        "group": "34ed68ac3c83ff92",
-        "order": 5,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Humidity Soil Gauge",
-        "label": "nm",
-        "format": "{{value}}",
-        "min": "0",
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 540,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "34ed68ac3c83ff92",
-        "type": "ui_group",
-        "z": "53e10ede6ba0e308",
-        "name": "L1",
-        "tab": "0f6d015170083263",
-        "order": 1,
-        "disp": true,
-        "width": "4",
-        "collapse": true
-    },
-    {
-        "id": "0f6d015170083263",
-        "type": "ui_tab",
-        "name": "Devices",
-        "icon": "dashboard",
-        "order": 5,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "43e346004b28846d",
-        "type": "tab",
-        "label": "SA (offline)",
-        "disabled": false,
-        "info": "This flow read a a payload in HEX, convert it\nin Base64, and put on output the message in ASCII\n\nThis is the OFFLINE version, to test it without a Pi"
-    },
-    {
-        "id": "328487b86b977a7b",
-        "type": "function",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "Extract Packet",
-        "func": "devid=\"12345678901 \"\n\n// the lora lora-packet-converter package expect device id (12) as a string before the Lora wan Packet\nmvk=msg.payload // from the injection \n//node.warn(mvk)\nmsg.payload=mvk\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 220,
-        "y": 320,
-        "wires": [
-            [
-                "08e8eee9ec615a06",
-                "2eaa90d40bc65226"
-            ]
-        ]
-    },
-    {
-        "id": "4eab8dd30aba1b72",
-        "type": "function",
-        "z": "43e346004b28846d",
-        "name": "Sensor data to hex/decode",
-        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data playload\n\nnewbytes=Buffer.from(bytes, 'hex')\n//node.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nmsg.payload.out = newbytes.toString();\n  \nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 160,
-        "y": 520,
-        "wires": [
-            [
-                "2634ee731e2f925d",
-                "46e2c15b4037d6d6",
-                "c3875d0a28e633ce"
-            ]
-        ]
-    },
-    {
-        "id": "2634ee731e2f925d",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Sensor Data Decoded",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.out",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "08e8eee9ec615a06",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "InComing LoraWAN",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "2eaa90d40bc65226",
-        "type": "lorawan-packet-decrypt-nwkey-appkey",
-        "z": "43e346004b28846d",
-        "name": "Decrypt LoRaWAN",
-        "nsw": "238792b74801de223b50ddd309b8f139",
-        "asw": "744826b8703e23a2e6cb8d79eed484bb",
-        "x": 130,
-        "y": 400,
-        "wires": [
-            [
-                "4eab8dd30aba1b72",
-                "373eea0ff157ed10"
-            ]
-        ]
-    },
-    {
-        "id": "6ec9b0427837fc3a",
-        "type": "inject",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "Encrypted Message (bytes)",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "Encrypted Message",
-        "payload": "b'40c76ac6aa00060001c738a8cbfb5fc6f2435609707cc314ec8a96edae30c18f4a9062baeb85e45790'",
-        "payloadType": "str",
-        "x": 150,
-        "y": 100,
-        "wires": [
-            [
-                "202814b4b9c5bd32",
-                "9f232ac06fe6386b",
-                "5e2d77219556323b"
-            ]
-        ]
-    },
-    {
-        "id": "5e2d77219556323b",
-        "type": "function",
-        "z": "43e346004b28846d",
-        "name": "HEX to base64",
-        "func": "\nmvk=msg.payload // from the injection\n//node.warn(mvk)\nvar base64String = Buffer.from(mvk, 'hex').toString('base64')\n//node.warn(base64String)\nmsg.payload=base64String\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 120,
-        "y": 260,
-        "wires": [
-            [
-                "328487b86b977a7b",
-                "dbdb44e9d6ff07d4",
-                "2eaa90d40bc65226"
-            ]
-        ]
-    },
-    {
-        "id": "dbdb44e9d6ff07d4",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Base64 Message",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 390,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "9f232ac06fe6386b",
-        "type": "ui_text",
-        "z": "43e346004b28846d",
-        "d": true,
-        "group": "df14c100990c8374",
-        "order": 4,
-        "width": "0",
-        "height": "0",
-        "name": "",
-        "label": "Encrypted Message",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 660,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "373eea0ff157ed10",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Decrypted",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 110,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "46e2c15b4037d6d6",
-        "type": "ui_text",
-        "z": "43e346004b28846d",
-        "d": true,
-        "group": "df14c100990c8374",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Original Message",
-        "format": "{{msg.payload.out}}",
-        "layout": "col-center",
-        "x": 470,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "dc479a59520c5ecf",
-        "type": "ui_text",
-        "z": "43e346004b28846d",
-        "group": "df14c100990c8374",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "DevAddr",
-        "format": "{{msg.payload.DevAddr}}",
-        "layout": "col-center",
-        "x": 440,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "202814b4b9c5bd32",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "HEX Message",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "800b2868a52d1424",
-        "type": "function",
-        "z": "43e346004b28846d",
-        "name": "Extract DevAddr",
-        "func": "\nlet HexString = \"\";\n\nDevAddr=msg.payload.buffers.DevAddr // sensor/LoraWAN data payload\n\n//node.warn(DevAddr)\n\nfor (let i = 0; i < DevAddr.length; i++)\n{\n  hex = DevAddr[i].toString(16).toUpperCase();\n  HexString += hex;\n}\n//node.warn(HexString);\n\nmsg.payload.DevAddr = HexString;\n\nif(DevAddr.includes(\"4A\"))\n    msg.payload.use = \"intern\"\nelse\n    msg.payload.use = \"extern\"\n  \nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 120,
-        "y": 860,
-        "wires": [
-            [
-                "dc479a59520c5ecf",
-                "479075da3af8a46f",
-                "553cc10021d5497e",
-                "5a85bf8d3dc03d23",
-                "eae741a38c96cbd6"
-            ]
-        ]
-    },
-    {
-        "id": "479075da3af8a46f",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "DevAddr",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.DevAddr",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "538735d331bad998",
-        "type": "ui_date_picker",
-        "z": "43e346004b28846d",
-        "name": "",
-        "label": "date",
-        "group": "df14c100990c8374",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 70,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4e9b5a6f4f9d1766",
-        "type": "ui_button",
-        "z": "43e346004b28846d",
-        "name": "Start Reading (From Dashboard)",
-        "group": "df14c100990c8374",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Start Reading",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "40C54AC4AA00020001228F96D52CAD4C222382CB6FF2BC7CF3F8583BB6764F8514AC5CFD8F312849F8FEDD4B3F5D1A",
-        "payloadType": "str",
-        "topic": "message",
-        "topicType": "str",
-        "x": 180,
-        "y": 60,
-        "wires": [
-            [
-                "9f232ac06fe6386b",
-                "5e2d77219556323b",
-                "202814b4b9c5bd32"
-            ]
-        ]
-    },
-    {
-        "id": "a1fe07eb39eabbd5",
-        "type": "inject",
-        "z": "43e346004b28846d",
-        "name": "First Encrypted Message (str)",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "payload"
-            },
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "5",
-        "topic": "",
-        "payload": "404AB1ABAA00AE0201B37914204BF560DE7AFE21930486771382A71F00CAB24E6C081FD9888EA241020D",
-        "payloadType": "str",
-        "x": 170,
+        "x": 460,
         "y": 160,
-        "wires": [
-            [
-                "9f232ac06fe6386b",
-                "5e2d77219556323b",
-                "202814b4b9c5bd32"
-            ]
-        ]
-    },
-    {
-        "id": "bf57076678b78f60",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Informations from Sensors",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.out",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 560,
         "wires": []
     },
     {
-        "id": "54bc10ac59b3b396",
+        "id": "b6406f98d7aef7aa",
         "type": "ui_gauge",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "Temp",
-        "group": "403267448a6f0a1d",
-        "order": 12,
+        "z": "3d8febace6205935",
+        "name": "Pressure Gauge",
+        "group": "bd2a2a82569c3be5",
+        "order": 5,
         "width": 4,
         "height": 4,
-        "gtype": "gage",
-        "title": "Temp",
-        "label": "°C",
-        "format": "{{msg.payload.out.T}}",
-        "min": "-40",
-        "max": "+85",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 430,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "0a21e6846e1974bf",
-        "type": "ui_gauge",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "Hum",
-        "group": "403267448a6f0a1d",
-        "order": 13,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Hum",
-        "label": "Percent",
-        "format": "{{msg.payload.out.H}}",
-        "min": "0",
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 430,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "88bd5b21e14b2a69",
-        "type": "ui_gauge",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "Pressure",
-        "group": "403267448a6f0a1d",
-        "order": 14,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Pressure",
+        "gtype": "wave",
+        "title": "Pressure Gauge",
         "label": "hPa",
-        "format": "{{msg.payload.out.P}}",
+        "format": "{{value}}",
         "min": "300",
         "max": "1100",
         "colors": [
@@ -943,82 +204,23 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 440,
-        "y": 680,
+        "x": 460,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "5396f9b907488764",
+        "id": "7b21859b3cf10c96",
         "type": "ui_gauge",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "UV",
-        "group": "403267448a6f0a1d",
-        "order": 15,
+        "z": "3d8febace6205935",
+        "name": "UV Gauge",
+        "group": "bd2a2a82569c3be5",
+        "order": 3,
         "width": 4,
         "height": 4,
         "gtype": "gage",
-        "title": "UV",
+        "title": "UV Gauge",
         "label": "nm",
-        "format": "{{msg.payload.out.U}}",
-        "min": "320",
-        "max": "410",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 430,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "c3875d0a28e633ce",
-        "type": "function",
-        "z": "43e346004b28846d",
-        "name": "Extract Information",
-        "func": "\ndataArray = []\ndictArray = {}\n\ntext = msg.payload.out\n//node.warn(text)\n\ntextArray = text.split(\"$\")\ntextArray = textArray.filter(item => item != \"\")\n//node.warn(textArray)\n\nfor(let i = 0; i < textArray.length; i++)\n{\n    dataArray = textArray[i].split(\":\")\n    dictArray[dataArray[0]] = parseFloat(dataArray[1])\n}\n\n//node.warn(dictArray)\n\nmsg.payload.out = dictArray\n\n//node.warn(msg.payload.out.Hum)\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 130,
-        "y": 660,
-        "wires": [
-            [
-                "bf57076678b78f60",
-                "54bc10ac59b3b396",
-                "0a21e6846e1974bf",
-                "88bd5b21e14b2a69",
-                "55fef13e41f7e284",
-                "d0a33b10f6a0ef07",
-                "d4c26c169fda3ecb",
-                "a16477e184ece9e0",
-                "3b930b61d0ed074d",
-                "f9d03113efa24b3e",
-                "800b2868a52d1424",
-                "5396f9b907488764"
-            ]
-        ],
-        "info": "From the string in Input,\nthis node will convert it on a dict\nwith this format: \n{unit_measure : value}"
-    },
-    {
-        "id": "55fef13e41f7e284",
-        "type": "ui_gauge",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "Humidity Soil",
-        "group": "403267448a6f0a1d",
-        "order": 15,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Humidity Soil",
-        "label": "nm",
-        "format": "{{msg.payload.out.S}}",
+        "format": "{{value}}",
         "min": "0",
         "max": "100",
         "colors": [
@@ -1029,163 +231,1597 @@
         "seg1": "",
         "seg2": "",
         "x": 450,
-        "y": 720,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "d0a33b10f6a0ef07",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Temp",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.out.T",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "f9d03113efa24b3e",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Hum",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.out.H",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "3b930b61d0ed074d",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Pressure",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.out.P",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "a16477e184ece9e0",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "Humidity Soil",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.out.S",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "d4c26c169fda3ecb",
-        "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "UV",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.out.U",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "553cc10021d5497e",
-        "type": "change",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "options",
-                "pt": "msg",
-                "to": "payload.out",
-                "tot": "msg"
-            }
+        "id": "d67b5ebebf2dd09a",
+        "type": "ui_gauge",
+        "z": "3d8febace6205935",
+        "name": "Humidity Soil Gauge",
+        "group": "bd2a2a82569c3be5",
+        "order": 6,
+        "width": 4,
+        "height": 4,
+        "gtype": "compass",
+        "title": "Humidity Soil Gauge",
+        "label": "nm",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 250,
-        "y": 1000,
-        "wires": [
-            [
-                "2894758b70fad08a"
-            ]
-        ]
-    },
-    {
-        "id": "2894758b70fad08a",
-        "type": "ui_dropdown",
-        "z": "43e346004b28846d",
-        "d": true,
-        "name": "",
-        "label": "",
-        "tooltip": "",
-        "place": "Select option",
-        "group": "ca0e1e7eb4a4b7f3",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "multiple": false,
-        "options": [
-            {
-                "label": "L1 EXT",
-                "value": "",
-                "type": "str"
-            },
-            {
-                "label": "L0 INT",
-                "value": "",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
+        "seg1": "",
+        "seg2": "",
         "x": 480,
-        "y": 1000,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "caccc1b89e1b2318",
+        "type": "function",
+        "z": "3d8febace6205935",
+        "name": "Temp",
+        "func": "\nmsg.topic = \"Temperature from L0 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "5a85bf8d3dc03d23",
+        "id": "4447167e5a589afe",
+        "type": "function",
+        "z": "3d8febace6205935",
+        "name": "Hum",
+        "func": "\nmsg.topic = \"Humidity from L0 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a871284ad0e93c78",
+        "type": "function",
+        "z": "3d8febace6205935",
+        "name": "Humidity Soil",
+        "func": "\nmsg.topic = \"Humidity Soil from L0 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "52e70a3d8e69fdf2",
+        "type": "function",
+        "z": "3d8febace6205935",
+        "name": "Pressure",
+        "func": "\nmsg.topic = \"Pressure from L0 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd9e68d8fa0b3c6d",
+        "type": "function",
+        "z": "3d8febace6205935",
+        "name": "UV",
+        "func": "\nmsg.topic = \"UV from L0 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c6d4e91027b91cd",
+        "type": "function",
+        "z": "3d8febace6205935",
+        "name": "NEED TO CHANGE",
+        "func": "\nmsg.topic = \"NEED TO CHANGE\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "747bd21d0827169a",
+        "type": "ui_gauge",
+        "z": "3d8febace6205935",
+        "name": "UNUSED",
+        "group": "bd2a2a82569c3be5",
+        "order": 4,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "UNUSED",
+        "label": "nm",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 440,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bd2a2a82569c3be5",
+        "type": "ui_group",
+        "z": "3d8febace6205935",
+        "name": "Device 2",
+        "tab": "c690a554f67c86ce",
+        "order": 3,
+        "disp": true,
+        "width": "4",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "16d108ea840d5fe3",
+        "type": "subflow",
+        "name": "Device 1",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "861a0116e9d874df"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 580,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "ff28dbb7858b81bf",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 580,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "f4cb7189513995f0",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 620,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "a9c1acc7f0eeb3ab",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 600,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "4b3dc640ba2c3849",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 580,
+                "y": 440,
+                "wires": [
+                    {
+                        "id": "b2328bc6ceca20f1",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 680,
+                "y": 520,
+                "wires": [
+                    {
+                        "id": "ce1ed664cdc53ceb",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99",
+        "outputLabels": [
+            "Temperature",
+            "Humidity",
+            "Humidity Soil",
+            "Pressure",
+            "UV",
+            "UNUSED"
+        ]
+    },
+    {
+        "id": "861a0116e9d874df",
+        "type": "function",
+        "z": "16d108ea840d5fe3",
+        "name": "Get Values",
+        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\nvar values = msg.payload.out\n\n//node.warn(values)\n\nvar temp = msg.payload.out.T\nvar hum = msg.payload.out.H\nvar soil = msg.payload.out.S\nvar pressure = msg.payload.out.P\nvar uv = msg.payload.out.U\n\nmsg1.topic = \"temperature\"\nmsg1.payload = temp\nmsg1.device = \"L1 board\"\n\nmsg2.topic = \"humidity\"\nmsg2.payload = hum\n\nmsg3.topic = \"Humidity Soil\"\nmsg3.payload = soil\n\nmsg4.topic = \"Pressure\"\nmsg4.payload = pressure\n\nmsg5.topic = \"UV\"\nmsg5.payload = uv\n\nnode.send([msg1, msg2, msg3, msg4, msg5, null])",
+        "outputs": 6,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "26c4188de8b56470",
+                "ff28dbb7858b81bf",
+                "c122bb15380390ae"
+            ],
+            [
+                "9785a22d17605f17",
+                "f4cb7189513995f0",
+                "c122bb15380390ae"
+            ],
+            [
+                "bcbd64710f905a0e",
+                "a9c1acc7f0eeb3ab",
+                "c122bb15380390ae"
+            ],
+            [
+                "ef9a8fdea0434729",
+                "4b3dc640ba2c3849",
+                "c122bb15380390ae"
+            ],
+            [
+                "306403065aceddcf",
+                "b2328bc6ceca20f1",
+                "c122bb15380390ae"
+            ],
+            [
+                "879a7d83f7d7186f",
+                "ce1ed664cdc53ceb"
+            ]
+        ]
+    },
+    {
+        "id": "26c4188de8b56470",
+        "type": "ui_gauge",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Temp Gauge",
+        "group": "5529f70eeb65839a",
+        "order": 13,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temp Gauge",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-40",
+        "max": "+85",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9785a22d17605f17",
+        "type": "ui_gauge",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Humidity Gauge",
+        "group": "5529f70eeb65839a",
+        "order": 14,
+        "width": 4,
+        "height": 4,
+        "gtype": "donut",
+        "title": "Humidity Gauge",
+        "label": "Percent",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 480,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ef9a8fdea0434729",
+        "type": "ui_gauge",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Pressure Gauge",
+        "group": "5529f70eeb65839a",
+        "order": 17,
+        "width": 4,
+        "height": 4,
+        "gtype": "wave",
+        "title": "Pressure Gauge",
+        "label": "hPa",
+        "format": "{{value}}",
+        "min": "300",
+        "max": "1100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "306403065aceddcf",
+        "type": "ui_gauge",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "UV Gauge",
+        "group": "5529f70eeb65839a",
+        "order": 15,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "UV Gauge",
+        "label": "nm",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 470,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "bcbd64710f905a0e",
+        "type": "ui_gauge",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Humidity Soil Gauge",
+        "group": "5529f70eeb65839a",
+        "order": 18,
+        "width": 4,
+        "height": 4,
+        "gtype": "compass",
+        "title": "Humidity Soil Gauge",
+        "label": "nm",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 500,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ff28dbb7858b81bf",
+        "type": "function",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Temp",
+        "func": "\nmsg.topic = \"Temperature from L1 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4cb7189513995f0",
+        "type": "function",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Hum",
+        "func": "\nmsg.topic = \"Humidity from L1 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9c1acc7f0eeb3ab",
+        "type": "function",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Humidity Soil",
+        "func": "\nmsg.topic = \"Humidity Soil from L1 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4b3dc640ba2c3849",
+        "type": "function",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "Pressure",
+        "func": "\nmsg.topic = \"Pressure from L1 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2328bc6ceca20f1",
+        "type": "function",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "UV",
+        "func": "\nmsg.topic = \"UV from L1 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce1ed664cdc53ceb",
+        "type": "function",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "NEED TO CHANGE",
+        "func": "\nmsg.topic = \"NEED TO CHANGE\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "879a7d83f7d7186f",
+        "type": "ui_gauge",
+        "z": "16d108ea840d5fe3",
+        "g": "fceee5125297ee71",
+        "name": "UNUSED",
+        "group": "5529f70eeb65839a",
+        "order": 16,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "UNUSED",
+        "label": "nm",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 460,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c122bb15380390ae",
+        "type": "ui_chart",
+        "z": "16d108ea840d5fe3",
+        "name": "",
+        "group": "5529f70eeb65839a",
+        "order": 12,
+        "width": 16,
+        "height": 6,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 770,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7f4abf7a2fe985a",
+        "type": "ui_spacer",
+        "z": "16d108ea840d5fe3",
+        "name": "spacer",
+        "group": "5529f70eeb65839a",
+        "order": 8,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "c656b24a54f65952",
+        "type": "ui_spacer",
+        "z": "16d108ea840d5fe3",
+        "name": "spacer",
+        "group": "5529f70eeb65839a",
+        "order": 10,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "ed0fec6a368d5965",
+        "type": "ui_spacer",
+        "z": "16d108ea840d5fe3",
+        "name": "spacer",
+        "group": "5529f70eeb65839a",
+        "order": 11,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "54a6232b8ee3f296",
+        "type": "ui_spacer",
+        "z": "16d108ea840d5fe3",
+        "name": "spacer",
+        "group": "5529f70eeb65839a",
+        "order": 19,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "6c8d7e465af8962f",
+        "type": "ui_spacer",
+        "z": "16d108ea840d5fe3",
+        "name": "spacer",
+        "group": "5529f70eeb65839a",
+        "order": 20,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "dacde99dc4806b58",
+        "type": "ui_spacer",
+        "z": "16d108ea840d5fe3",
+        "name": "spacer",
+        "group": "5529f70eeb65839a",
+        "order": 21,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "cd404e0d049f8c63",
+        "type": "ui_spacer",
+        "z": "16d108ea840d5fe3",
+        "name": "spacer",
+        "group": "5529f70eeb65839a",
+        "order": 22,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "5529f70eeb65839a",
+        "type": "ui_group",
+        "name": "Device 1",
+        "tab": "c690a554f67c86ce",
+        "order": 2,
+        "disp": true,
+        "width": 16,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "c690a554f67c86ce",
+        "type": "ui_tab",
+        "name": "Devices",
+        "icon": "track_changes",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b5cc31de9d98e2da",
+        "type": "subflow",
+        "name": "Extract Information from payload",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "8171269a3d954491"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 560,
+                "y": 420,
+                "wires": [
+                    {
+                        "id": "7c4581655cb9e8f1",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "29d8abc37bd8bec2",
+        "type": "function",
+        "z": "b5cc31de9d98e2da",
+        "name": "Sensor data to hex/decode",
+        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data playload\n\nnewbytes=Buffer.from(bytes, 'hex')\n//node.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nmsg.payload.out = newbytes.toString();\n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "7c4581655cb9e8f1"
+            ]
+        ]
+    },
+    {
+        "id": "2e464ce679e92778",
+        "type": "lorawan-packet-decrypt-nwkey-appkey",
+        "z": "b5cc31de9d98e2da",
+        "name": "Decrypt LoRaWAN",
+        "nsw": "238792b74801de223b50ddd309b8f139",
+        "asw": "744826b8703e23a2e6cb8d79eed484bb",
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "29d8abc37bd8bec2"
+            ]
+        ]
+    },
+    {
+        "id": "8171269a3d954491",
+        "type": "function",
+        "z": "b5cc31de9d98e2da",
+        "name": "HEX to base64",
+        "func": "\nmvk=msg.payload // from the injection\n//node.warn(mvk)\nvar base64String = Buffer.from(mvk, 'hex').toString('base64')\n//node.warn(base64String)\nmsg.payload=base64String\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 80,
+        "wires": [
+            [
+                "6aa7f394dce47013",
+                "2e464ce679e92778"
+            ]
+        ]
+    },
+    {
+        "id": "6aa7f394dce47013",
         "type": "debug",
-        "z": "43e346004b28846d",
-        "name": "MSG",
+        "z": "b5cc31de9d98e2da",
+        "name": "Base64 Message",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7c4581655cb9e8f1",
+        "type": "function",
+        "z": "b5cc31de9d98e2da",
+        "name": "Extract Information",
+        "func": "\ndataArray = []\ndictArray = {}\n\ntext = msg.payload.out\n//node.warn(text)\n\ntextArray = text.split(\"$\")\ntextArray = textArray.filter(item => item != \"\")\n//node.warn(textArray)\n\nfor(let i = 0; i < textArray.length; i++)\n{\n    dataArray = textArray[i].split(\":\")\n    dictArray[dataArray[0]] = parseFloat(dataArray[1])\n}\n\n//node.warn(dictArray)\n\nmsg.payload.out = dictArray\n\n//node.warn(msg.payload.out.Hum)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "info": "From the string in Input,\nthis node will convert it on a dict\nwith this format: \n{unit_measure : value}"
+    },
+    {
+        "id": "487ac760f3704825",
+        "type": "subflow",
+        "name": "DevAddr",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "3ff002c63426a2dd"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 440,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "01b40c50369e68ac",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "3ff002c63426a2dd",
+        "type": "function",
+        "z": "487ac760f3704825",
+        "name": "Extract DevAddr",
+        "func": "\nlet HexString = \"\";\n\nDevAddr=msg.payload.buffers.DevAddr // sensor/LoraWAN data payload\n\n//node.warn(DevAddr)\n\nfor (let i = 0; i < DevAddr.length; i++)\n{\n  hex = DevAddr[i].toString(16).toUpperCase();\n  HexString += hex;\n}\n//node.warn(HexString);\n\nmsg.payload.DevAddr = HexString;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "01b40c50369e68ac"
+            ]
+        ]
+    },
+    {
+        "id": "01b40c50369e68ac",
+        "type": "function",
+        "z": "487ac760f3704825",
+        "name": "define type of device",
+        "func": "\nDeviceAddress = msg.payload.DevAddr\n\nif(DeviceAddress == \"AAABB14A\")\n    msg.device = \"L1 board\"\nelse if(DeviceAddress == \"AAC44AC5\")\n    msg.device = \"L0 board\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "459cccb92b53cf62",
+        "type": "tab",
+        "label": "SA (offline)",
+        "disabled": false,
+        "info": "This flow read a a payload in HEX, convert it\nin Base64, and put on output the message in ASCII\n\nThis is the OFFLINE version, to test it without a Pi"
+    },
+    {
+        "id": "96c1c831b288914b",
+        "type": "group",
+        "z": "459cccb92b53cf62",
+        "name": "charts",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4ea255ff1d910d50",
+            "c9468469a97e2886",
+            "d77195b238df510b",
+            "a76d72bd2a0431a0",
+            "4fa3b94198660a73",
+            "4c765c26f96d3b3f"
+        ],
+        "env": [],
+        "x": 714,
+        "y": 819,
+        "w": 212,
+        "h": 282
+    },
+    {
+        "id": "fb1f126ad1294cfd",
+        "type": "group",
+        "z": "459cccb92b53cf62",
+        "name": "Extrapolation",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "10304b45552525f2",
+            "92648cac204d155a",
+            "3251556ea538f852",
+            "0e10e65b197ebc5c",
+            "0ba732e7d6991967",
+            "6482f444ec73db11"
+        ],
+        "env": [],
+        "x": 94,
+        "y": 459,
+        "w": 852,
+        "h": 202
+    },
+    {
+        "id": "0f592e6a17b31bdd",
+        "type": "group",
+        "z": "459cccb92b53cf62",
+        "name": "Devices",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "94f04e9076100173",
+            "923b5620a0e1a327",
+            "6dfaab02f3aaa9de",
+            "09ac5ad88532a3e0",
+            "5f9e7a74b5d640c1",
+            "7ceb554d30e79f04"
+        ],
+        "env": [],
+        "x": 114,
+        "y": 739,
+        "w": 472,
+        "h": 392
+    },
+    {
+        "id": "7c071d82dff3d856",
+        "type": "group",
+        "z": "459cccb92b53cf62",
+        "name": "Injects",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "cf138c0eda30c36c",
+            "cdb93b6555c9f47c",
+            "f0fa28c964449ab1",
+            "cb996cba093d9f16",
+            "58c98d8a1b0f9992",
+            "b5555631a28cf437",
+            "6f2f59609559db23"
+        ],
+        "env": [],
+        "x": 14,
+        "y": 159,
+        "w": 672,
+        "h": 242
+    },
+    {
+        "id": "cf138c0eda30c36c",
+        "type": "debug",
+        "z": "459cccb92b53cf62",
+        "g": "7c071d82dff3d856",
+        "name": "HEX Message",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cdb93b6555c9f47c",
+        "type": "ui_button",
+        "z": "459cccb92b53cf62",
+        "g": "7c071d82dff3d856",
+        "name": "Start Reading (From Dashboard)",
+        "group": "a7d4e8e38f833815",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start Reading",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "40C54AC4AA00020001228F96D52CAD4C222382CB6FF2BC7CF3F8583BB6764F8514AC5CFD8F312849F8FEDD4B3F5D1A",
+        "payloadType": "str",
+        "topic": "message",
+        "topicType": "str",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "cf138c0eda30c36c",
+                "0e10e65b197ebc5c",
+                "6f2f59609559db23"
+            ]
+        ]
+    },
+    {
+        "id": "f0fa28c964449ab1",
+        "type": "inject",
+        "z": "459cccb92b53cf62",
+        "g": "7c071d82dff3d856",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "404AB1ABAA00AE0201B37914204BF560DE7AFE21930486771382A71F00CAB24E6C081FD9888EA241020D",
+        "payloadType": "str",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "cf138c0eda30c36c",
+                "0e10e65b197ebc5c",
+                "6f2f59609559db23"
+            ]
+        ]
+    },
+    {
+        "id": "94f04e9076100173",
+        "type": "function",
+        "z": "459cccb92b53cf62",
+        "g": "0f592e6a17b31bdd",
+        "name": "",
+        "func": "\n/*\n    0: L0\n    1: L1\n    2: L4\n    */\n\n\nvar Devices = [\"AAC44AC5\", \"AAABB14A\", \"AAC44AC6\"]\n\naddr = msg.payload.DevAddr\n\n//node.warn(addr)\n\nswitch(Devices.indexOf(addr))\n{\n    case 0:\n        node.send([msg, null, null, null, null])\n    break;\n    case 1:\n        node.send([null, msg, null, null, null])\n    break;\n    case 2:\n        node.send([null, null, msg, null, null])\n    break;\n    case 3:\n        node.send([null, null, null, msg, null])\n    break;\n    case 4:\n        node.send([null, null, null, null ,msg])\n    break;\n}",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 920,
+        "wires": [
+            [
+                "5f9e7a74b5d640c1"
+            ],
+            [
+                "09ac5ad88532a3e0",
+                "7ceb554d30e79f04"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "10304b45552525f2",
+        "type": "debug",
+        "z": "459cccb92b53cf62",
+        "g": "fb1f126ad1294cfd",
+        "name": "Informations from Sensors",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.out",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "92648cac204d155a",
+        "type": "debug",
+        "z": "459cccb92b53cf62",
+        "g": "fb1f126ad1294cfd",
+        "name": "DevAddr",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.DevAddr",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "3251556ea538f852",
+        "type": "subflow:487ac760f3704825",
+        "z": "459cccb92b53cf62",
+        "g": "fb1f126ad1294cfd",
+        "name": "",
+        "env": [],
+        "x": 180,
+        "y": 580,
+        "wires": [
+            [
+                "92648cac204d155a",
+                "94f04e9076100173",
+                "6482f444ec73db11"
+            ]
+        ]
+    },
+    {
+        "id": "0e10e65b197ebc5c",
+        "type": "subflow:b5cc31de9d98e2da",
+        "z": "459cccb92b53cf62",
+        "g": "fb1f126ad1294cfd",
+        "name": "",
+        "env": [],
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "10304b45552525f2",
+                "3251556ea538f852",
+                "0ba732e7d6991967"
+            ]
+        ]
+    },
+    {
+        "id": "cb996cba093d9f16",
+        "type": "inject",
+        "z": "459cccb92b53cf62",
+        "g": "7c071d82dff3d856",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "40C54AC4AA00020001228F96D52CAD4C222382CB6FF2BC7CF3F8583BB6764F8514AC5CFD8F312849F8FEDD4B3F5D1A",
+        "payloadType": "str",
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "0e10e65b197ebc5c",
+                "cf138c0eda30c36c"
+            ]
+        ]
+    },
+    {
+        "id": "58c98d8a1b0f9992",
+        "type": "comment",
+        "z": "459cccb92b53cf62",
+        "g": "7c071d82dff3d856",
+        "name": "L0 payload",
+        "info": "",
+        "x": 100,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b5555631a28cf437",
+        "type": "comment",
+        "z": "459cccb92b53cf62",
+        "g": "7c071d82dff3d856",
+        "name": "L1 payload",
+        "info": "",
+        "x": 100,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6f2f59609559db23",
+        "type": "ui_text",
+        "z": "459cccb92b53cf62",
+        "d": true,
+        "g": "7c071d82dff3d856",
+        "group": "a7d4e8e38f833815",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Encrypted Message",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0ba732e7d6991967",
+        "type": "ui_text",
+        "z": "459cccb92b53cf62",
+        "d": true,
+        "g": "fb1f126ad1294cfd",
+        "group": "a7d4e8e38f833815",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Original Message",
+        "format": "{{msg.payload.out}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 750,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "6482f444ec73db11",
+        "type": "ui_text",
+        "z": "459cccb92b53cf62",
+        "g": "fb1f126ad1294cfd",
+        "group": "a7d4e8e38f833815",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DevAddr",
+        "format": "{{msg.payload.DevAddr}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 460,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4ea255ff1d910d50",
+        "type": "ui_chart",
+        "z": "459cccb92b53cf62",
+        "g": "96c1c831b288914b",
+        "name": "",
+        "group": "77aebd5eba7bb21b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "All Humidity",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 810,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c9468469a97e2886",
+        "type": "ui_chart",
+        "z": "459cccb92b53cf62",
+        "g": "96c1c831b288914b",
+        "name": "",
+        "group": "77aebd5eba7bb21b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "All Humidity Soil",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d77195b238df510b",
+        "type": "ui_chart",
+        "z": "459cccb92b53cf62",
+        "g": "96c1c831b288914b",
+        "name": "",
+        "group": "77aebd5eba7bb21b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "All Pressure",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 810,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a76d72bd2a0431a0",
+        "type": "ui_chart",
+        "z": "459cccb92b53cf62",
+        "g": "96c1c831b288914b",
+        "name": "",
+        "group": "77aebd5eba7bb21b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "UVs",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4fa3b94198660a73",
+        "type": "ui_chart",
+        "z": "459cccb92b53cf62",
+        "g": "96c1c831b288914b",
+        "name": "",
+        "group": "77aebd5eba7bb21b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "UNUSED",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "923b5620a0e1a327",
+        "type": "comment",
+        "z": "459cccb92b53cf62",
+        "g": "0f592e6a17b31bdd",
+        "name": "L1",
+        "info": "",
+        "x": 490,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "6dfaab02f3aaa9de",
+        "type": "comment",
+        "z": "459cccb92b53cf62",
+        "g": "0f592e6a17b31bdd",
+        "name": "L0",
+        "info": "",
+        "x": 490,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "09ac5ad88532a3e0",
+        "type": "subflow:16d108ea840d5fe3",
+        "z": "459cccb92b53cf62",
+        "g": "0f592e6a17b31bdd",
+        "name": "",
+        "env": [],
+        "x": 500,
+        "y": 1060,
+        "wires": [
+            [
+                "4c765c26f96d3b3f",
+                "8bb47db6bc84be6e"
+            ],
+            [
+                "4ea255ff1d910d50"
+            ],
+            [
+                "c9468469a97e2886"
+            ],
+            [
+                "d77195b238df510b"
+            ],
+            [
+                "a76d72bd2a0431a0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5f9e7a74b5d640c1",
+        "type": "subflow:3d8febace6205935",
+        "z": "459cccb92b53cf62",
+        "g": "0f592e6a17b31bdd",
+        "name": "",
+        "env": [],
+        "x": 500,
+        "y": 900,
+        "wires": [
+            [
+                "04e7aba475327ed0",
+                "4c765c26f96d3b3f"
+            ],
+            [
+                "4ea255ff1d910d50"
+            ],
+            [
+                "c9468469a97e2886"
+            ],
+            [
+                "d77195b238df510b"
+            ],
+            [
+                "a76d72bd2a0431a0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "04e7aba475327ed0",
+        "type": "debug",
+        "z": "459cccb92b53cf62",
+        "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -1194,119 +1830,128 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
-        "y": 920,
+        "x": 800,
+        "y": 740,
         "wires": []
     },
     {
-        "id": "eae741a38c96cbd6",
-        "type": "function",
-        "z": "43e346004b28846d",
+        "id": "7ceb554d30e79f04",
+        "type": "debug",
+        "z": "459cccb92b53cf62",
+        "g": "0f592e6a17b31bdd",
         "name": "",
-        "func": "\n/*\n    0: L0\n    1: L1\n    2: L4\n    */\n\n\nvar Devices = [\"AAC44AC5\", \"AAABB14A\", \"AAC44AC6\"]\n\naddr = msg.payload.DevAddr\n\n//node.warn(addr)\n\nswitch(Devices.indexOf(addr))\n{\n    case 0:\n        node.send([msg, null, null, null, null])\n    break;\n    case 1:\n        node.send([null, msg, null, null, null])\n    break;\n    case 2:\n        node.send([null, null, msg, null, null])\n    break;\n    case 3:\n        node.send([null, null, null, msg, null])\n    break;\n    case 4:\n        node.send([null, null, null, null ,msg])\n    break;\n}",
-        "outputs": 5,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 120,
-        "y": 1100,
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "4c765c26f96d3b3f",
+        "type": "ui_chart",
+        "z": "459cccb92b53cf62",
+        "g": "96c1c831b288914b",
+        "name": "",
+        "group": "77aebd5eba7bb21b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temps",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 860,
         "wires": [
-            [
-                "5b07101a7fea69ce"
-            ],
-            [
-                "73b92d29c1a2fce0",
-                "052e34fee5f12208"
-            ],
-            [
-                "1f337f72add12365"
-            ],
-            [],
             []
         ]
     },
     {
-        "id": "73b92d29c1a2fce0",
+        "id": "8bb47db6bc84be6e",
         "type": "debug",
-        "z": "43e346004b28846d",
+        "z": "459cccb92b53cf62",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "052e34fee5f12208",
-        "type": "subflow:53e10ede6ba0e308",
-        "z": "43e346004b28846d",
-        "name": "STM32 L1",
-        "env": [],
-        "x": 430,
-        "y": 1100,
-        "wires": []
-    },
-    {
-        "id": "5b07101a7fea69ce",
-        "type": "subflow:4a812b20531a1393",
-        "z": "43e346004b28846d",
-        "name": "STM32 L0",
-        "env": [],
-        "x": 430,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "1f337f72add12365",
-        "type": "subflow:6c4ef7206a54756d",
-        "z": "43e346004b28846d",
-        "name": "STM32 L4",
-        "env": [],
-        "x": 430,
+        "x": 770,
         "y": 1140,
         "wires": []
     },
     {
-        "id": "df14c100990c8374",
+        "id": "091e13a4c21bb33b",
+        "type": "ui_spacer",
+        "z": "459cccb92b53cf62",
+        "name": "spacer",
+        "group": "2c31eca47c87ce80",
+        "order": 4,
+        "width": 13,
+        "height": 1
+    },
+    {
+        "id": "a7d4e8e38f833815",
         "type": "ui_group",
         "name": "Default",
         "tab": "87a869ccbb64bd1b",
         "order": 1,
         "disp": true,
-        "width": "16",
-        "collapse": false
+        "width": "18",
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "403267448a6f0a1d",
+        "id": "77aebd5eba7bb21b",
         "type": "ui_group",
-        "name": "Message",
+        "name": "Gauges",
         "tab": "87a869ccbb64bd1b",
-        "order": 1,
+        "order": 8,
         "disp": true,
-        "width": 12,
-        "collapse": false
-    },
-    {
-        "id": "ca0e1e7eb4a4b7f3",
-        "type": "ui_group",
-        "name": "Datas",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "16",
-        "collapse": false
+        "width": "18",
+        "collapse": true,
+        "className": ""
     },
     {
         "id": "87a869ccbb64bd1b",
         "type": "ui_tab",
         "name": "Home",
-        "icon": "dashboard",
+        "icon": "tv",
+        "order": 1,
         "disabled": false,
         "hidden": false
     }
