@@ -41,7 +41,7 @@ void setup()
 }
 
 void loop() {
-  if (runEvery(5000))
+  if (runEvery(2000))
   {
     Serial.print(F("[SX1272] Transmitting packet ... "));
     LoRaWanPacket.clear();
