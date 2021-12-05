@@ -18,11 +18,11 @@ mode_text = lora.set_config('lorap2p:transfer_mode:1')
 # - Avoid LoRaWan channels (You will get quite a lot of spurious packets!)
 # - Respect local regulation (frequency, power, duty cycle)
 freq = 869.800
-sf = 7
+sf = 12
 bw = 0  # 125KHz
 ci = 3  # 4/5
 pre = 8
-pwr = 16
+pwr = 17
 lora.set_config(f'lorap2p:{int(freq*1000*1000)}:{sf}:{bw}:{ci}:{pre}:{pwr}')
 #lora.send_p2p(b'helloworld')
 print('ok')
