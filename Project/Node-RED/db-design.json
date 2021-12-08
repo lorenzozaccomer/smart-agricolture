@@ -1,0 +1,2096 @@
+[
+    {
+        "id": "79905f7b649fcadb",
+        "type": "subflow",
+        "name": "Buttons",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "777d1b19365b03fd",
+        "type": "ui_ui_control",
+        "z": "79905f7b649fcadb",
+        "name": "Control tabs",
+        "x": 410,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bd55e829937045a",
+        "type": "comment",
+        "z": "79905f7b649fcadb",
+        "name": "Home",
+        "info": "",
+        "x": 310,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cbbbbcf162117fa2",
+        "type": "ui_ui_control",
+        "z": "79905f7b649fcadb",
+        "name": "Control tabs",
+        "x": 410,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "240e41d26a5efe80",
+        "type": "comment",
+        "z": "79905f7b649fcadb",
+        "name": "RPi Control",
+        "info": "",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e7e6bed27575386e",
+        "type": "ui_button",
+        "z": "79905f7b649fcadb",
+        "name": "Next",
+        "group": "a43e119e14e7f052",
+        "order": 3,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_forward",
+        "payload": "+1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "a8ebfefe8681f9b7"
+            ]
+        ]
+    },
+    {
+        "id": "a8ebfefe8681f9b7",
+        "type": "ui_ui_control",
+        "z": "79905f7b649fcadb",
+        "name": "Control tabs",
+        "x": 410,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45d67f0f75db9916",
+        "type": "ui_button",
+        "z": "79905f7b649fcadb",
+        "name": "Prev",
+        "group": "a43e119e14e7f052",
+        "order": 1,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_back",
+        "payload": "-1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 210,
+        "y": 480,
+        "wires": [
+            [
+                "a8ebfefe8681f9b7"
+            ]
+        ]
+    },
+    {
+        "id": "dc7a647b0f51c003",
+        "type": "comment",
+        "z": "79905f7b649fcadb",
+        "name": "Gauge Selector",
+        "info": "",
+        "x": 340,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "028c6983f94ed222",
+        "type": "ui_ui_control",
+        "z": "79905f7b649fcadb",
+        "name": "Control tabs",
+        "x": 410,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b3056df69c76084b",
+        "type": "comment",
+        "z": "79905f7b649fcadb",
+        "name": "Graphics",
+        "info": "",
+        "x": 320,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "999c274dae1d02dc",
+        "type": "ui_ui_control",
+        "z": "79905f7b649fcadb",
+        "name": "Control tabs",
+        "x": 410,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12bde69cfb09220f",
+        "type": "comment",
+        "z": "79905f7b649fcadb",
+        "name": "Devices",
+        "info": "",
+        "x": 310,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "69d7dee7ceddac26",
+        "type": "inject",
+        "z": "79905f7b649fcadb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"Device 1\"]}}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 820,
+        "wires": [
+            [
+                "ada6c0385bfcf309"
+            ]
+        ]
+    },
+    {
+        "id": "ada6c0385bfcf309",
+        "type": "ui_ui_control",
+        "z": "79905f7b649fcadb",
+        "name": "",
+        "events": "all",
+        "x": 400,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "325f04244ff21693",
+        "type": "ui_button",
+        "z": "79905f7b649fcadb",
+        "name": "HIDE DEVICE 1",
+        "group": "44fb9fceca6de954",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "HIDE DEVICE 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"hide\":[\"Devices_Device_1\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 860,
+        "wires": [
+            [
+                "ada6c0385bfcf309"
+            ]
+        ]
+    },
+    {
+        "id": "78547e55b46e715d",
+        "type": "ui_button",
+        "z": "79905f7b649fcadb",
+        "name": "SHOW DEVICE 1",
+        "group": "44fb9fceca6de954",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "SHOW DEVICE 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"show\":[\"Devices_Device_1\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 900,
+        "wires": [
+            [
+                "ada6c0385bfcf309"
+            ]
+        ]
+    },
+    {
+        "id": "a43e119e14e7f052",
+        "type": "ui_group",
+        "name": "Buttons",
+        "tab": "c38fb46f.de97f8",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "44fb9fceca6de954",
+        "type": "ui_group",
+        "name": "Hide/Show Devices",
+        "tab": "c690a554f67c86ce",
+        "order": 2,
+        "disp": true,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c38fb46f.de97f8",
+        "type": "ui_tab",
+        "d": true,
+        "name": "Controls",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c690a554f67c86ce",
+        "type": "ui_tab",
+        "name": "Devices",
+        "icon": "device_hub",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "9834e1bd50afad29",
+        "type": "tab",
+        "label": "Dashboard's Design",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "61a278680b8ad6bc",
+        "type": "group",
+        "z": "9834e1bd50afad29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f1bfcb246b4685ec",
+            "f49074161263ead1",
+            "bf7d2bbbf9a14655",
+            "10b9d6c08eb9709d",
+            "ddb8049b466a5a35"
+        ],
+        "x": 74,
+        "y": 139,
+        "w": 392,
+        "h": 202
+    },
+    {
+        "id": "d7f17f7df6c543da",
+        "type": "group",
+        "z": "9834e1bd50afad29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "831ee59cf6046a04",
+            "2e6cc8cb9ad5e049",
+            "165ecd98c5005ab8",
+            "f73c47a4699cad69"
+        ],
+        "x": 74,
+        "y": 359,
+        "w": 372,
+        "h": 162
+    },
+    {
+        "id": "295ca4b55f39427d",
+        "type": "group",
+        "z": "9834e1bd50afad29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6da0963e1d1a4893",
+            "329fc6a77c3a8681",
+            "1f942d49eed01129",
+            "5b938ac31bbfb9e1"
+        ],
+        "x": 714,
+        "y": 359,
+        "w": 372,
+        "h": 162
+    },
+    {
+        "id": "933a5bac317b4509",
+        "type": "group",
+        "z": "9834e1bd50afad29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "1b99232baa058876",
+            "f0d3f8da5e16dd35",
+            "c88bf1fb62ce0ff3",
+            "bf360639e46a1672",
+            "59b92183573bddd0",
+            "fafc9bda35d1f605",
+            "4735ac79fff81d93",
+            "fe863e5e1efdcdb3",
+            "65e4e8ddb21a472a",
+            "9f3912a4ac58a127",
+            "f119c2b3eeff9893",
+            "ebfb0fcea42b7e0e",
+            "f3401a458607fce6",
+            "fd293ecc3b7a96c4",
+            "6b0098c9480de576",
+            "be4715324f2a4e88"
+        ],
+        "x": 74,
+        "y": 939,
+        "w": 612,
+        "h": 522
+    },
+    {
+        "id": "b92e6158f67b6c3e",
+        "type": "group",
+        "z": "9834e1bd50afad29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ffb8101f768bcec2",
+            "0bfaebd5263ce986",
+            "8a997a41ccf74991",
+            "1207813688775cae",
+            "d14740aea434dc42",
+            "4608e999d9720c7a",
+            "70202ca02dd3d3b0",
+            "6fdf872efa5442d2",
+            "395b00d17884b02f",
+            "2628c57dbdbb4914",
+            "91b7009d6a935829",
+            "41e9cb217017c7b7"
+        ],
+        "x": 74,
+        "y": 539,
+        "w": 572,
+        "h": 382
+    },
+    {
+        "id": "b97bc1c0.cb899",
+        "type": "ui_template",
+        "z": "9834e1bd50afad29",
+        "group": "1d7c7bbdbabb6713",
+        "name": "Clock Toolbar",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "format": "<script id=\"titleScript\" type=\"text/javascript\">\n\n$(function() {\n    if($('.md-toolbar-tools').length != 0){\n        loadClock();\n    }else setTimeout(loadClock, 500)\n});\n\nfunction loadClock(){\n    $('#clock').remove();\n    var toolbar = $('.md-toolbar-tools');\n    \n    var div = $('<div/>');\n    var p = $('<p/ id=\"clock\">');\n    \n    div.append(p);\n    div[0].style.margin = '5px 5px 5px auto';\n    toolbar.append(div);\n\n    function displayTitle(lh) {\n        p.text(lh); \n    }\n    \n    function upTime() {\n        var d = new Date();\n        p.text(d.toLocaleString());\n    }\n\n    if(document.clockInterval){ \n            clearInterval(document.clockInterval);\n            document.clockInterval = null;\n    }\n        \n    document.clockInterval = setInterval(upTime,1000);\n}\n\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e8b47126a8662223",
+        "type": "subflow:79905f7b649fcadb",
+        "z": "9834e1bd50afad29",
+        "d": true,
+        "name": "",
+        "env": [],
+        "x": 390,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f1bfcb246b4685ec",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "61a278680b8ad6bc",
+        "name": "Next",
+        "group": "82d30e1ff2a938bd",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_forward",
+        "payload": "+1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "f49074161263ead1"
+            ]
+        ]
+    },
+    {
+        "id": "f49074161263ead1",
+        "type": "ui_ui_control",
+        "z": "9834e1bd50afad29",
+        "g": "61a278680b8ad6bc",
+        "name": "Control tabs",
+        "x": 370,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf7d2bbbf9a14655",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "61a278680b8ad6bc",
+        "name": "Prev",
+        "group": "82d30e1ff2a938bd",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_back",
+        "payload": "-1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "f49074161263ead1"
+            ]
+        ]
+    },
+    {
+        "id": "10b9d6c08eb9709d",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "61a278680b8ad6bc",
+        "name": "Refresh",
+        "group": "82d30e1ff2a938bd",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "replay",
+        "payload": "{tab:\"\"}",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "f49074161263ead1"
+            ]
+        ]
+    },
+    {
+        "id": "ddb8049b466a5a35",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "61a278680b8ad6bc",
+        "name": "Home",
+        "info": "",
+        "x": 270,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "831ee59cf6046a04",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "d7f17f7df6c543da",
+        "name": "Next",
+        "group": "c210c6afe8ba437e",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_forward",
+        "payload": "+1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "2e6cc8cb9ad5e049"
+            ]
+        ]
+    },
+    {
+        "id": "2e6cc8cb9ad5e049",
+        "type": "ui_ui_control",
+        "z": "9834e1bd50afad29",
+        "g": "d7f17f7df6c543da",
+        "name": "Control tabs",
+        "x": 350,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "165ecd98c5005ab8",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "d7f17f7df6c543da",
+        "name": "Prev",
+        "group": "c210c6afe8ba437e",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_back",
+        "payload": "-1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "2e6cc8cb9ad5e049"
+            ]
+        ]
+    },
+    {
+        "id": "f73c47a4699cad69",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "d7f17f7df6c543da",
+        "name": "RPi Control",
+        "info": "",
+        "x": 270,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6da0963e1d1a4893",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "295ca4b55f39427d",
+        "name": "Next",
+        "group": "a43e119e14e7f052",
+        "order": 3,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_forward",
+        "payload": "+1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "329fc6a77c3a8681"
+            ]
+        ]
+    },
+    {
+        "id": "329fc6a77c3a8681",
+        "type": "ui_ui_control",
+        "z": "9834e1bd50afad29",
+        "g": "295ca4b55f39427d",
+        "name": "Control tabs",
+        "x": 990,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f942d49eed01129",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "295ca4b55f39427d",
+        "name": "Prev",
+        "group": "a43e119e14e7f052",
+        "order": 1,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_back",
+        "payload": "-1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 790,
+        "y": 480,
+        "wires": [
+            [
+                "329fc6a77c3a8681"
+            ]
+        ]
+    },
+    {
+        "id": "5b938ac31bbfb9e1",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "295ca4b55f39427d",
+        "name": "Gauge Selector",
+        "info": "",
+        "x": 920,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1b99232baa058876",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "Next",
+        "group": "77aebd5eba7bb21b",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_forward",
+        "payload": "+1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 150,
+        "y": 1020,
+        "wires": [
+            [
+                "f0d3f8da5e16dd35"
+            ]
+        ]
+    },
+    {
+        "id": "f0d3f8da5e16dd35",
+        "type": "ui_ui_control",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "Control tabs",
+        "x": 350,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c88bf1fb62ce0ff3",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "Prev",
+        "group": "77aebd5eba7bb21b",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_back",
+        "payload": "-1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 150,
+        "y": 1060,
+        "wires": [
+            [
+                "f0d3f8da5e16dd35"
+            ]
+        ]
+    },
+    {
+        "id": "bf360639e46a1672",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "Graphics",
+        "info": "",
+        "x": 260,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "ffb8101f768bcec2",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "Next",
+        "group": "de855f42ce9339ef",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_forward",
+        "payload": "+1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "0bfaebd5263ce986"
+            ]
+        ]
+    },
+    {
+        "id": "0bfaebd5263ce986",
+        "type": "ui_ui_control",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "Control tabs",
+        "x": 370,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a997a41ccf74991",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "Prev",
+        "group": "de855f42ce9339ef",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_back",
+        "payload": "-1",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "0bfaebd5263ce986"
+            ]
+        ]
+    },
+    {
+        "id": "1207813688775cae",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "Devices",
+        "info": "",
+        "x": 270,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d14740aea434dc42",
+        "type": "inject",
+        "z": "9834e1bd50afad29",
+        "d": true,
+        "g": "b92e6158f67b6c3e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"Device 1\"]}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "4608e999d9720c7a"
+            ]
+        ]
+    },
+    {
+        "id": "4608e999d9720c7a",
+        "type": "ui_ui_control",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "",
+        "events": "all",
+        "x": 560,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70202ca02dd3d3b0",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "HIDE DEVICE 1",
+        "group": "44fb9fceca6de954",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "HIDE DEVICE 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"hide\":[\"Devices_Device_1\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 760,
+        "wires": [
+            [
+                "91b7009d6a935829"
+            ]
+        ]
+    },
+    {
+        "id": "6fdf872efa5442d2",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "SHOW DEVICE 1",
+        "group": "44fb9fceca6de954",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "SHOW DEVICE 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"show\":[\"Devices_Device_1\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 800,
+        "wires": [
+            [
+                "91b7009d6a935829"
+            ]
+        ]
+    },
+    {
+        "id": "395b00d17884b02f",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "HIDE DEVICE 2",
+        "group": "44fb9fceca6de954",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "HIDE DEVICE 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"hide\":[\"Devices_Device_2\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 840,
+        "wires": [
+            [
+                "91b7009d6a935829"
+            ]
+        ]
+    },
+    {
+        "id": "2628c57dbdbb4914",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "SHOW DEVICE 2",
+        "group": "44fb9fceca6de954",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "SHOW DEVICE 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"show\":[\"Devices_Device_2\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 880,
+        "wires": [
+            [
+                "91b7009d6a935829"
+            ]
+        ]
+    },
+    {
+        "id": "91b7009d6a935829",
+        "type": "link out",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "41e9cb217017c7b7"
+        ],
+        "x": 365,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "41e9cb217017c7b7",
+        "type": "link in",
+        "z": "9834e1bd50afad29",
+        "g": "b92e6158f67b6c3e",
+        "name": "",
+        "links": [
+            "91b7009d6a935829"
+        ],
+        "x": 465,
+        "y": 860,
+        "wires": [
+            [
+                "4608e999d9720c7a"
+            ]
+        ]
+    },
+    {
+        "id": "f119c2b3eeff9893",
+        "type": "ui_ui_control",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "",
+        "events": "all",
+        "x": 600,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f3912a4ac58a127",
+        "type": "link in",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "",
+        "links": [
+            "65e4e8ddb21a472a"
+        ],
+        "x": 475,
+        "y": 1160,
+        "wires": [
+            [
+                "f119c2b3eeff9893"
+            ]
+        ]
+    },
+    {
+        "id": "fe863e5e1efdcdb3",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "SHOW H",
+        "group": "5802a15543179c73",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "SHOW H",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"show\":[\"Graphics_H\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 1300,
+        "wires": [
+            [
+                "65e4e8ddb21a472a"
+            ]
+        ]
+    },
+    {
+        "id": "4735ac79fff81d93",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "HIDE H",
+        "group": "5802a15543179c73",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "HIDE H",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"hide\":[\"Graphics_H\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 1260,
+        "wires": [
+            [
+                "65e4e8ddb21a472a"
+            ]
+        ]
+    },
+    {
+        "id": "fafc9bda35d1f605",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "SHOW T",
+        "group": "5802a15543179c73",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "SHOW TEMPERATURE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"show\":[\"Graphics_T\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 1180,
+        "wires": [
+            [
+                "65e4e8ddb21a472a"
+            ]
+        ]
+    },
+    {
+        "id": "59b92183573bddd0",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "HIDE T",
+        "group": "5802a15543179c73",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "HIDE TEMPERATURE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"hide\":[\"Graphics_T\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 1140,
+        "wires": [
+            [
+                "65e4e8ddb21a472a"
+            ]
+        ]
+    },
+    {
+        "id": "65e4e8ddb21a472a",
+        "type": "link out",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "9f3912a4ac58a127"
+        ],
+        "x": 355,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "ebfb0fcea42b7e0e",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "HIDE S",
+        "group": "5802a15543179c73",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "HIDE S",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"hide\":[\"Graphics_S\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 1380,
+        "wires": [
+            [
+                "65e4e8ddb21a472a"
+            ]
+        ]
+    },
+    {
+        "id": "f3401a458607fce6",
+        "type": "ui_button",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "SHOW S",
+        "group": "5802a15543179c73",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "SHOW S",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"group\":{\"show\":[\"Graphics_S\"]}}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 1420,
+        "wires": [
+            [
+                "65e4e8ddb21a472a"
+            ]
+        ]
+    },
+    {
+        "id": "fd293ecc3b7a96c4",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "T",
+        "info": "",
+        "x": 150,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "6b0098c9480de576",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "H",
+        "info": "",
+        "x": 150,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "be4715324f2a4e88",
+        "type": "comment",
+        "z": "9834e1bd50afad29",
+        "g": "933a5bac317b4509",
+        "name": "S",
+        "info": "",
+        "x": 150,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "352dd480755db883",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "d5e99271c5d391d2",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "e451f723a9349526",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "fb49af9be2f51b89",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 5,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "dcc00a1783ecd62b",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 6,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "79f217c69c58883d",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "5cd41cfb0c9789f9",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 8,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "fda96fb42efa7768",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 9,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "2ce459642f4743b3",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 10,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0cfd94201aab0825",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 11,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "4ca56fb76e042f2d",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "212e2f79e8a13c9e",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "502ca6b0d9cb7b94",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0488155c4d9aa93d",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 5,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "642c88e181e5437c",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 6,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "ee9e6edb96c646f4",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "c06327ba6b709e33",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 8,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "967cfece4fe4b5ad",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 9,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "8253ea6caf37454c",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 10,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "023623ae54a4b1f0",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 11,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "cdf8c3d2b0fbbad8",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "02619acf2f425e64",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "698d7b1d3f2a4c11",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "1a10cf9b1335aa71",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 5,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "587204ddd84f51f9",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 6,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "28b676dffe33f929",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "35789934bfed1e23",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 8,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "8bf2b5a8df0a21fd",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 9,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "415b9edb834377ed",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 10,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "7c1204c303cf2a7b",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 11,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "80895bf43443f38b",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "5fa9cf61422fc812",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "d8cb51110d007c08",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "c3ceb4bc38b4980b",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 5,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "8626b9897765e298",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 6,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "4e1d9f9a341eb50c",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "b0dcc7282df2a908",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 8,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "d1ee9c1bba6f9293",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 9,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "952ad84ebcba5df4",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 10,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "c2661cea720a9304",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "5e6bae656c547426",
+        "order": 11,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "2299b9b1e057ade3",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "fc321afb7b6eaa0d",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "305ec08ad4c8a7d1",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "492de8a2d4b25d98",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 5,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "1725e3432595d959",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 6,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "94516eaaafe867c7",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "4a516f44f2761dc7",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 8,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "084e7b411a76bfc1",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 9,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "91f5303aa6698baa",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 10,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "82597cc5145d5c6a",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "a55d49fb451acede",
+        "order": 11,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "5b1794bad02b37e3",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "082d6e7766fe6f8b",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "2d1a221c86e940db",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "32061918e990c905",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 5,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "d9d73bd821354e4b",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 6,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "24e0ecdcf58e6334",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "67a813371524f47f",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 8,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "c9c14622d7510222",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 9,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0ce8c4d6c3b4e6c9",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 10,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "2ff0e79ada8ee710",
+        "type": "ui_spacer",
+        "z": "9834e1bd50afad29",
+        "name": "spacer",
+        "group": "90fb8b7ed615cc2d",
+        "order": 11,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "1d7c7bbdbabb6713",
+        "type": "ui_group",
+        "name": "clock",
+        "tab": "87a869ccbb64bd1b",
+        "order": 4,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "82d30e1ff2a938bd",
+        "type": "ui_group",
+        "name": "Change Tab",
+        "tab": "87a869ccbb64bd1b",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c210c6afe8ba437e",
+        "type": "ui_group",
+        "name": "Change Tab",
+        "tab": "c3173234.2636e",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "77aebd5eba7bb21b",
+        "type": "ui_group",
+        "name": "Change Tab",
+        "tab": "780208baf9471d0a",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "de855f42ce9339ef",
+        "type": "ui_group",
+        "name": "Change Tab",
+        "tab": "c690a554f67c86ce",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5802a15543179c73",
+        "type": "ui_group",
+        "name": "Graphics Management",
+        "tab": "780208baf9471d0a",
+        "order": 2,
+        "disp": true,
+        "width": "9",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5e6bae656c547426",
+        "type": "ui_group",
+        "name": "P",
+        "tab": "780208baf9471d0a",
+        "order": 8,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a55d49fb451acede",
+        "type": "ui_group",
+        "name": "U",
+        "tab": "780208baf9471d0a",
+        "order": 9,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "90fb8b7ed615cc2d",
+        "type": "ui_group",
+        "name": "NU",
+        "tab": "780208baf9471d0a",
+        "order": 10,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "87a869ccbb64bd1b",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c3173234.2636e",
+        "type": "ui_tab",
+        "name": "RPi Control",
+        "icon": "power_settings_new",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "780208baf9471d0a",
+        "type": "ui_tab",
+        "name": "Graphics",
+        "icon": "timeline",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
