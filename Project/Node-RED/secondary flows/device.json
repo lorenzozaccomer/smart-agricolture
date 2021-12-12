@@ -1,0 +1,1056 @@
+[
+    {
+        "id": "418d7eab1959ac24",
+        "type": "tab",
+        "label": "Device",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c4d590ae83bbd8f7",
+        "type": "group",
+        "z": "418d7eab1959ac24",
+        "name": "Buttons",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "22f3d59e423f168f",
+            "43826032069a91e1",
+            "3c4b50a4273b0459",
+            "b74bbd1345bcc685",
+            "7e58c8a4d0c52485",
+            "78e80904d5aa3045",
+            "805c5af0269bb76c"
+        ],
+        "env": [],
+        "x": 514,
+        "y": 379,
+        "w": 302,
+        "h": 282
+    },
+    {
+        "id": "6f5a20272b58341a",
+        "type": "group",
+        "z": "418d7eab1959ac24",
+        "name": "preparation",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "5c012ef08ebb69df",
+            "e7bfb88910b91607",
+            "33da3eab8157a0d4",
+            "8a8192826ec2d565",
+            "06ccea8d7e50af9e",
+            "17135835025aae5a",
+            "9d98a7a7d82cca76"
+        ],
+        "env": [],
+        "x": 84,
+        "y": 369,
+        "w": 362,
+        "h": 252
+    },
+    {
+        "id": "01594b85c5375698",
+        "type": "group",
+        "z": "418d7eab1959ac24",
+        "name": "input values",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "76678f9706c980fb",
+            "008ed9ef2fcbd6ed"
+        ],
+        "env": [],
+        "x": 74,
+        "y": 209,
+        "w": 392,
+        "h": 142
+    },
+    {
+        "id": "b1117ddee0ac6f95",
+        "type": "group",
+        "z": "418d7eab1959ac24",
+        "name": "chart/gauge settings",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "ad8d099f0d44e6a7",
+            "649e1273e9ceec4c",
+            "b04aa314d223032a",
+            "7c7ea5f59044f88c",
+            "d90b011deb9c51b1",
+            "c3b828ed63eac17e",
+            "3561097bb7982ed8",
+            "bce9a9753ec5145b",
+            "d439289100312c15",
+            "d30ef9e1dcee6255",
+            "5470d24ee3b2d846",
+            "6e90a602d54a6c94",
+            "453b4d6fa56f7bcd",
+            "226880c84881d2a4",
+            "54522f421e5a9482"
+        ],
+        "env": [],
+        "x": 74,
+        "y": 679,
+        "w": 952,
+        "h": 302
+    },
+    {
+        "id": "ae50204dc08505ca",
+        "type": "group",
+        "z": "418d7eab1959ac24",
+        "name": "all values on chart",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "fbec326047bc8cd3",
+            "9067e42d578399ba",
+            "75da0a1be566066c"
+        ],
+        "env": [],
+        "x": 414,
+        "y": 19,
+        "w": 352,
+        "h": 82
+    },
+    {
+        "id": "4de2ce51e2c94dfd",
+        "type": "link in",
+        "z": "418d7eab1959ac24",
+        "name": "device",
+        "links": [
+            "38618a5c07419f8b"
+        ],
+        "x": 65,
+        "y": 160,
+        "wires": [
+            [
+                "008ed9ef2fcbd6ed"
+            ]
+        ]
+    },
+    {
+        "id": "22f3d59e423f168f",
+        "type": "ui_button",
+        "z": "418d7eab1959ac24",
+        "g": "c4d590ae83bbd8f7",
+        "name": "temperature",
+        "group": "4af4fc0e01f4dba3",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "{{msg.topic.toUpperCase()}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{bgr}}",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "temperature",
+        "topicType": "str",
+        "x": 610,
+        "y": 420,
+        "wires": [
+            [
+                "805c5af0269bb76c"
+            ]
+        ]
+    },
+    {
+        "id": "43826032069a91e1",
+        "type": "ui_button",
+        "z": "418d7eab1959ac24",
+        "g": "c4d590ae83bbd8f7",
+        "name": "humidity",
+        "group": "4af4fc0e01f4dba3",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "{{msg.topic.toUpperCase()}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{bgr}}",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "humidity",
+        "topicType": "str",
+        "x": 600,
+        "y": 460,
+        "wires": [
+            [
+                "805c5af0269bb76c"
+            ]
+        ]
+    },
+    {
+        "id": "3c4b50a4273b0459",
+        "type": "ui_button",
+        "z": "418d7eab1959ac24",
+        "g": "c4d590ae83bbd8f7",
+        "name": "not used",
+        "group": "4af4fc0e01f4dba3",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "not used",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{bgr}}",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "wind",
+        "topicType": "str",
+        "x": 600,
+        "y": 620,
+        "wires": [
+            [
+                "805c5af0269bb76c"
+            ]
+        ]
+    },
+    {
+        "id": "b74bbd1345bcc685",
+        "type": "ui_button",
+        "z": "418d7eab1959ac24",
+        "g": "c4d590ae83bbd8f7",
+        "name": "humidity soil",
+        "group": "4af4fc0e01f4dba3",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "{{msg.topic.toUpperCase()}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{bgr}}",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "humidity soil",
+        "topicType": "str",
+        "x": 610,
+        "y": 500,
+        "wires": [
+            [
+                "805c5af0269bb76c"
+            ]
+        ]
+    },
+    {
+        "id": "7e58c8a4d0c52485",
+        "type": "ui_button",
+        "z": "418d7eab1959ac24",
+        "g": "c4d590ae83bbd8f7",
+        "name": "pressure",
+        "group": "4af4fc0e01f4dba3",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "{{msg.topic.toUpperCase()}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{bgr}}",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "pressure",
+        "topicType": "str",
+        "x": 600,
+        "y": 540,
+        "wires": [
+            [
+                "805c5af0269bb76c"
+            ]
+        ]
+    },
+    {
+        "id": "78e80904d5aa3045",
+        "type": "ui_button",
+        "z": "418d7eab1959ac24",
+        "g": "c4d590ae83bbd8f7",
+        "name": "uv",
+        "group": "4af4fc0e01f4dba3",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "{{msg.topic.toUpperCase()}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{bgr}}",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "uv",
+        "topicType": "str",
+        "x": 590,
+        "y": 580,
+        "wires": [
+            [
+                "805c5af0269bb76c"
+            ]
+        ]
+    },
+    {
+        "id": "805c5af0269bb76c",
+        "type": "link out",
+        "z": "418d7eab1959ac24",
+        "g": "c4d590ae83bbd8f7",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "54522f421e5a9482"
+        ],
+        "x": 775,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5c012ef08ebb69df",
+        "type": "ui_ui_control",
+        "z": "418d7eab1959ac24",
+        "g": "6f5a20272b58341a",
+        "name": "inject dash events",
+        "events": "all",
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "e7bfb88910b91607"
+            ]
+        ]
+    },
+    {
+        "id": "e7bfb88910b91607",
+        "type": "link out",
+        "z": "418d7eab1959ac24",
+        "g": "6f5a20272b58341a",
+        "name": "dash-init",
+        "links": [
+            "9d98a7a7d82cca76",
+            "7c7ea5f59044f88c"
+        ],
+        "x": 345,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "33da3eab8157a0d4",
+        "type": "function",
+        "z": "418d7eab1959ac24",
+        "g": "6f5a20272b58341a",
+        "name": "create groups",
+        "func": "\nvar g_members = [\"temperature\",\"humidity\", \"pressure\", \"humidity soil\", \"uv\",\"wind\"]\n\nvar g_limits = [{lo:-10,hi:30},{lo:0,hi:100},{lo:0,hi:1000},{lo:0,hi:100},{lo:-15,hi:300},{lo:0,hi:30}]\n\nvar g = {\"gaugegroup\":{\"members\":[],\"selected\":\"temperature\"}}\n\nfor(var i=0;i<g_members.length;i++){\n    g.gaugegroup.members.push( {\"topic\":g_members[i],\"lastvalue\":0,\"min\":g_limits[i].lo,\"max\":g_limits[i].hi})\n}\n\nglobal.set(\"buttongroups\",g)\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 410,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a8192826ec2d565",
+        "type": "inject",
+        "z": "418d7eab1959ac24",
+        "g": "6f5a20272b58341a",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "temperature",
+        "payloadType": "date",
+        "x": 190,
+        "y": 410,
+        "wires": [
+            [
+                "33da3eab8157a0d4"
+            ]
+        ]
+    },
+    {
+        "id": "06ccea8d7e50af9e",
+        "type": "switch",
+        "z": "418d7eab1959ac24",
+        "g": "6f5a20272b58341a",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "humidity",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "humidity soil",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "pressure",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "uv",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "not used",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 350,
+        "y": 550,
+        "wires": [
+            [
+                "22f3d59e423f168f"
+            ],
+            [
+                "43826032069a91e1"
+            ],
+            [
+                "b74bbd1345bcc685"
+            ],
+            [
+                "7e58c8a4d0c52485"
+            ],
+            [
+                "78e80904d5aa3045"
+            ],
+            [
+                "3c4b50a4273b0459"
+            ]
+        ]
+    },
+    {
+        "id": "17135835025aae5a",
+        "type": "function",
+        "z": "418d7eab1959ac24",
+        "g": "6f5a20272b58341a",
+        "name": "get color",
+        "func": "var group = global.get(\"buttongroups.gaugegroup\")\nvar m\nfor(var i=0;i<group.members.length;i++){\n    m = {topic:group.members[i].topic}\n    m.bgr = group.members[i].topic == group.selected ? 'green' : 'gray'\n    node.send(m)\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 220,
+        "y": 550,
+        "wires": [
+            [
+                "06ccea8d7e50af9e"
+            ]
+        ]
+    },
+    {
+        "id": "9d98a7a7d82cca76",
+        "type": "link in",
+        "z": "418d7eab1959ac24",
+        "g": "6f5a20272b58341a",
+        "name": "gaugegroup in",
+        "links": [
+            "e7bfb88910b91607",
+            "b04aa314d223032a"
+        ],
+        "x": 125,
+        "y": 550,
+        "wires": [
+            [
+                "17135835025aae5a"
+            ]
+        ]
+    },
+    {
+        "id": "76678f9706c980fb",
+        "type": "function",
+        "z": "418d7eab1959ac24",
+        "g": "01594b85c5375698",
+        "name": "Get Values",
+        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\nnode.warn(msg)\n\nmsg1.topic = \"temperature\"\nmsg1.payload = msg.out.T\nmsg1.device = msg.device\n\nmsg2.topic = \"humidity\"\nmsg2.payload = msg.out.H\nmsg2.device = msg.device\n\nmsg3.topic = \"Humidity Soil\"\nmsg3.payload = msg.out.S\nmsg3.device = msg.device\n\nmsg4.topic = \"Pressure\"\nmsg4.payload = msg.out.P\nmsg4.device = msg.device\n\nmsg5.topic = \"UV\"\nmsg5.payload = msg.out.U\nmsg5.device = msg.device\n\nnode.send([msg1, msg2, msg3, msg4, msg5, null])",
+        "outputs": 6,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "22f3d59e423f168f",
+                "75da0a1be566066c"
+            ],
+            [
+                "43826032069a91e1",
+                "75da0a1be566066c"
+            ],
+            [
+                "b74bbd1345bcc685",
+                "75da0a1be566066c"
+            ],
+            [
+                "7e58c8a4d0c52485",
+                "75da0a1be566066c"
+            ],
+            [
+                "78e80904d5aa3045",
+                "75da0a1be566066c"
+            ],
+            [
+                "3c4b50a4273b0459",
+                "75da0a1be566066c"
+            ]
+        ],
+        "outputLabels": [
+            "T",
+            "H",
+            "S",
+            "P",
+            "U",
+            "NOT USED"
+        ]
+    },
+    {
+        "id": "008ed9ef2fcbd6ed",
+        "type": "change",
+        "z": "418d7eab1959ac24",
+        "g": "01594b85c5375698",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "device",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "topic",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "76678f9706c980fb"
+            ]
+        ]
+    },
+    {
+        "id": "ad8d099f0d44e6a7",
+        "type": "ui_gauge",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "",
+        "group": "4af4fc0e01f4dba3",
+        "order": 7,
+        "width": 6,
+        "height": 5,
+        "gtype": "gage",
+        "title": "{{msg.topic}}",
+        "label": "",
+        "format": "{{value | number:3}}",
+        "min": 0,
+        "max": "10",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 570,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "649e1273e9ceec4c",
+        "type": "change",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "set selected",
+        "rules": [
+            {
+                "t": "set",
+                "p": "buttongroups.gaugegroup.selected",
+                "pt": "global",
+                "to": "topic",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 740,
+        "wires": [
+            [
+                "b04aa314d223032a",
+                "6e90a602d54a6c94",
+                "3561097bb7982ed8"
+            ]
+        ]
+    },
+    {
+        "id": "b04aa314d223032a",
+        "type": "link out",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "gaugegroup out",
+        "links": [
+            "7c7ea5f59044f88c",
+            "9d98a7a7d82cca76"
+        ],
+        "x": 455,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7c7ea5f59044f88c",
+        "type": "link in",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "gauge in",
+        "links": [
+            "b04aa314d223032a",
+            "e7bfb88910b91607"
+        ],
+        "x": 115,
+        "y": 780,
+        "wires": [
+            [
+                "c3b828ed63eac17e"
+            ]
+        ]
+    },
+    {
+        "id": "d90b011deb9c51b1",
+        "type": "function",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "store inactive & bypass active",
+        "func": "var group = global.get(\"buttongroups.gaugegroup\")\n\n//node.warn(group)\n\nif(group.selected != msg.topic){\n    var member = group.members.find(element => element.topic == msg.topic);\n    member.lastvalue = msg.payload\n    global.set(\"buttongroups.gaugegroup\",group)\n    return\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 840,
+        "wires": [
+            [
+                "ad8d099f0d44e6a7",
+                "3561097bb7982ed8",
+                "5470d24ee3b2d846"
+            ]
+        ]
+    },
+    {
+        "id": "c3b828ed63eac17e",
+        "type": "function",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "prepare after selection change",
+        "func": "var group = global.get(\"buttongroups.gaugegroup\")\nvar member = {}\n\nlet msg1 = {}\n\n/*\nnode.warn(group)\nnode.warn(group.selected)\nnode.warn(group.members.length)\nnode.warn(group.members[0].topic)   */\n\nfor(var i = 0; i < group.members.length; i++)\n{\n    if(group.members[i].topic == group.selected)\n    {\n        msg1.topic = group.selected.toUpperCase()\n        msg1.min = group.members[i].min\n        msg1.max = group.members[i].max\n    }\n}\n\n//node.warn(msg1)\n\n/* old line code\nvar member = group.members.find(group.selected);\nmsg.title = group.selected.toUpperCase()\nmsg.payload = member.lastvalue\nnode.warn(member)\nmsg.ui_control = {min:member.min,max:member.max}\nnode.warn(msg.ui_control)   */\n\nreturn msg1",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 780,
+        "wires": [
+            [
+                "d439289100312c15",
+                "bce9a9753ec5145b"
+            ]
+        ]
+    },
+    {
+        "id": "3561097bb7982ed8",
+        "type": "ui_chart",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "",
+        "group": "4af4fc0e01f4dba3",
+        "order": 8,
+        "width": 12,
+        "height": 5,
+        "label": "{{msg.topic}}",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 570,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bce9a9753ec5145b",
+        "type": "function",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "min",
+        "func": "\n//node.warn(msg)\n\nmsg = {ui_control:{min:msg.min}};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 760,
+        "wires": [
+            [
+                "ad8d099f0d44e6a7"
+            ]
+        ]
+    },
+    {
+        "id": "d439289100312c15",
+        "type": "function",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "max",
+        "func": "\n//node.warn(msg)\n\nmsg = {ui_control:{max:msg.max}};\n\n//node.warn(msg)\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 800,
+        "wires": [
+            [
+                "ad8d099f0d44e6a7"
+            ]
+        ]
+    },
+    {
+        "id": "d30ef9e1dcee6255",
+        "type": "ui_button",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "clear all",
+        "group": "de855f42ce9339ef",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "clear_all",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 900,
+        "wires": [
+            [
+                "3561097bb7982ed8"
+            ]
+        ]
+    },
+    {
+        "id": "5470d24ee3b2d846",
+        "type": "debug",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "msg of store inactive & bypass active",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "6e90a602d54a6c94",
+        "type": "debug",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "set selected",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "453b4d6fa56f7bcd",
+        "type": "inject",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "erase chart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 370,
+        "y": 940,
+        "wires": [
+            [
+                "3561097bb7982ed8"
+            ]
+        ]
+    },
+    {
+        "id": "226880c84881d2a4",
+        "type": "link in",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "store inactive & bypass active",
+        "links": [
+            "75da0a1be566066c",
+            "728d9aff852133ed"
+        ],
+        "x": 115,
+        "y": 840,
+        "wires": [
+            [
+                "d90b011deb9c51b1"
+            ]
+        ]
+    },
+    {
+        "id": "54522f421e5a9482",
+        "type": "link in",
+        "z": "418d7eab1959ac24",
+        "g": "b1117ddee0ac6f95",
+        "name": "",
+        "links": [
+            "805c5af0269bb76c"
+        ],
+        "x": 115,
+        "y": 740,
+        "wires": [
+            [
+                "649e1273e9ceec4c"
+            ]
+        ]
+    },
+    {
+        "id": "fbec326047bc8cd3",
+        "type": "ui_chart",
+        "z": "418d7eab1959ac24",
+        "g": "ae50204dc08505ca",
+        "name": "",
+        "group": "4af4fc0e01f4dba3",
+        "order": 9,
+        "width": 18,
+        "height": 5,
+        "label": "all charts",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 680,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9067e42d578399ba",
+        "type": "link in",
+        "z": "418d7eab1959ac24",
+        "g": "ae50204dc08505ca",
+        "name": "",
+        "links": [
+            "75da0a1be566066c"
+        ],
+        "x": 555,
+        "y": 60,
+        "wires": [
+            [
+                "fbec326047bc8cd3"
+            ]
+        ]
+    },
+    {
+        "id": "75da0a1be566066c",
+        "type": "link out",
+        "z": "418d7eab1959ac24",
+        "g": "ae50204dc08505ca",
+        "name": "all values",
+        "mode": "link",
+        "links": [
+            "226880c84881d2a4",
+            "9067e42d578399ba"
+        ],
+        "x": 455,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a3033a5d7cb4915b",
+        "type": "ui_spacer",
+        "z": "418d7eab1959ac24",
+        "name": "spacer",
+        "group": "de855f42ce9339ef",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "4af4fc0e01f4dba3",
+        "type": "ui_group",
+        "name": "Group 5",
+        "tab": "c690a554f67c86ce",
+        "order": 4,
+        "disp": true,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "de855f42ce9339ef",
+        "type": "ui_group",
+        "name": "Change Tab",
+        "tab": "c690a554f67c86ce",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c690a554f67c86ce",
+        "type": "ui_tab",
+        "name": "Devices",
+        "icon": "device_hub",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
