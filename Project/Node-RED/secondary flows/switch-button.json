@@ -1,0 +1,160 @@
+[
+    {
+        "id": "e11d50dc7ba9d382",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b9a70965.13e138",
+        "type": "ui_button",
+        "z": "e11d50dc7ba9d382",
+        "name": "",
+        "group": "c070ecdb.6d5ce",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "{{payload}}",
+        "color": "",
+        "bgcolor": "{{colour}}",
+        "icon": "",
+        "payload": "press",
+        "payloadType": "str",
+        "topic": "",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "48aaee20.8d9e1"
+            ]
+        ]
+    },
+    {
+        "id": "5cc84101.ac6d9",
+        "type": "change",
+        "z": "e11d50dc7ba9d382",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "colour",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "<i class=\"fa fa-rotate-90 fa-folder-open-o\"></i> OPEN",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 95,
+        "wires": [
+            [
+                "b9a70965.13e138"
+            ]
+        ]
+    },
+    {
+        "id": "329e773b.0fdcb8",
+        "type": "inject",
+        "z": "e11d50dc7ba9d382",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 135,
+        "y": 95,
+        "wires": [
+            [
+                "bc5a70e.6f6a29"
+            ]
+        ]
+    },
+    {
+        "id": "48aaee20.8d9e1",
+        "type": "function",
+        "z": "e11d50dc7ba9d382",
+        "name": "state",
+        "func": "var state = context.state || false;\nstate = !state;\ncontext.state = state;\nif (state) { return [msg,null]; }\nelse { return [null,msg]; }\n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 135,
+        "y": 140,
+        "wires": [
+            [
+                "5cc84101.ac6d9"
+            ],
+            [
+                "bc5a70e.6f6a29"
+            ]
+        ]
+    },
+    {
+        "id": "bc5a70e.6f6a29",
+        "type": "change",
+        "z": "e11d50dc7ba9d382",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "colour",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "<i class=\"fa fa-rotate-90 fa-folder-o\"></i> Closed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "b9a70965.13e138"
+            ]
+        ]
+    },
+    {
+        "id": "c070ecdb.6d5ce",
+        "type": "ui_group",
+        "z": "e11d50dc7ba9d382",
+        "name": "Click",
+        "tab": "7d974e73.cf8f9",
+        "order": 1,
+        "disp": true,
+        "width": "5"
+    },
+    {
+        "id": "7d974e73.cf8f9",
+        "type": "ui_tab",
+        "z": "e11d50dc7ba9d382",
+        "name": "Home",
+        "icon": "link",
+        "order": 1
+    }
+]
