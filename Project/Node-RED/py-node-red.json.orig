@@ -1,0 +1,76 @@
+[
+    {
+        "id": "0a092065bd450125",
+        "type": "tab",
+        "label": "Py script to Node-RED",
+        "disabled": false,
+        "info": "With this flow you can execute automatically the .py script that you want from Node-RED"
+    },
+    {
+        "id": "3ae8ecb24174d154",
+        "type": "inject",
+        "z": "0a092065bd450125",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "1e60327b2378e339"
+            ]
+        ]
+    },
+    {
+        "id": "1e60327b2378e339",
+        "type": "exec",
+        "z": "0a092065bd450125",
+        "command": "python3 /home/pi/Desktop/git/smart-agricolture/Project/pHAT/lorapi_rcx.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "lorapi_rcx",
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "792f23653e114a3d"
+            ],
+            [
+                "792f23653e114a3d"
+            ],
+            [
+                "792f23653e114a3d"
+            ]
+        ]
+    },
+    {
+        "id": "792f23653e114a3d",
+        "type": "debug",
+        "z": "0a092065bd450125",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 120,
+        "wires": []
+    }
+]

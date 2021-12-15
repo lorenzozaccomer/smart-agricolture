@@ -2,7 +2,7 @@
     {
         "id": "e11d50dc7ba9d382",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "Switch Button State",
         "disabled": false,
         "info": "",
         "env": []
@@ -153,8 +153,11 @@
         "id": "7d974e73.cf8f9",
         "type": "ui_tab",
         "z": "e11d50dc7ba9d382",
+        "d": true,
         "name": "Home",
         "icon": "link",
-        "order": 1
+        "order": 5,
+        "disabled": false,
+        "hidden": false
     }
 ]
