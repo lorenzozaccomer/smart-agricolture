@@ -298,12 +298,13 @@
             "a833df6001527003",
             "26320b86fd75689d",
             "e33134247a2f2eb4",
-            "ca64cd76aba5333f"
+            "ca64cd76aba5333f",
+            "33415fb54a145922"
         ],
         "x": 34,
-        "y": 379,
+        "y": 351.5,
         "w": 612,
-        "h": 122
+        "h": 169.5
     },
     {
         "id": "7ccd9108dba7a7c0",
@@ -324,11 +325,14 @@
             "53b8d1a68b66bb1d",
             "3ba8b7f1d5fbdb91",
             "f4a53881122c4f51",
-            "090aba85bd3474cd"
+            "090aba85bd3474cd",
+            "08577ee83a2f9d38",
+            "f318a7d6640b2511",
+            "ce0022c2f10c3653"
         ],
-        "x": 4,
+        "x": 34,
         "y": 19,
-        "w": 802,
+        "w": 872,
         "h": 302
     },
     {
@@ -355,6 +359,43 @@
         "h": 182
     },
     {
+        "id": "d4f49bd9f34f5334",
+        "type": "ui_text",
+        "z": "3447b1706791c39f",
+        "d": true,
+        "g": "04c48224d7788a51",
+        "group": "510a57cb7ac57328",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "name": "Intensity",
+        "label": "Intensity",
+        "format": "{{msg.intensity}}",
+        "layout": "col-center",
+        "x": 600,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "510a57cb7ac57328",
+        "type": "ui_group",
+        "name": "New Messages",
+        "tab": "96d825f6eb6ecaf5",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "96d825f6eb6ecaf5",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "fa-home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
         "id": "3e6d49df180d85bb",
         "type": "group",
         "z": "3447b1706791c39f",
@@ -377,7 +418,8 @@
             "0898866afed7cd15",
             "28c9068b6889dfa9",
             "ea00b177faa7fa87",
-            "2d53c65639930b57"
+            "2d53c65639930b57",
+            "ce2aad57ad89addb"
         ],
         "x": 34,
         "y": 559,
@@ -454,7 +496,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 420,
+        "y": 440,
         "wires": []
     },
     {
@@ -492,7 +534,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 150,
+        "x": 170,
         "y": 60,
         "wires": [
             [
@@ -504,6 +546,7 @@
         "id": "26320b86fd75689d",
         "type": "exec",
         "z": "3447b1706791c39f",
+        "d": true,
         "g": "874a758adc78a693",
         "command": "python3 /home/pi/Desktop/git/smart-agricolture/Project/pHAT/lorapi_rcx.py",
         "addpay": "",
@@ -514,7 +557,7 @@
         "oldrc": false,
         "name": "LoraPi Receive Script",
         "x": 280,
-        "y": 440,
+        "y": 460,
         "wires": [
             [
                 "a833df6001527003",
@@ -560,7 +603,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 180,
+        "x": 200,
         "y": 100,
         "wires": [
             [
@@ -613,7 +656,7 @@
             "c16bfba69ca5a331"
         ],
         "x": 475,
-        "y": 460,
+        "y": 480,
         "wires": []
     },
     {
@@ -641,7 +684,7 @@
         "links": [
             "ca64cd76aba5333f"
         ],
-        "x": 575,
+        "x": 615,
         "y": 180,
         "wires": []
     },
@@ -655,10 +698,11 @@
             "30257e114cd432fd"
         ],
         "x": 75,
-        "y": 440,
+        "y": 460,
         "wires": [
             [
-                "26320b86fd75689d"
+                "26320b86fd75689d",
+                "33415fb54a145922"
             ]
         ]
     },
@@ -730,24 +774,6 @@
                 "d9cb655e08addff7"
             ]
         ]
-    },
-    {
-        "id": "d4f49bd9f34f5334",
-        "type": "ui_text",
-        "z": "3447b1706791c39f",
-        "d": true,
-        "g": "04c48224d7788a51",
-        "group": "510a57cb7ac57328",
-        "order": 5,
-        "width": "0",
-        "height": "0",
-        "name": "Intensity",
-        "label": "Intensity",
-        "format": "{{msg.intensity}}",
-        "layout": "col-center",
-        "x": 600,
-        "y": 1420,
-        "wires": []
     },
     {
         "id": "d9cb655e08addff7",
@@ -825,8 +851,7 @@
         "wires": [
             [
                 "ed0a87e8e11f596c",
-                "9d69d62b6b67c580",
-                "d4f49bd9f34f5334"
+                "9d69d62b6b67c580"
             ]
         ]
     },
@@ -879,8 +904,8 @@
         "z": "3447b1706791c39f",
         "g": "3e6d49df180d85bb",
         "name": "",
-        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\n//node.warn(msg)\n\nmsg1.topic = \"temperature\"\nmsg1.payload = msg.out.T\n\nmsg2.topic = \"humidity\"\nmsg2.payload = msg.out.H\n\nmsg3.topic = \"Humidity Soil\"\nmsg3.payload = msg.out.S\n\nmsg4.topic = \"Pressure\"\nmsg4.payload = msg.out.P\n\nmsg5.topic = \"UV\"\nmsg5.payload = msg.out.U\n\nmsg6.topic = \"not used\"\nmsg6.payload = \"not used\"\n\nnode.send([msg1, msg2, msg3, msg4, msg5, msg6])",
-        "outputs": 6,
+        "func": "\nvar now = new Date();\n\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\nlet msg7 = {};\n\n//node.warn(msg)\n\nmsg1.topic = \"temperature\"\nmsg1.payload = msg.out.T\n\nmsg2.topic = \"humidity\"\nmsg2.payload = msg.out.H\n\nmsg3.topic = \"Humidity Soil\"\nmsg3.payload = msg.out.S\n\nmsg4.topic = \"Pressure\"\nmsg4.payload = msg.out.P\n\nmsg5.topic = \"UV\"\nmsg5.payload = msg.out.U\n\nmsg6.topic = \"not used\"\nmsg6.payload = \"not used\"\n\nmsg7.topic = \"\"\nmsg7.payload = now.toLocaleString()\n\nnode.send([msg1, msg2, msg3, msg4, msg5, msg6, msg7])",
+        "outputs": 7,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -905,6 +930,9 @@
             ],
             [
                 "11b76cd6bfd17b99"
+            ],
+            [
+                "ce2aad57ad89addb"
             ]
         ],
         "outputLabels": [
@@ -913,7 +941,8 @@
             "S",
             "P",
             "U",
-            "not used"
+            "not used",
+            ""
         ]
     },
     {
@@ -1596,7 +1625,7 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 530,
+        "x": 570,
         "y": 220,
         "wires": [
             [
@@ -1639,7 +1668,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 370,
         "y": 180,
         "wires": [
             [
@@ -1670,7 +1699,7 @@
         "topic": "",
         "payload": "Automatic Start-Up",
         "payloadType": "str",
-        "x": 140,
+        "x": 170,
         "y": 280,
         "wires": [
             [
@@ -1687,7 +1716,7 @@
         "func": "var state = context.state || false;\nstate = !state;\ncontext.state = state;\nif (state) { return [msg,null]; }\nelse { return [null,msg]; }\n",
         "outputs": 2,
         "noerr": 0,
-        "x": 150,
+        "x": 190,
         "y": 220,
         "wires": [
             [
@@ -1740,7 +1769,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 370,
         "y": 220,
         "wires": [
             [
@@ -1762,7 +1791,7 @@
         "label": "Condition",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 720,
+        "x": 760,
         "y": 280,
         "wires": []
     },
@@ -1786,7 +1815,7 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 530,
+        "x": 570,
         "y": 280,
         "wires": [
             [
@@ -1841,7 +1870,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 150,
         "y": 180,
         "wires": [
             [
@@ -1863,6 +1892,113 @@
         "x": 555,
         "y": 640,
         "wires": []
+    },
+    {
+        "id": "33415fb54a145922",
+        "type": "exec",
+        "z": "3447b1706791c39f",
+        "g": "874a758adc78a693",
+        "command": "python3 /home/pi/Desktop/lorapi_rcx.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "LoraPi Receive Script",
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "a833df6001527003",
+                "e33134247a2f2eb4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ce2aad57ad89addb",
+        "type": "ui_text",
+        "z": "3447b1706791c39f",
+        "g": "3e6d49df180d85bb",
+        "group": "510a57cb7ac57328",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "time",
+        "label": "Message Timetable",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1010,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "08577ee83a2f9d38",
+        "type": "ui_text",
+        "z": "3447b1706791c39f",
+        "g": "7ccd9108dba7a7c0",
+        "group": "0fb3e7373ddef337",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "Service Information",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 790,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f318a7d6640b2511",
+        "type": "function",
+        "z": "3447b1706791c39f",
+        "g": "7ccd9108dba7a7c0",
+        "name": "",
+        "func": "\nmsg.payload = \"If the Message Timetable is not updated,\\\n                click on Start Script\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 80,
+        "wires": [
+            [
+                "08577ee83a2f9d38"
+            ]
+        ]
+    },
+    {
+        "id": "ce0022c2f10c3653",
+        "type": "inject",
+        "z": "3447b1706791c39f",
+        "g": "7ccd9108dba7a7c0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 450,
+        "y": 80,
+        "wires": [
+            [
+                "f318a7d6640b2511"
+            ]
+        ]
     },
     {
         "id": "b03f5d733d2d1d16",
@@ -2095,16 +2231,6 @@
         "height": 1
     },
     {
-        "id": "510a57cb7ac57328",
-        "type": "ui_group",
-        "name": "New Messages",
-        "tab": "96d825f6eb6ecaf5",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
         "id": "bab57f597464f2a1",
         "type": "ui_group",
         "name": "Parameters",
@@ -2204,15 +2330,6 @@
         "disp": true,
         "width": "18",
         "collapse": true
-    },
-    {
-        "id": "96d825f6eb6ecaf5",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "fa-home",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
     },
     {
         "id": "025addf847a2489f",
