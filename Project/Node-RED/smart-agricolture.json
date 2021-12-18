@@ -37,7 +37,7 @@
         "type": "function",
         "z": "78dd068b39233de0",
         "name": "Extract DevAddr",
-        "func": "\nlet HexString = \"\";\n\n// DevAddr to convert\nDevAddr=msg.payload.buffers.DevAddr // sensor/LoraWAN data payload\n//node.warn(DevAddr)\n\nfor (let i = 0; i < DevAddr.length; i++)\n{\n  hex = DevAddr[i].toString(16).toUpperCase();\n  HexString += hex;\n}\n//node.warn(HexString);\n\n// converted DevAddr\nmsg.payload.DevAddr = HexString;\n  \nreturn msg;",
+        "func": "\nlet HexString = \"\";\n\n// DevAddr to convert\nDevAddr=msg.payload.buffers.DevAddr // sensor/LoraWAN data payload\n\nfor (let i = 0; i < DevAddr.length; i++)\n{\n  hex = DevAddr[i].toString(16).toUpperCase();\n  HexString += hex;\n}\n\nmsg.payload.DevAddr = HexString;\n  \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -155,7 +155,7 @@
         "type": "function",
         "z": "c7539078b7b3625f",
         "name": "Sensor data hex/string decode",
-        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data payload\n//node.warn(bytes)\n\nnewbytes=Buffer.from(bytes, 'hex')\n//node.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nmsg.payload.out = newbytes.toString();\n//node.warn(newbytes.toString())\n  \nreturn msg;",
+        "func": "\nbytes=msg.payload.out // sensor/LoraWAN data payload\n\nnewbytes=Buffer.from(bytes, 'hex')\n//node.warn(newbytes.toString()) ///yeah\n\n//decode ...payload\n//https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython?view=all\n\nmsg.payload.out = newbytes.toString();\n  \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -191,7 +191,7 @@
         "type": "function",
         "z": "c7539078b7b3625f",
         "name": "HEX to base64",
-        "func": "\nmvk=msg.payload // from the injection\n\n//node.warn(mvk)\n\n//message = mvk.split(\" \")[0]\n//rssi = mvk.split(\" \")[1]\n//snr = mvk.split(\" \")[2]\n\n//node.warn(message)\n\nvar base64String = Buffer.from(mvk, 'hex').toString('base64')\n\n//node.warn(base64String)\nmsg.payload=base64String\n//msg.rssi = rssi\n//msg.snr = snr\n\nreturn msg;",
+        "func": "\nmvk=msg.payload // from the injection\n\nvar base64String = Buffer.from(mvk, 'hex').toString('base64')\n\nmsg.payload=base64String\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -266,7 +266,7 @@
         "type": "function",
         "z": "c7539078b7b3625f",
         "name": "Extract Information",
-        "func": "\ndataArray = []\ndictArray = {}\n\nDevAddr = msg.payload.DevAddr\ntext = msg.payload.out\n//node.warn(text)\n\ntextArray = text.split(\"$\")\ntextArray = textArray.filter(item => item != \"\")\n//node.warn(textArray)\n\nfor(let i = 0; i < textArray.length; i++)\n{\n    dataArray = textArray[i].split(\":\")\n    dictArray[dataArray[0]] = parseFloat(dataArray[1])\n}\n\n//node.warn(dictArray)\n\nmsg.payload.out = dictArray\n\n//node.warn(msg.payload.out.Hum)\n\nreturn msg;",
+        "func": "\ndataArray = []\ndictArray = {}\n\nDevAddr = msg.payload.DevAddr\ntext = msg.payload.out\n\ntextArray = text.split(\"$\")\ntextArray = textArray.filter(item => item != \"\")\n\nfor(let i = 0; i < textArray.length; i++)\n{\n    dataArray = textArray[i].split(\":\")\n    dictArray[dataArray[0]] = parseFloat(dataArray[1])\n}\n\nmsg.payload.out = dictArray\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -302,9 +302,31 @@
             "33415fb54a145922"
         ],
         "x": 34,
-        "y": 351.5,
+        "y": 379,
         "w": 612,
-        "h": 169.5
+        "h": 122
+    },
+    {
+        "id": "26320b86fd75689d",
+        "type": "exec",
+        "z": "3447b1706791c39f",
+        "d": true,
+        "g": "874a758adc78a693",
+        "command": "python3 /home/pi/Desktop/git/smart-agricolture/Project/pHAT/lorapi_rcx.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "LoraPi Receive Script",
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [],
+            [],
+            []
+        ]
     },
     {
         "id": "7ccd9108dba7a7c0",
@@ -347,7 +369,6 @@
             "ed0a87e8e11f596c",
             "9d69d62b6b67c580",
             "30f655ca0ecdd97b",
-            "d4f49bd9f34f5334",
             "d9cb655e08addff7",
             "aa7ecb2174b421d4",
             "405f5995b27abe48",
@@ -357,43 +378,6 @@
         "y": 1299,
         "w": 652,
         "h": 182
-    },
-    {
-        "id": "d4f49bd9f34f5334",
-        "type": "ui_text",
-        "z": "3447b1706791c39f",
-        "d": true,
-        "g": "04c48224d7788a51",
-        "group": "510a57cb7ac57328",
-        "order": 5,
-        "width": "0",
-        "height": "0",
-        "name": "Intensity",
-        "label": "Intensity",
-        "format": "{{msg.intensity}}",
-        "layout": "col-center",
-        "x": 600,
-        "y": 1420,
-        "wires": []
-    },
-    {
-        "id": "510a57cb7ac57328",
-        "type": "ui_group",
-        "name": "New Messages",
-        "tab": "96d825f6eb6ecaf5",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "96d825f6eb6ecaf5",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "fa-home",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
     },
     {
         "id": "3e6d49df180d85bb",
@@ -496,7 +480,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 440,
+        "y": 420,
         "wires": []
     },
     {
@@ -540,31 +524,6 @@
             [
                 "30257e114cd432fd"
             ]
-        ]
-    },
-    {
-        "id": "26320b86fd75689d",
-        "type": "exec",
-        "z": "3447b1706791c39f",
-        "d": true,
-        "g": "874a758adc78a693",
-        "command": "python3 /home/pi/Desktop/git/smart-agricolture/Project/pHAT/lorapi_rcx.py",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "true",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "LoraPi Receive Script",
-        "x": 280,
-        "y": 460,
-        "wires": [
-            [
-                "a833df6001527003",
-                "e33134247a2f2eb4"
-            ],
-            [],
-            []
         ]
     },
     {
@@ -656,7 +615,7 @@
             "c16bfba69ca5a331"
         ],
         "x": 475,
-        "y": 480,
+        "y": 460,
         "wires": []
     },
     {
@@ -698,10 +657,9 @@
             "30257e114cd432fd"
         ],
         "x": 75,
-        "y": 460,
+        "y": 440,
         "wires": [
             [
-                "26320b86fd75689d",
                 "33415fb54a145922"
             ]
         ]
@@ -1473,7 +1431,7 @@
         "z": "3447b1706791c39f",
         "g": "0fcf1e8eef3bf009",
         "name": "Device Identification",
-        "func": "\n/*\n    0: L0\n    1: L1\n    2: L4\n    */\n\n\nvar Devices = [\"AAC44AC5\", \"AAABB14A\", \"AAC44AC6\"]\n\naddr = msg.DevAddr\n\n//node.warn(addr)\n\nswitch(Devices.indexOf(addr))\n{\n    case 0:\n        msg.topic = \"L0 Board\"\n        node.send([msg, null, null, null, null])\n    break;\n    case 1:\n        msg.topic = \"L1 Board\"\n        node.send([null, msg, null, null, null])\n    break;\n    case 2:\n        msg.topic = \"L4 Board\"\n        node.send([null, null, msg, null, null])\n    break;\n    case 3:\n        msg.topic = \"xx Board\"\n        node.send([null, null, null, msg, null])\n    break;\n    case 4:\n        msg.topic = \"xx Board\"\n        node.send([null, null, null, null ,msg])\n    break;\n}",
+        "func": "\n/*\n    0: L0\n    1: L1\n    2: L4\n    */\n\nvar Devices = [\"AAC44AC5\", \"AAABB14A\", \"AAC44AC6\"]\n\naddr = msg.DevAddr\n\n//node.warn(addr)\n\nswitch(Devices.indexOf(addr))\n{\n    case 0:\n        msg.topic = \"L0 Board\"\n        node.send([msg, null, null, null, null])\n    break;\n    case 1:\n        msg.topic = \"L1 Board\"\n        node.send([null, msg, null, null, null])\n    break;\n    case 2:\n        msg.topic = \"L4 Board\"\n        node.send([null, null, msg, null, null])\n    break;\n    case 3:\n        msg.topic = \"xx Board\"\n        node.send([null, null, null, msg, null])\n    break;\n    case 4:\n        msg.topic = \"xx Board\"\n        node.send([null, null, null, null ,msg])\n    break;\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -1874,7 +1832,8 @@
         "y": 180,
         "wires": [
             [
-                "a209f6dac007534e"
+                "a209f6dac007534e",
+                "1495a335d6396298"
             ]
         ]
     },
@@ -1907,7 +1866,7 @@
         "oldrc": false,
         "name": "LoraPi Receive Script",
         "x": 280,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "a833df6001527003",
@@ -1944,8 +1903,8 @@
         "width": 0,
         "height": 0,
         "name": "Service Information",
-        "label": "",
-        "format": "{{msg.payload}}",
+        "label": "{{msg.payload}}",
+        "format": "",
         "layout": "col-center",
         "x": 790,
         "y": 80,
@@ -2231,6 +2190,16 @@
         "height": 1
     },
     {
+        "id": "510a57cb7ac57328",
+        "type": "ui_group",
+        "name": "New Messages",
+        "tab": "96d825f6eb6ecaf5",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
         "id": "bab57f597464f2a1",
         "type": "ui_group",
         "name": "Parameters",
@@ -2245,7 +2214,7 @@
         "type": "ui_group",
         "name": "H",
         "tab": "025addf847a2489f",
-        "order": 4,
+        "order": 3,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -2255,7 +2224,7 @@
         "type": "ui_group",
         "name": "S",
         "tab": "025addf847a2489f",
-        "order": 5,
+        "order": 4,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -2265,7 +2234,7 @@
         "type": "ui_group",
         "name": "P",
         "tab": "025addf847a2489f",
-        "order": 6,
+        "order": 5,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -2275,7 +2244,7 @@
         "type": "ui_group",
         "name": "U",
         "tab": "025addf847a2489f",
-        "order": 7,
+        "order": 6,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -2286,7 +2255,7 @@
         "d": true,
         "name": "NU",
         "tab": "025addf847a2489f",
-        "order": 8,
+        "order": 7,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -2296,7 +2265,7 @@
         "type": "ui_group",
         "name": "T",
         "tab": "025addf847a2489f",
-        "order": 3,
+        "order": 2,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -2330,6 +2299,15 @@
         "disp": true,
         "width": "18",
         "collapse": true
+    },
+    {
+        "id": "96d825f6eb6ecaf5",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "fa-home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "025addf847a2489f",
