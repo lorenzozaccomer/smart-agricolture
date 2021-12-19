@@ -19,7 +19,6 @@
             "001f1682366563df",
             "f17c18513f74fc20"
         ],
-        "env": [],
         "x": 194,
         "y": 109,
         "w": 392,
@@ -38,7 +37,6 @@
             "8f514c14127ad023",
             "43af839a011c3a5a"
         ],
-        "env": [],
         "x": 634,
         "y": 39,
         "w": 352,
@@ -94,7 +92,6 @@
             "dced08a46622cb24",
             "379ddc275b23f306"
         ],
-        "env": [],
         "x": 674,
         "y": 339,
         "w": 302,
@@ -117,7 +114,6 @@
             "a43b1a45fccff2a2",
             "7aaae0a77b07588e"
         ],
-        "env": [],
         "x": 84,
         "y": 339,
         "w": 362,
@@ -147,13 +143,38 @@
             "595890f90e2886ac",
             "26bcfb22059cdbb5",
             "a579e48a091c574c",
-            "879dc40ece809cd3"
+            "a5333fd4e0e020f2"
         ],
-        "env": [],
         "x": 434,
         "y": 639,
         "w": 952,
         "h": 302
+    },
+    {
+        "id": "0d1a04a5d0e92611",
+        "type": "group",
+        "z": "e67e3fd839ae84ae",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "8269f6daf42b6d5a",
+            "0d4b1dd39e8c187d",
+            "cf6bdc2ee35e5e88",
+            "115a9f9966327574",
+            "456cf77c4ac3caad",
+            "f78aa4a33597e068"
+        ],
+        "x": 44,
+        "y": 999,
+        "w": 582,
+        "h": 222
     },
     {
         "id": "da349aaa47c67a9c",
@@ -161,7 +182,8 @@
         "z": "e67e3fd839ae84ae",
         "name": "device",
         "links": [
-            "821f8be17770ea09"
+            "821f8be17770ea09",
+            "e8bf1a1d5346aa44"
         ],
         "x": 155,
         "y": 180,
@@ -177,7 +199,7 @@
         "z": "e67e3fd839ae84ae",
         "g": "c7361553b64103c8",
         "name": "Get Values",
-        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\nnode.warn(msg)\n\nmsg1.topic = \"temperature\"\nmsg1.payload = msg.out.T\nmsg1.device = msg.device\n\nmsg2.topic = \"humidity\"\nmsg2.payload = msg.out.H\nmsg2.device = msg.device\n\nmsg3.topic = \"humidity soil\"\nmsg3.payload = msg.out.S\nmsg3.device = msg.device\n\nmsg4.topic = \"pressure\"\nmsg4.payload = msg.out.P\nmsg4.device = msg.device\n\nmsg5.topic = \"UV\"\nmsg5.payload = msg.out.U\nmsg5.device = msg.device\n\nnode.send([msg1, msg2, msg3, msg4, msg5, null])",
+        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\n//node.warn(msg)\n\nmsg1.topic = \"temperature\"\nmsg1.payload = msg.out.T\nmsg1.device = msg.device\n\nmsg2.topic = \"humidity\"\nmsg2.payload = msg.out.H\nmsg2.device = msg.device\n\nmsg3.topic = \"humidity soil\"\nmsg3.payload = msg.out.S\nmsg3.device = msg.device\n\nmsg4.topic = \"pressure\"\nmsg4.payload = msg.out.P\nmsg4.device = msg.device\n\nmsg5.topic = \"uv\"\nmsg5.payload = msg.out.U\nmsg5.device = msg.device\n\nnode.send([msg1, msg2, msg3, msg4, msg5, null])",
         "outputs": 6,
         "noerr": 0,
         "initialize": "",
@@ -267,8 +289,8 @@
         "name": "",
         "group": "079320e954c3aba0",
         "order": 11,
-        "width": 18,
-        "height": 5,
+        "width": "0",
+        "height": "0",
         "label": "all charts",
         "chartType": "line",
         "legend": "true",
@@ -297,7 +319,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 900,
         "y": 80,
         "wires": [
@@ -311,7 +332,8 @@
         "g": "edf9114eb9210545",
         "name": "all charts",
         "links": [
-            "43af839a011c3a5a"
+            "43af839a011c3a5a",
+            "a5333fd4e0e020f2"
         ],
         "x": 775,
         "y": 80,
@@ -553,7 +575,8 @@
         "name": "temp out",
         "mode": "link",
         "links": [
-            "8f61766d047de925"
+            "8f61766d047de925",
+            "f2b341256632ff15"
         ],
         "x": 1275,
         "y": 120,
@@ -567,7 +590,8 @@
         "name": "hum out",
         "mode": "link",
         "links": [
-            "1955c29765fcce33"
+            "1955c29765fcce33",
+            "a8e5f526d1ecc403"
         ],
         "x": 1275,
         "y": 180,
@@ -581,7 +605,8 @@
         "name": "soil out",
         "mode": "link",
         "links": [
-            "2cab0df63fc2fdfc"
+            "2cab0df63fc2fdfc",
+            "095e203ed3db362c"
         ],
         "x": 1275,
         "y": 240,
@@ -595,7 +620,8 @@
         "name": "pres out",
         "mode": "link",
         "links": [
-            "367278d24e11ef3f"
+            "367278d24e11ef3f",
+            "e913380a73d7f148"
         ],
         "x": 1275,
         "y": 300,
@@ -609,7 +635,8 @@
         "name": "uv out",
         "mode": "link",
         "links": [
-            "240f12fa1e72e39e"
+            "240f12fa1e72e39e",
+            "c963cf114b7d1cf8"
         ],
         "x": 1275,
         "y": 360,
@@ -623,7 +650,8 @@
         "name": "not used out",
         "mode": "link",
         "links": [
-            "b5ceb38da9b4aa19"
+            "b5ceb38da9b4aa19",
+            "56eb480657e258b2"
         ],
         "x": 1275,
         "y": 420,
@@ -644,7 +672,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "{{bgr}}",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -673,7 +700,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "{{bgr}}",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -692,23 +718,22 @@
         "type": "ui_button",
         "z": "e67e3fd839ae84ae",
         "g": "0545ddde2387eb2b",
-        "name": "wind",
+        "name": "not used",
         "group": "079320e954c3aba0",
         "order": 6,
-        "width": 2,
+        "width": "3",
         "height": 1,
         "passthru": false,
-        "label": "WIND",
+        "label": "<i class=\"fa fa-minus\" aria-hidden=\"true\"></i>",
         "tooltip": "",
         "color": "",
         "bgcolor": "{{bgr}}",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
-        "topic": "wind",
+        "topic": "not used",
         "topicType": "str",
-        "x": 750,
+        "x": 760,
         "y": 580,
         "wires": [
             [
@@ -731,7 +756,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "{{bgr}}",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -760,7 +784,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "{{bgr}}",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -789,7 +812,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "{{bgr}}",
-        "className": "",
         "icon": "",
         "payload": "[]",
         "payloadType": "json",
@@ -853,7 +875,7 @@
         "z": "e67e3fd839ae84ae",
         "g": "271a79470fd98237",
         "name": "create groups",
-        "func": "\nvar g_members = [\"temperature\",\"humidity\", \"pressure\", \"humidity soil\", \"uv\",\"not used\"]\n\nvar g_limits = [{lo:-10,hi:30},{lo:0,hi:100},{lo:0,hi:1000},{lo:0,hi:100},{lo:-15,hi:300},{lo:0,hi:30}]\n\nvar g = {\"gaugegroup\":{\"members\":[],\"selected\":\"temperature\"}}\n\nfor(var i=0;i<g_members.length;i++){\n    g.gaugegroup.members.push( {\"topic\":g_members[i],\"lastvalue\":0,\"min\":g_limits[i].lo,\"max\":g_limits[i].hi})\n}\n\nglobal.set(\"buttongroups\",g)\n",
+        "func": "\nvar g_members = [\"temperature\",\"humidity\", \"pressure\", \"humidity soil\", \"uv\",\"not used\"]\n\nvar g_limits = [{lo:-40,hi:85},{lo:0,hi:100},{lo:0,hi:1000},{lo:0,hi:100},{lo:0,hi:100},{lo:0,hi:30}]\n\nvar g = {\"gaugegroup\":{\"members\":[],\"selected\":\"temperature\"}}\n\nfor(var i=0;i<g_members.length;i++){\n    g.gaugegroup.members.push( {\"topic\":g_members[i],\"lastvalue\":0,\"min\":g_limits[i].lo,\"max\":g_limits[i].hi})\n}\n\nglobal.set(\"buttongroups\",g)\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -930,7 +952,7 @@
             },
             {
                 "t": "eq",
-                "v": "wind",
+                "v": "not used",
                 "vt": "str"
             }
         ],
@@ -1006,8 +1028,8 @@
         "name": "",
         "group": "079320e954c3aba0",
         "order": 9,
-        "width": 6,
-        "height": 5,
+        "width": "0",
+        "height": "0",
         "gtype": "gage",
         "title": "{{msg.topic}}",
         "label": "",
@@ -1021,7 +1043,6 @@
         ],
         "seg1": "",
         "seg2": "",
-        "className": "",
         "x": 930,
         "y": 840,
         "wires": []
@@ -1146,8 +1167,8 @@
         "name": "",
         "group": "079320e954c3aba0",
         "order": 10,
-        "width": 12,
-        "height": 5,
+        "width": "0",
+        "height": "0",
         "label": "{{msg.topic}}",
         "chartType": "line",
         "legend": "true",
@@ -1176,7 +1197,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 930,
         "y": 880,
         "wires": [
@@ -1231,14 +1251,13 @@
         "name": "",
         "group": "079320e954c3aba0",
         "order": 8,
-        "width": 0,
-        "height": 0,
+        "width": "0",
+        "height": "0",
         "passthru": false,
         "label": "clear all",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "clear_all",
         "payload": "[]",
         "payloadType": "json",
@@ -1248,7 +1267,8 @@
         "y": 860,
         "wires": [
             [
-                "879dc40ece809cd3"
+                "9cb1fda261fe658d",
+                "a5333fd4e0e020f2"
             ]
         ]
     },
@@ -1296,7 +1316,9 @@
         "name": "erase chart",
         "props": [
             {
-                "p": "payload"
+                "p": "topic",
+                "v": "[]",
+                "vt": "json"
             }
         ],
         "repeat": "",
@@ -1304,13 +1326,12 @@
         "once": true,
         "onceDelay": "0.1",
         "topic": "",
-        "payload": "[]",
-        "payloadType": "json",
         "x": 550,
         "y": 900,
         "wires": [
             [
-                "9cb1fda261fe658d"
+                "9cb1fda261fe658d",
+                "a5333fd4e0e020f2"
             ]
         ]
     },
@@ -1349,23 +1370,126 @@
         ]
     },
     {
-        "id": "879dc40ece809cd3",
-        "type": "link call",
+        "id": "a5333fd4e0e020f2",
+        "type": "link out",
         "z": "e67e3fd839ae84ae",
         "g": "fd23f5e50154cb22",
         "name": "",
+        "mode": "link",
         "links": [
             "8f514c14127ad023"
         ],
-        "timeout": "30",
-        "x": 680,
-        "y": 860,
+        "x": 675,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "8269f6daf42b6d5a",
+        "type": "function",
+        "z": "e67e3fd839ae84ae",
+        "g": "0d1a04a5d0e92611",
+        "name": "Set data",
+        "func": "var now = new Date();\nlet msg1 = {}\n/*\nDevAddr = \"AAABBB14A\";\n\nvar string = \"{firstName:'AAABBB14A', lastName:'last1'}\";\neval('var obj='+string);    \n\nmsg.payload = {\n    \"timestamp\" : now.toLocaleString(),\n    \"DevAddr\" : obj.firstName,\n    \"temperature\" : 22,\n    \"humidity\" : 14,\n    \"pressure\" : 900\n}   */\n\nout = msg.out\n\n//node.warn(msg)\n\nmsg1.payload = {\n    \"timestamp\" : now.getTime(),\n    \"temperature\" :     Object.values(out)[0],\n    \"humidity\" :        Object.values(out)[1],\n    \"pressure\" :        Object.values(out)[2],\n    \"uv\" :              Object.values(out)[3],\n    \"humidity soil\" :   Object.values(out)[4]\n}\n\nreturn msg1;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1080,
         "wires": [
             [
-                "9cb1fda261fe658d",
-                "c9ea36ac4e3296a9"
+                "0d4b1dd39e8c187d",
+                "cf6bdc2ee35e5e88"
             ]
         ]
+    },
+    {
+        "id": "0d4b1dd39e8c187d",
+        "type": "debug",
+        "z": "e67e3fd839ae84ae",
+        "g": "0d1a04a5d0e92611",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "cf6bdc2ee35e5e88",
+        "type": "csv",
+        "z": "e67e3fd839ae84ae",
+        "g": "0d1a04a5d0e92611",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,temperature,humidity,pressure,uv,humidity soil",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": false,
+        "include_null_values": false,
+        "x": 220,
+        "y": 1180,
+        "wires": [
+            [
+                "115a9f9966327574"
+            ]
+        ]
+    },
+    {
+        "id": "115a9f9966327574",
+        "type": "file",
+        "z": "e67e3fd839ae84ae",
+        "g": "0d1a04a5d0e92611",
+        "name": "",
+        "filename": "log_AAABB14A.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 410,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "456cf77c4ac3caad",
+        "type": "link in",
+        "z": "e67e3fd839ae84ae",
+        "g": "0d1a04a5d0e92611",
+        "name": "logger in",
+        "links": [
+            "e8bf1a1d5346aa44"
+        ],
+        "x": 145,
+        "y": 1080,
+        "wires": [
+            [
+                "8269f6daf42b6d5a"
+            ]
+        ]
+    },
+    {
+        "id": "f78aa4a33597e068",
+        "type": "comment",
+        "z": "e67e3fd839ae84ae",
+        "g": "0d1a04a5d0e92611",
+        "name": "Auto Logger",
+        "info": "",
+        "x": 140,
+        "y": 1040,
+        "wires": []
     },
     {
         "id": "4b609445d310e23c",
@@ -1381,38 +1505,27 @@
         "id": "079320e954c3aba0",
         "type": "ui_group",
         "name": "Device 1",
-        "tab": "5c89e2ef7b16d0d1",
-        "order": 5,
+        "tab": "e9a27aae4ed1b3ba",
+        "order": 4,
         "disp": true,
-        "width": "18",
-        "collapse": false,
-        "className": ""
+        "width": "6",
+        "collapse": false
     },
     {
         "id": "4af4fc0e01f4dba3",
         "type": "ui_group",
         "name": "Group 5",
-        "tab": "c690a554f67c86ce",
+        "tab": "",
         "order": 2,
         "disp": true,
         "width": "18",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
-        "id": "5c89e2ef7b16d0d1",
+        "id": "e9a27aae4ed1b3ba",
         "type": "ui_tab",
         "name": "Devices",
         "icon": "fa-sitemap",
-        "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "c690a554f67c86ce",
-        "type": "ui_tab",
-        "name": "Devices",
-        "icon": "device_hub",
         "order": 2,
         "disabled": false,
         "hidden": false

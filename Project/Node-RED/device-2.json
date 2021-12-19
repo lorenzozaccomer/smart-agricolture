@@ -143,7 +143,6 @@
             "86e857df81412497",
             "74011e94bf5033b6",
             "833060248a3368d0",
-            "3603ed729f83e374",
             "f09e517ea88b14a4"
         ],
         "x": 434,
@@ -152,20 +151,30 @@
         "h": 302
     },
     {
-        "id": "3603ed729f83e374",
-        "type": "link call",
+        "id": "cd5d4b1dfd7e7139",
+        "type": "group",
         "z": "4c147b1d3c22cc15",
-        "g": "ef2932a6afc3bf4a",
-        "name": "",
-        "links": [
-            "a64f705cf057d3dc"
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "66af967567977652",
+            "058c9b8f9efa27a7",
+            "628946cc681801a4",
+            "bb954497f590999a",
+            "907018a005c06ddb",
+            "39d5c9018113827e"
         ],
-        "timeout": "30",
-        "x": 680,
-        "y": 860,
-        "wires": [
-            []
-        ]
+        "x": 64,
+        "y": 999,
+        "w": 582,
+        "h": 222
     },
     {
         "id": "5f919751a2088f56",
@@ -1366,6 +1375,114 @@
         ],
         "x": 695,
         "y": 860,
+        "wires": []
+    },
+    {
+        "id": "66af967567977652",
+        "type": "function",
+        "z": "4c147b1d3c22cc15",
+        "g": "cd5d4b1dfd7e7139",
+        "name": "Set data",
+        "func": "var now = new Date();\nlet msg1 = {}\n/*\nDevAddr = \"AAABBB14A\";\n\nvar string = \"{firstName:'AAABBB14A', lastName:'last1'}\";\neval('var obj='+string);    \n\nmsg.payload = {\n    \"timestamp\" : now.toLocaleString(),\n    \"DevAddr\" : obj.firstName,\n    \"temperature\" : 22,\n    \"humidity\" : 14,\n    \"pressure\" : 900\n}   */\n\nout = msg.out\n\n//node.warn(msg)\n\nmsg1.payload = {\n    \"timestamp\" : now.getTime(),\n    \"temperature\" :     Object.values(out)[0],\n    \"humidity\" :        Object.values(out)[1],\n    \"pressure\" :        Object.values(out)[2],\n    \"uv\" :              Object.values(out)[3],\n    \"humidity soil\" :   Object.values(out)[4]\n}\n\nreturn msg1;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1080,
+        "wires": [
+            [
+                "058c9b8f9efa27a7",
+                "628946cc681801a4"
+            ]
+        ]
+    },
+    {
+        "id": "058c9b8f9efa27a7",
+        "type": "debug",
+        "z": "4c147b1d3c22cc15",
+        "g": "cd5d4b1dfd7e7139",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "628946cc681801a4",
+        "type": "csv",
+        "z": "4c147b1d3c22cc15",
+        "g": "cd5d4b1dfd7e7139",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,temperature,humidity,pressure,uv,humidity soil",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": false,
+        "include_null_values": false,
+        "x": 240,
+        "y": 1180,
+        "wires": [
+            [
+                "bb954497f590999a"
+            ]
+        ]
+    },
+    {
+        "id": "bb954497f590999a",
+        "type": "file",
+        "z": "4c147b1d3c22cc15",
+        "g": "cd5d4b1dfd7e7139",
+        "name": "",
+        "filename": "log_AAC44AC6.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 430,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "907018a005c06ddb",
+        "type": "link in",
+        "z": "4c147b1d3c22cc15",
+        "g": "cd5d4b1dfd7e7139",
+        "name": "logger in",
+        "links": [
+            "b0a1f531fac5e3ec"
+        ],
+        "x": 165,
+        "y": 1080,
+        "wires": [
+            [
+                "66af967567977652"
+            ]
+        ]
+    },
+    {
+        "id": "39d5c9018113827e",
+        "type": "comment",
+        "z": "4c147b1d3c22cc15",
+        "g": "cd5d4b1dfd7e7139",
+        "name": "Auto Logger",
+        "info": "",
+        "x": 160,
+        "y": 1040,
         "wires": []
     },
     {
