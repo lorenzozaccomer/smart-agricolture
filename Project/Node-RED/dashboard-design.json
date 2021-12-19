@@ -30,7 +30,52 @@
         "x": 74,
         "y": 119,
         "w": 392,
-        "h": 202
+        "h": 162
+    },
+    {
+        "id": "d10bd7b439c77022",
+        "type": "ui_button",
+        "z": "ca3530d997241665",
+        "g": "dbdf9d0cac349cbc",
+        "name": "Refresh",
+        "group": "0fb3e7373ddef337",
+        "order": 3,
+        "width": "1",
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "replay",
+        "payload": "{tab:\"\"}",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0fb3e7373ddef337",
+        "type": "ui_group",
+        "name": "Change Tab",
+        "tab": "96d825f6eb6ecaf5",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "96d825f6eb6ecaf5",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "fa-home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "8fc317d56bed8250",
@@ -98,32 +143,25 @@
             "0dc320ea2dd5b82e",
             "75b14f32ed51256f",
             "89f8e10fac4cf7bd",
-            "c92313d82c1ca1a2",
             "87488311311a6769",
             "79e8fe4a48445746",
             "70552dc056818430",
             "8ccb55a83cc8de10",
             "4fe10fc6db91911e",
-            "e51f7a23d47b20f4",
             "b907f9ae79a82547",
             "52c7ae3081a9be83",
             "4935833234a1b7ea",
             "49a88545a8928640",
             "c0a7d316948fb482",
-            "e4eb8ec001b58466",
-            "6e135fc556538fc3",
-            "40279128d8dfcaa0",
-            "204e171a7e87d115",
-            "c3280565dd0c0f31",
-            "05762c59f6ac8553",
-            "31354c01a00b7b94",
             "ad179b32049952a0",
-            "514cf9efa233c742"
+            "514cf9efa233c742",
+            "b3f2f76bf6c358cc",
+            "20d441bc9fceb9d2"
         ],
-        "x": 79,
+        "x": 74,
         "y": 339,
-        "w": 547,
-        "h": 602
+        "w": 517,
+        "h": 447
     },
     {
         "id": "76be4456a73e3ac6",
@@ -254,7 +292,7 @@
         "topic": "",
         "topicType": "str",
         "x": 170,
-        "y": 240,
+        "y": 200,
         "wires": [
             [
                 "4aeca1cce03a1ffa"
@@ -294,35 +332,7 @@
         "topic": "",
         "topicType": "str",
         "x": 170,
-        "y": 280,
-        "wires": [
-            [
-                "4aeca1cce03a1ffa"
-            ]
-        ]
-    },
-    {
-        "id": "d10bd7b439c77022",
-        "type": "ui_button",
-        "z": "ca3530d997241665",
-        "g": "dbdf9d0cac349cbc",
-        "name": "Refresh",
-        "group": "0fb3e7373ddef337",
-        "order": 3,
-        "width": "1",
-        "height": 1,
-        "passthru": false,
-        "label": "",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "replay",
-        "payload": "{tab:\"\"}",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 160,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "4aeca1cce03a1ffa"
@@ -1125,35 +1135,6 @@
         ]
     },
     {
-        "id": "c92313d82c1ca1a2",
-        "type": "ui_button",
-        "z": "ca3530d997241665",
-        "d": true,
-        "g": "7764fec6033407ec",
-        "name": "CPU",
-        "group": "df2855ae8d261641",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "passthru": false,
-        "label": "{{topic}}",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "{{colour}}",
-        "icon": "",
-        "payload": "press",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 550,
-        "y": 900,
-        "wires": [
-            [
-                "79e8fe4a48445746"
-            ]
-        ]
-    },
-    {
         "id": "87488311311a6769",
         "type": "inject",
         "z": "ca3530d997241665",
@@ -1166,8 +1147,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 175,
-        "y": 855,
+        "x": 170,
+        "y": 700,
         "wires": [
             [
                 "8ccb55a83cc8de10"
@@ -1183,8 +1164,8 @@
         "func": "var state = context.state || false;\nstate = !state;\ncontext.state = state;\nif (state) { return [msg,null]; }\nelse { return [null,msg]; }\n",
         "outputs": 2,
         "noerr": 0,
-        "x": 175,
-        "y": 900,
+        "x": 170,
+        "y": 745,
         "wires": [
             [
                 "8ccb55a83cc8de10"
@@ -1204,8 +1185,8 @@
         "links": [
             "75b14f32ed51256f"
         ],
-        "x": 555,
-        "y": 860,
+        "x": 550,
+        "y": 705,
         "wires": []
     },
     {
@@ -1242,12 +1223,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 860,
+        "x": 365,
+        "y": 705,
         "wires": [
             [
-                "c92313d82c1ca1a2",
-                "70552dc056818430"
+                "70552dc056818430",
+                "20d441bc9fceb9d2"
             ]
         ]
     },
@@ -1285,41 +1266,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 900,
+        "x": 365,
+        "y": 745,
         "wires": [
             [
-                "c92313d82c1ca1a2",
-                "70552dc056818430"
-            ]
-        ]
-    },
-    {
-        "id": "e51f7a23d47b20f4",
-        "type": "ui_button",
-        "z": "ca3530d997241665",
-        "d": true,
-        "g": "7764fec6033407ec",
-        "name": "RAM",
-        "group": "df2855ae8d261641",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "passthru": false,
-        "label": "{{topic}}",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "{{colour}}",
-        "icon": "",
-        "payload": "press",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 550,
-        "y": 760,
-        "wires": [
-            [
-                "52c7ae3081a9be83"
+                "70552dc056818430",
+                "20d441bc9fceb9d2"
             ]
         ]
     },
@@ -1336,8 +1288,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 175,
-        "y": 715,
+        "x": 170,
+        "y": 560,
         "wires": [
             [
                 "c0a7d316948fb482"
@@ -1353,8 +1305,8 @@
         "func": "var state = context.state || false;\nstate = !state;\ncontext.state = state;\nif (state) { return [msg,null]; }\nelse { return [null,msg]; }\n",
         "outputs": 2,
         "noerr": 0,
-        "x": 175,
-        "y": 760,
+        "x": 170,
+        "y": 605,
         "wires": [
             [
                 "c0a7d316948fb482"
@@ -1374,8 +1326,8 @@
         "links": [
             "75b14f32ed51256f"
         ],
-        "x": 555,
-        "y": 720,
+        "x": 550,
+        "y": 565,
         "wires": []
     },
     {
@@ -1412,12 +1364,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 760,
+        "x": 365,
+        "y": 605,
         "wires": [
             [
-                "e51f7a23d47b20f4",
-                "4935833234a1b7ea"
+                "4935833234a1b7ea",
+                "b3f2f76bf6c358cc"
             ]
         ]
     },
@@ -1455,195 +1407,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 720,
+        "x": 365,
+        "y": 565,
         "wires": [
             [
-                "e51f7a23d47b20f4",
-                "4935833234a1b7ea"
+                "4935833234a1b7ea",
+                "b3f2f76bf6c358cc"
             ]
         ]
-    },
-    {
-        "id": "e4eb8ec001b58466",
-        "type": "ui_button",
-        "z": "ca3530d997241665",
-        "d": true,
-        "g": "7764fec6033407ec",
-        "name": "Disk",
-        "group": "df2855ae8d261641",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "passthru": false,
-        "label": "{{topic}}",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "{{colour}}",
-        "icon": "",
-        "payload": "press",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 550,
-        "y": 620,
-        "wires": [
-            [
-                "40279128d8dfcaa0"
-            ]
-        ]
-    },
-    {
-        "id": "6e135fc556538fc3",
-        "type": "inject",
-        "z": "ca3530d997241665",
-        "g": "7764fec6033407ec",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 175,
-        "y": 575,
-        "wires": [
-            [
-                "05762c59f6ac8553"
-            ]
-        ]
-    },
-    {
-        "id": "40279128d8dfcaa0",
-        "type": "function",
-        "z": "ca3530d997241665",
-        "g": "7764fec6033407ec",
-        "name": "state",
-        "func": "var state = context.state || false;\nstate = !state;\ncontext.state = state;\nif (state) { return [msg,null]; }\nelse { return [null,msg]; }\n",
-        "outputs": 2,
-        "noerr": 0,
-        "x": 175,
-        "y": 620,
-        "wires": [
-            [
-                "05762c59f6ac8553"
-            ],
-            [
-                "c3280565dd0c0f31"
-            ]
-        ]
-    },
-    {
-        "id": "204e171a7e87d115",
-        "type": "link out",
-        "z": "ca3530d997241665",
-        "g": "7764fec6033407ec",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "75b14f32ed51256f"
-        ],
-        "x": 555,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "c3280565dd0c0f31",
-        "type": "change",
-        "z": "ca3530d997241665",
-        "g": "7764fec6033407ec",
-        "name": "hide",
-        "rules": [
-            {
-                "t": "set",
-                "p": "colour",
-                "pt": "msg",
-                "to": "red",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "<i class=\"fa fa-eye-slash\" aria-hidden=\"true\"></i> Disk",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"group\":{\"hide\":[\"RPi_Control_Disk\"]}}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 370,
-        "y": 620,
-        "wires": [
-            [
-                "e4eb8ec001b58466",
-                "204e171a7e87d115"
-            ]
-        ]
-    },
-    {
-        "id": "05762c59f6ac8553",
-        "type": "change",
-        "z": "ca3530d997241665",
-        "g": "7764fec6033407ec",
-        "name": "show",
-        "rules": [
-            {
-                "t": "set",
-                "p": "colour",
-                "pt": "msg",
-                "to": "green",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "<i class=\"fa fa-eye\" aria-hidden=\"true\"></i> Disk",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"group\":{\"show\":[\"RPi_Control_Disk\"]}}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 370,
-        "y": 580,
-        "wires": [
-            [
-                "e4eb8ec001b58466",
-                "204e171a7e87d115"
-            ]
-        ]
-    },
-    {
-        "id": "31354c01a00b7b94",
-        "type": "comment",
-        "z": "ca3530d997241665",
-        "g": "7764fec6033407ec",
-        "name": "Disk",
-        "info": "",
-        "x": 170,
-        "y": 540,
-        "wires": []
     },
     {
         "id": "ad179b32049952a0",
@@ -1652,8 +1423,8 @@
         "g": "7764fec6033407ec",
         "name": "RAM",
         "info": "",
-        "x": 170,
-        "y": 680,
+        "x": 165,
+        "y": 525,
         "wires": []
     },
     {
@@ -1663,8 +1434,8 @@
         "g": "7764fec6033407ec",
         "name": "CPU",
         "info": "",
-        "x": 170,
-        "y": 820,
+        "x": 165,
+        "y": 665,
         "wires": []
     },
     {
@@ -1675,7 +1446,7 @@
         "name": "Next",
         "group": "eb5ff592e856ea53",
         "order": 2,
-        "width": "1",
+        "width": 1,
         "height": 1,
         "passthru": false,
         "label": "",
@@ -1715,7 +1486,7 @@
         "name": "Prev",
         "group": "eb5ff592e856ea53",
         "order": 1,
-        "width": "1",
+        "width": 1,
         "height": 1,
         "passthru": false,
         "label": "",
@@ -2881,6 +2652,62 @@
         ]
     },
     {
+        "id": "b3f2f76bf6c358cc",
+        "type": "ui_button",
+        "z": "ca3530d997241665",
+        "g": "7764fec6033407ec",
+        "name": "RAM",
+        "group": "df2855ae8d261641",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "{{topic}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{colour}}",
+        "icon": "",
+        "payload": "press",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 510,
+        "y": 600,
+        "wires": [
+            [
+                "52c7ae3081a9be83"
+            ]
+        ]
+    },
+    {
+        "id": "20d441bc9fceb9d2",
+        "type": "ui_button",
+        "z": "ca3530d997241665",
+        "g": "7764fec6033407ec",
+        "name": "CPU",
+        "group": "df2855ae8d261641",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "{{topic}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{colour}}",
+        "icon": "",
+        "payload": "press",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 510,
+        "y": 740,
+        "wires": [
+            [
+                "79e8fe4a48445746"
+            ]
+        ]
+    },
+    {
         "id": "6f7c0dd888c012e6",
         "type": "ui_spacer",
         "z": "ca3530d997241665",
@@ -3481,16 +3308,6 @@
         "height": 1
     },
     {
-        "id": "0fb3e7373ddef337",
-        "type": "ui_group",
-        "name": "Change Tab",
-        "tab": "96d825f6eb6ecaf5",
-        "order": 1,
-        "disp": false,
-        "width": "6",
-        "collapse": false
-    },
-    {
         "id": "df2855ae8d261641",
         "type": "ui_group",
         "name": "Change Tab",
@@ -3541,20 +3358,11 @@
         "collapse": false
     },
     {
-        "id": "96d825f6eb6ecaf5",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "fa-home",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "c3173234.2636e",
         "type": "ui_tab",
         "name": "RPi Control",
         "icon": "fa-power-off",
-        "order": 4,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -3572,7 +3380,7 @@
         "type": "ui_tab",
         "name": "Files",
         "icon": "fa-hdd-o",
-        "order": 5,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
