@@ -32,7 +32,7 @@
         ],
         "x": 14,
         "y": 599,
-        "w": 1112,
+        "w": 1152,
         "h": 122
     },
     {
@@ -544,12 +544,15 @@
         "z": "cb035cb2681b76fc",
         "g": "bfe1e8d0023c3a3f",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
-        "x": 1010,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
         "y": 640,
         "wires": []
     },
@@ -569,8 +572,8 @@
         "y": 680,
         "wires": [
             [
-                "6fac21fc027c7062",
-                "28ca3f49ced90328"
+                "28ca3f49ced90328",
+                "6fac21fc027c7062"
             ]
         ]
     },
@@ -581,9 +584,9 @@
         "g": "bfe1e8d0023c3a3f",
         "name": "",
         "group": "160e81fb.f1c86e",
-        "order": 13,
+        "order": 15,
         "width": 6,
-        "height": "10",
+        "height": "14",
         "label": "",
         "chartType": "line",
         "legend": "false",
@@ -594,7 +597,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "",
+        "removeOlderPoints": "100",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -612,7 +615,7 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "x": 1000,
+        "x": 1070,
         "y": 680,
         "wires": [
             []
