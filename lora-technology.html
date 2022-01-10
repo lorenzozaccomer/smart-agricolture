@@ -50,34 +50,41 @@
 									<!-- Content -->
 
 										<article>
-											<header>
+											<!--<header>
 												<h2>Left Sidebar</h2>
 												<p>Sidebar on the left, content on the right.</p>
 											</header>
 
 											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+											-->
+											<p>LoRa (short for long range) is an RF modulation technology for low-power, wide area networks (LPWANs).</p>
 
-											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-											consequat etiam lorem ipsum dolor sit amet nullam.</p>
-
-											<h3>And Yet Another Subheading</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-											justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-											ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-											vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-											Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-											rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-											Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-											Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
-
-											<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-											quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-											Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-											fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-											Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-											Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+											<h3>Key features of LoRa®technology</h3>
+											<ul>
+												<li>Long range: >15 km</li>
+												<li>Low-power: 5-10 year expected battery lifetime</li>
+												<li>Low-cost: from end-node sensor cost to upfront infrastructure investment</li>
+												<li>Secure: with embedded end-to-end AES-128 encryption of data</li>
+												<li>Geolocation: enables indoor/outdoor tracking without GPS</li>
+											</ul>
+											<span class="image responsive"><img src="https://www.thethingsnetwork.org/docs/lorawan/what-is-lorawan/bandwidth-vs-range.png" alt="" /></span>
+											<p>LoRa is purely a physical (PHY), or “bits” layer implementation<br>
+												LoRa transmits over license-free sub-gigahertz radio frequency bands like 169 MHz, 433 MHz, 868 MHz (Europe) and 915 MHz (North America).<br>
+												LoRa uses a proprietary spread spectrum modulation that is similar to and a derivative of chirp spread spectrum (<a href="https://en.wikipedia.org/wiki/Chirp_spread_spectrum">CSS</a>) modulation.
+												The basic premise of spread spectrum is that each bit of information is encoded as multiple chips.The value of Spreading Factor (SF) determines how many chips used to represent a symbol.<br>
+												Bandwidth is the frequency range of the chirp signal used to carry the baseband data. Allowed values are 125, 250 and 500 kHz.<br>
+												LoRa modulation also includes a variable error correction scheme that improves the robustness of the transmitted signal at the expense of redundancy.<br>
+												We can define the nominal bit rate of the data signal as:
+											</p>
+											<span class="image responsive"><img src="images/eq_lora.png" alt="" /></span>
+											<p>Where:
+											<ul>
+												<li>SF = spreading factor (7..12)</li>
+												<li>CR = code rate (1..4)</li>
+												<li>BW = modulation bandwidth (Hz)</li>
+											</ul>
+											</p>
+											<h3>LoRaWAN</h3>
 										</article>
 
 								</div>
