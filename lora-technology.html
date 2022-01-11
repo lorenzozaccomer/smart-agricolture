@@ -67,7 +67,7 @@
 												<li>Secure: with embedded end-to-end AES-128 encryption of data</li>
 												<li>Geolocation: enables indoor/outdoor tracking without GPS</li>
 											</ul>
-											<span class="image responsive"><img src="https://www.thethingsnetwork.org/docs/lorawan/what-is-lorawan/bandwidth-vs-range.png" alt="" /></span>
+											<span class="image responsive"><img src="images/bandwidth-vs-range.png" alt="" /></span>
 											<p>LoRa is purely a physical (PHY), or “bits” layer implementation<br>
 												LoRa transmits over license-free sub-gigahertz radio frequency bands like 169 MHz, 433 MHz, 868 MHz (Europe) and 915 MHz (North America).<br>
 												LoRa uses a proprietary spread spectrum modulation that is similar to and a derivative of chirp spread spectrum (<a href="https://en.wikipedia.org/wiki/Chirp_spread_spectrum">CSS</a>) modulation.
@@ -85,6 +85,24 @@
 											</ul>
 											</p>
 											<h3>LoRaWAN</h3>
+											<p>LoRaWAN™ defines the communication protocol and system architecture for the network while the LoRa® physical layer enables the long-range communication link.<br>
+											LoRaWAN networks are deployed in a star-of-stars topology.
+											<h5>LoRaWAN Architecture:</h5>
+											<span class="image responsive"><img src="images/LoRaWANArchitectureR.png" alt="" /></span>
+											<ul>
+												<li><b>End devices</b>: A LoRaWAN end device can be a sensor, an actuator...They are often battery operated.</li>
+												<li><b>Gateways</b>: A gateway receives LoRa messages from end devices and simply forwards them to the LoRaWAN network server. Gateways are embedded with a multi-channel and multi-data rate radio-frequency device that can scan and detect packets on any of the active channels. Are often battery-powered</li>
+												<li><b>Network Server</b>:The LoRaWAN Network Server is the brain and the controller of a LoRaWAN network. It guarantees a lot of <a href="https://www.thethingsnetwork.org/docs/lorawan/architecture/#network-server">features</a></li>
+												<li><b>Application Server</b>:The Application Server takes care instead of receiving and analyzing the data sent by the nodes.It also generates all the application-layer downlink payloads and sends them to the connected end devices through the Network Server.</li>	
+											</ul>
+											</p>
+											<h5>Device Classes:</h5>
+											<p>The LoRaWAN specification defines three device types: Class A, Class B, and Class C</p>
+											<ul>
+												<li><b>Class A</b>: When an uplink is sent to the server the device opens two small windows for any commands, if the server is not able to send a downlink in the two small windows, it will have to wait until the next uplink.</li>
+												<li><b>Class B</b>: In addition to the two Class A windows, Class B has an extra downlink window, which is opened at scheduled times.</li>
+												<li><b>Class C</b>: Extend Class A by keeping the receive windows open unless they are transmitting. Are often mains powered</li>
+											</ul>
 										</article>
 
 								</div>
