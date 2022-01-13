@@ -50,14 +50,14 @@
 
 									<!-- Sidebar -->
 
-										<section>
-											<h3>Ehi!</h3>
-											<p>Do you want to better understand how our project works?
-												Watch the video!</p>
-											<footer>
-												<a href="https://www.youtube.com/watch?v=HU9c1AbpkE4" class="button">Open the video (YouTube)</a>
-											</footer>
-										</section>
+										<!-- <section> -->
+											<!-- <h3>Ehi!</h3> -->
+											<!-- <p>Do you want to better understand how our project works? -->
+												<!-- Watch the video!</p> -->
+											<!-- <footer> -->
+												<!-- <a href="https://www.youtube.com/watch?v=HU9c1AbpkE4" class="button">Open the video (YouTube)</a> -->
+											<!-- </footer> -->
+										<!-- </section> -->
 
 										<section>
 											<h3>Another links</h3>
@@ -83,33 +83,127 @@
 
 										<article>
 											<header>
-												<h2>Left Sidebar</h2>
-												<p>Sidebar on the left, content on the right.</p>
+												<h2>Node-RED Dashboard Presentation</h2>
+												<p>
+												In this part we will discuss these topics:
+													<li>Description about our Gateway and its shield to receive the data
+													<li>Node-RED Introduction
+													<li>How Smart-Agriculture Dashboard works
+												</p>
 											</header>
 
-											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+											<!-- <span class="image featured"><img src="images/banner.jpg" alt="" /></span> -->
 
-											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-											consequat etiam lorem ipsum dolor sit amet nullam.</p>
+											<p>
+												If you don't understand better some parts of this paragraph, at the end
+												there's a video that you can watch!
+											</p>
+											
+											<section id="raspberry">
+											<h3>Description about our Gateway and its shield to receive the data</h3>
+											<p>
+												If you don't understand better some parts of this paragraph, at the end
+												there's a video that you can watch!
+											</p>
+											</section>
+											
+											<!--NODE-RED Introduction-->
+											<section id="node-red-introduction">
+											<h3>Node-RED Introduction</h3>
+											<p>What’s Node-RED?<br>
+												Node-RED, based on JavaScript, is a graphical object programming platform to perform different type of projects.<br>
+												One of the major features is to programming using the nodes, 
+												link to each other to obtain the result, 
+												and every node can contain a little script or information to manipulate the input message, 
+												this feature allows to the people who are unfamiliar with coding, to create their own project very quickly.<br>
+												Another feature of NR it can be installed in different type of devices, for example on Raspberry Pi, your PC, etc.<br>
+												Also, you can secure it using a password, to do that you need to modify settings.js (hidden) file, for more details: 
+												Securing Node-RED : Node-RED (nodered.org).<br>
+												For more details about Node-RED watch on the official website Node-RED.
+											</p>
+											</section>
 
-											<h3>And Yet Another Subheading</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-											justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-											ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-											vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-											Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-											rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-											Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-											Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
-
-											<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-											quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-											Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-											fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-											Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-											Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+											<!-- How Smart-Agriculture Dashboard works -->
+											<section id="smart-agriculture-dashboard">
+											<h3>How Smart-Agriculture Dashboard works</h3>
+											<p>
+												In this part we describe the main flow with the same name of the project, 
+												where the script will launch and data’s management, so let’s start.
+											</p>
+											
+											<!-- How it works -->
+											<h4>How it works</h4>
+											<p>
+												At Start&Stop (Figure 1) nodes group you can manually start (Message Reception) or stop the script (Stop Searching New Message), 
+												or you can use the button on the Home Tab.<br>
+												The connection with the next group is done with the link highlighted in red.
+											</p>
+											<span class="image responsive"><img src="images/Node-RED Tab/immagine1.png" alt="" /></span>
+											<p style="text-align:center;">Figure 1</p>
+											
+											<p>
+												In the following group arrives the input on LoraPi Receive Script node and it launch 
+												(break) the .py script with the command previously set and return that the gateway will 
+												receives from the LoRa Nodes, as you can see in the next screens.
+											</p>
+											<span class="center">
+												<img src="images/Node-RED Tab/immagine2.png" alt="centered image" />
+											</span>
+											<p style="text-align:center;">Figure 2</p>
+											<span class="center">
+												<img src="images/Node-RED Tab/immagine3.png" alt="centered image" />
+											</span>
+											<p style="text-align:center;">Figure 3</p>
+											
+											<p>
+												About the Extrapolation group, we will focus on Extract Information from payload and DevAddr subgroups.<br>
+												A focus is on Decrypt LoraWAN, where you need to put your personal Network Secret Key and Application Secret Key.<br>
+												On the first one, we have all the conversion and manipulation part of the payload that our gateway receives.<br>
+												The Sensor data hex/string decode will return the original message with $ separator, 
+												and the last node create a dictionary with all the values, and example is at Figure 5, 
+												where the values are generated from our test board.
+											</p>
+											<span class="center">
+												<img src="images/Node-RED Tab/immagine4.png" alt="centered image" />
+											<p style="text-align:center;">Figure 4</p>
+											</span>
+											<span class="center">
+												<img src="images/Node-RED Tab/immagine5.png" alt="centered image" />
+											<p style="text-align:center;">Figure 5</p>
+											</span>
+											
+											<p>
+												At this point, we have obtained the original message, and the DevAddr (Figure 6), 
+												but is not in string format as we need, so to convert it we used the second one subgroup, 
+												and it done other secondaries activities, 
+												for example you can add additional information to better identify the board on the Dashboard.
+											</p>
+											<span class="center">
+												<img src="images/Node-RED Tab/immagine6.png" alt="centered image" />
+											<p style="text-align:center;">Figure 6</p>
+											</span>
+											
+											<p>
+												At the end of all of this, there’s the last fundamental group (Devices) 
+												that from the DevAddr identify redirect to the proper flow, as you can see in this Figure.
+											</p>
+											<span class="center">
+												<img src="images/Node-RED Tab/immagine7.png" alt="centered image" />
+											<p style="text-align:center;">Figure 7</p>
+											</span>
+											</section>
+											
+											<!-- YouTube Video -->
+											<section id="youtube">
+												<p>
+													However, do you want to better understand how our project works?
+													Watch the video!
+												</p>
+												<iframe width="auto" height="auto" 
+														src="https://www.youtube.com/embed/v=HU9c1AbpkE4?version=3&loop=1&playlist=HU9c1AbpkE4"  
+														frameborder="0" allowfullscreen>
+												</iframe>
+											</section>
 										</article>
 
 								</div>
