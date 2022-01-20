@@ -34,7 +34,7 @@
 										<li><a href="regarding-security.html">Regarding Security</a></li>
 									</ul>
 								</li>
-								<li><a href="future-development.html">Future Development</a></li>
+								<li><a href="future-development.html">Future Developments</a></li>
 								<li><a href="#footer">Contacts</a></li>
 							</ul>
 						</nav>
@@ -57,8 +57,19 @@
 
 											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 											-->
+											<header>
+												<h2>LoRa Technology</h2>
+												<p>An Open Standard to create your network.</p>
+											</header>
+											<center>
+											<span class="image responsive"><img src="images/lora-logo.jpg" alt="" /></span>
+											</center>
+											<!-- Introduction -->
+											<h3>Introduction</h3>
 											<p>LoRa (short for long range) is an RF modulation technology for low-power, wide area networks (LPWANs).</p>
 
+
+											<!-- Key features of LoRa®technology -->
 											<h3>Key features of LoRa®technology</h3>
 											<ul>
 												<li>Long range: >15 km</li>
@@ -88,10 +99,14 @@
 												<li>BW = modulation bandwidth (Hz)</li>
 											</ul>
 											</p>
+											
+											<!-- LoRaWAN -->
 											<h3>LoRaWAN</h3>
 											<p>LoRaWAN™ defines the communication protocol and system architecture for the network while the LoRa® physical layer enables the long-range communication link.<br>
-											LoRaWAN networks are deployed in a star-of-stars topology.
-											<h5>LoRaWAN Architecture:</h5>
+											LoRaWAN networks are deployed in a star-of-stars topology.</p>
+											
+											<!-- LoRaWAN Architecture -->
+											<h3>LoRaWAN Architecture</h3>
 											<center>
 											<span class="image responsive"><img src="images/LoRaWANArchitectureR.png" alt="" /></span>
 											</center>
@@ -102,14 +117,18 @@
 												<li><b>Application Server</b>: The Application Server takes care instead of receiving and analyzing the data sent by the nodes. It also generates all the application-layer downlink payloads and sends them to the connected end devices through the Network Server.</li>	
 											</ul>
 											</p>
-											<h5>Device Classes:</h5>
+											
+											<!-- Device Classes -->
+											<h3>Device Classes</h3>
 											<p>The LoRaWAN specification defines three device types: Class A, Class B, and Class C.</p>
 											<ul>
 												<li><b>Class A</b>: When an uplink is sent to the server the device opens two small windows for any commands, if the server is not able to send a downlink in the two small windows, it will have to wait until the next uplink.</li>
 												<li><b>Class B</b>: In addition to the two Class A windows, Class B has an extra downlink window, which is opened at scheduled times.</li>
 												<li><b>Class C</b>: Extend Class A by keeping the receive windows open unless they are transmitting. Are often mains powered</li>
 											</ul>
-											<h5>Security Keys:</h5>
+											
+											<!-- Security Keys -->
+											<h3>Security Keys</h3>
 											<p>LoRaWAN specifies three security keys: <b>NwkSKey</b> (Network Session Key), <b>AppSKey</b> (Application Session
 												Keys) and <b>AppKey</b> (Application Key). All keys have a length of 128 bits and 128-bit AES encryption algorithm is used, similar to the algorithm used in the 802.15.4 standard. When a device connects to the network (this is called a join or activation) an AppSKey and a NwkSKey are generated.<br>
 												The NwkSkey is shared by both the end device and the network server to generate and verify the message integrity code (MIC).<br>
@@ -121,7 +140,9 @@
 											<center>
 											<span class="image responsive"><img src="images/LoraWANpacket.png" alt="" /></span>
 											</center>
-											<h5>Activation:</h5>
+											
+											<!-- Activation -->
+											<h3>Activation</h3>
 											<p>
 											LoRaWAN defines two joining procedures for end-devices: <b>OTAA</b> and <b>ABP</b>.<br>
 											OTAA requires DevEUI, the AppEUI, and an AppKey. An end-device must follow this procedure every time it joins a new network or loses the session key information. Devices perform a join-procedure with the network, during which a dynamic DevAddr is assigned.<br>
