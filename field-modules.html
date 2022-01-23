@@ -52,32 +52,82 @@
 							<article>
 								<header>
 									<h2>Field Modules</h2>
-									<p>Sidebar on the left, content on the right.</p>
+									<p>Low Power modules for your LoRa network.</p>
 								</header>
+								
+								<!-- head image -->
+								<center>
+								<span class="image responsive"><img src="images/Modules/lora-mods1.jpg" alt="" /></span>
+								</center>
+								
+								<!-- Introduction -->
+								<h3>Introduction</h3>
+									<p>	
+									In this part we will discuss the boards that we used and the shield put on them
+									to create our network and AGGIUNGERE.<br>			
+									The topics are:
+										<li><a href="#boards">Boards</a>
+										<li><a href="#shield">Shield</a>
+										<li><a href="#ide">IDE</a>
+										<li><a href="#code">CODE</a>
+									</p>
 
-								<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+								<!-- Boards -->
+								<section id="boards">
+								<h3>Boards</h3>
+								<p>
+								We used the STM32 Nucleo-64 boards because are very flexibles and has
+								a good combination of performance and low consumption.<br>
+								In particular we used these boards:
+									<li><a href="">NUCLEO-L053RB</a>
+									<li><a href="https://www.st.com/en/evaluation-tools/nucleo-l152re.html">NUCLEO-L152RE</a>
+									<li><a href="">NUCLEO-L452RE-P</a><br>
+								</p>
+								
+								<p>
+								As you can see here from this image takes from ST site, our board are developed
+								for works in ultra low power, what it changes is only the flash memory.
+								
+								<center>
+								<span class="image responsive"><img src="images/Modules/stm32_nucleo.jpg" alt="" /></span>
+								</center>
+								</p>
 
-								<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-								Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-								Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-								consequat etiam lorem ipsum dolor sit amet nullam.</p>
-
-								<h3>And Yet Another Subheading</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-								justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-								ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-								vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-								Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-								rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-								Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-								Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
-
-								<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-								quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-								Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-								fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-								Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-								Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+								<!-- Boards -->
+								<section id="shield">
+								<h3>Shield</h3>
+								<p>
+								For the shield we used 
+								<a href="https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html">P-NUCLEO-LRWAN1</a>
+								because is compatible with our modules.
+								
+								PREGO AGGIUNGERE ULTERIORI INFO
+								</p>
+								</section>
+								
+								<!-- IDE -->
+								<section id="ide">
+								<h3>IDE</h3>
+								To run our code we preferred use Arduino IDE, because is very useful, 
+								by default this IDE is not compatible with ST Boards, so to manage our boards
+								we used stm32duino, that's a official porting by STMicroelectronics.<br>
+								On the Settings Panel of the IDE, you must copy this string:<br>
+								
+								<blockquote>https://github.com/stm32duino/BoardManagerFiles/raw/master/package_stmicroelectronics_index.json</blockquote>
+								
+								On additional URLs section.
+								
+								</section>
+								
+								<!-- Code -->
+								<section id="code">
+								<h3>Code</h3>
+								
+								<p>
+								AGGIUNGERE DESCRIZIONE CODICE CON IMMAGINI
+								</p>
+								
+								</section>
 							</article>
 						</div>
 					</div>
