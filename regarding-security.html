@@ -59,15 +59,16 @@
 									</center>
 
 									<h3>Introduction</h3>
-									<p>	In this part we will discuss the security implementation that we used for
-										our project, from user level.<br>
-										About LoRa security implementation, 
-										this part is well discuss on LoRa Technology tab.
-									</p>
-									<p>
-									In this part we will discuss these topics:
+									<p>	
+									In this part we will discuss the security implementation that we used for
+									our project, from user level.<br>
+									About LoRa security implementation, however the physical layer for secure transmission, 
+									this part is well discuss on LoRa Technology tab.
+									
+									So in this part we will discuss these topics:
 										<li><a href="#node-red-security">Node-RED Security</a>
 										<li><a href="#external-access">External Access</a>
+										<li><a href="#more-details">Here</a> to more details and materials.
 									</p>
 
 									<!-- Node-RED Security -->
@@ -77,7 +78,7 @@
 									Following the 
 									<a href="https://nodered.org/docs/user-guide/runtime/securing-node-red">Securing Node-RED</a><br>
 									you can project your Node-RED dashboard with a password, 
-									but you need to change some paramaters on settings.js file on Node-RED directory.
+									but you need to change some paramaters on settings.js file on Node-RED directory.<br>
 									To do that you need to open the Node-RED directory on your device, is the same if a Raspberry Pi
 									or your Windows notebook, in the first one, you need to show hide files.
 									</p>
@@ -95,26 +96,59 @@
 										<p style="text-align:center;">settings.js example</p>
 									</center>
 									
-									<p>Now you need to create your personal password, what you see on the previous image
+									<p>
+									Now you need to create your personal password, what you see on the previous image
 									in a hashed password.<br>
-									To hash your password open a CLI on a new window:<br></p>
+									To hash your password open a CLI on a new window:<br>
+									</p>
 									
 									<blockquote>node-red admin hash-pw</blockquote>
 									
 									<p>
 									Tap the password that you want to use and press Enter, it stamps the hashed password
-									that you can now copy on the file.
-									</p>
-
-									<p>You can create multiple users with different permission,
+									that you can now copy on the file.<br>
+									You can create multiple users with different permission,
 									for example an admin user with R/W permission and a second user
 									only with Read Permission, so the last one can't change any part
-									of the Node-RED part.</p>
+									of the Node-RED part.
+									</p>
+									</section>
 									
 									<!-- External Access -->
 									<section id="external-access">
 									<h3>External Access</h3>
-									<p>CANTIERE</p>
+									<p> 
+									You can also access from your end device (like smartphone, PC, etc ..) to
+									Node-RED Dashboard.<br>
+									To do that we install <a href="https://ngrok.com/">ngrok</a> on our RPi 3
+									and tested its service with the Free Plan, ngrok works like a VPN, 
+									it creates a encrypted tunnelling connection of the service 
+									that you like from the "gateway" (e.g. RPi3) to your end device.<br>
+									After installed it, from CLI windows if you put:
+									
+									<blockquote>ngrok http https://localhost:1880</blockquote>
+									
+									It creates two links, one in http mode for a not encrypted connection, second in https mode, 
+									if you copy this link on your browser, you can access to Node-RED.<br>
+									If you want secure your connection over https, ngrok allow to create a password to
+									establishing the connection, but this option is available only on Paid Plan.<br>
+									Another option is to choose the address to connect with your desidered service, but also
+									in this case you need the Paid Plan.
+									</p>
+									</section>
+									
+									
+									<!-- More Details -->
+									<section id="more-details">
+									<h3>More Details</h3>
+									<p>
+									You can find more details on:
+									<li><a href="https://github.com/lorenzozaccomer/smart-agriculture/blob/main/Documentation/Manuals.pdf">Manuals</a>
+										on our GitHub Repository.
+									<li><a href="https://www.youtube.com/embed/v=HU9c1AbpkE4?version=3&loop=1&playlist=HU9c1AbpkE4">YouTube</a>
+										video with an application example.
+									</p>
+									</section>
 								</article>
 
 						</div>
