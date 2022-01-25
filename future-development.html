@@ -6,8 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Future Developments</title>
-		<link rel="shortcut icon" href="images/favicon.ico">
+		<title>Future Development</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -29,13 +28,13 @@
 								<li>
 									<a href="#">Project</a>
 									<ul>
-										<li><a href="field-modules.html">Field Modules</a></li>
-										<li><a href="gateway-and-node-red-interface.html">Gateway and Node-Red Interface</a></li>
+										<li><a href="field-modules.html">Field modules</a></li>
+										<li><a href="gateway-and-node-red-interface.html">Gateway and Node-Red interface</a></li>
 										<li><a href="sensors.html">Sensors</a></li>
-										<li><a href="regarding-security.html">Regarding Security</a></li>
+										<li><a href="regarding-security.html">Regarding security</a></li>
 									</ul>
 								</li>
-								<li class="current"><a href="future-development.html">Future Developments</a></li>
+								<li class="current"><a href="future-development.html">Future Development</a></li>
 								<li><a href="#footer">Contacts</a></li>
 							</ul>
 						</nav>
@@ -54,31 +53,79 @@
 										<h2>Possible Future Developments</h2>
 										<p>that can be implemented to improve and optimize project performance.</p>
 									</header>
-									<center>
-									<span class="image responsive"><img src="images/Future Development/dev1.jpg" alt="" /></span>
-									</center>
+
+									<span class="image featured"><img src="images/Future Development/dev1.jpg" alt="" /></span>
+
 									<p>Here we will illustrate some improvements that you can implement on our prototype. 
 									These are just general examples, in the case of particular applications a strong point
 									of this project is its modularity and scalability, lending itself as a basis for any field of use.</p>
 
 									<h3>Complete Energy Autonomy</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-									justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-									ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-									vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-									Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-									rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-									Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
+									<p>An improvement not particularly difficult to implement is to achieve complete energy autonomy,
+									properly sizing a battery, a solar panel and a charge controller to be able to meet
+									the consumption of the board.<br>
+									We have already measured the consumption of the board in the laboratory, leaving it for half
+									an hour connected to the multimeter with an interval of 5 minutes of signal sending
+									(very frequent compared to normal operation), obtaining the results shown in Figure 1.</p>
 									
-									<span class="image responsive"><img src="images/consumo_board.jpg" alt="" /></span>
+									<span class="image responsive"><img src="images/Future Development/consumo_board.jpg" alt="" /></span>
+									<p style="text-align:center;">Figure 1 - Board consumption</p>
 
-									<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-									quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-									Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-									fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-									Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-									Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+									<p>After that we were able to calculate the average power consumption and make calculations
+									to size the battery and the photovoltaic cell necessary to ensure autonomous operation
+									throughout the year with the solar radiation present in Udine. We have not completely designed
+									the whole circuit, but in general we can say that with a 
+									<a href="https://www.digikey.it/it/products/detail/anysolar-ltd/KXOB25-04X3F-TR/10127241">solar cell of 22mW</a></li>
+									 and a
+									<a href="https://it.rs-online.com/web/p/batterie-a-bottone-ricaricabili/0525798?cm_mmc=IT-PPC-DS3A-_-google-_-DSA_IT_IT_Batteries_%26_Chargers_Index-_-Batterie+A+Bottone+Ricaricabili%7CProducts-_-DYNAMIC+SEARCH+ADS&matchtype=&dsa-1368494387699&gclid=CjwKCAiAh_GNBhAHEiwAjOh3ZNLULgeRrHpPBh5YwNzRlYCVR_hrXxe-CoZQ3pHgoIiUkYLMR9Lb3RoC74oQAvD_BwE&gclsrc=aw.ds">battery of 20mAh</a></li>
+									 (example images in Figure 2), we can achieve energy autonomy.</p>
+									 
+									<div class="row">
+									  <div class="col-6">
+										<center>
+										<img src="images/Future Development/solar_4.png" alt="" style="width:50%">
+										</center>
+									  </div>
+									  <div class="col-6">
+										<center>
+										<img src="images/Future Development/solar_5.png" alt="" style="width:35%">
+										</center>
+									  </div>
+									</div>
+									<p style="text-align:center;">Figure 2 - Solar cell and Battery</p>
+									
+									<div class="row">
+									  <div class="col-4">
+										<img src="images/Future Development/solar_1.png" alt="" style="width:100%">
+									  </div>
+									  <div class="col-4">
+										<img src="images/Future Development/solar_2.png" alt="" style="width:100%">
+									  </div>
+									  <div class="col-4">
+										<img src="images/Future Development/solar_3.png" alt="" style="width:100%">
+									  </div>
+									</div>
+									<p style="text-align:center;">Figure 3 - Energy autonomy graphs</p>
+									
+									<h3>Improved Case and Board</h3>
+									<p>Another step that you can do to further improve this project is to make a pcb ad hoc
+									in order to eliminate all unnecessary cables and connect the nucleo board to the various sensors,
+									besides realizing a case in which to lodge everything and that allows sensors that need to make 
+									contact with light or rain to do so, and also supports the solar cell with battery.</p>
+									
+									<div class="row">
+									  <div class="col-6">
+										<center>
+										<img src="images/Future Development/pcb.jpg" alt="" style="width:65%">
+										</center>
+									  </div>
+									  <div class="col-6">
+										<center>
+										</center>
+									  </div>
+									</div>
+									<p style="text-align:center;">Figure 4 - Pcb and Field module (da aggiungere)</p>
+									
 								</article>
 
 						</div>
