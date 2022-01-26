@@ -45,94 +45,58 @@
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
-						<div id="content">
+						<div class="row gtr-200">
+							<div class="col-4 col-12-narrower">
+								<div id="sidebar">
 
-						<!-- Content -->
-
+									<!-- left Sidebar -->
+									<section>
+											<h3>Helpful links</h3>
+											<ul class="links">
+												<li><a href="https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html">P-NUCLEO-LRWAN1</a></li>
+												<li><a href="https://www.semtech.com/products/wireless-rf/lora-core/sx1272">Semtech SX1272</a></li>
+												<li><a href="#">Semper mod quis eget mi dolore</a></li>
+												<li><a href="#">Consequat etiam lorem phasellus</a></li>
+												<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
+												<li><a href="#">Semper mod quisturpis nisi</a></li>
+											</ul>
+									</section>
+								</div>
+							</div>
+						<div class="col-8  col-12-narrower imp-narrower">
+							<div id="content">
 							<article>
-								<header>
-									<h2>Field Modules</h2>
-									<p>Low Power modules for your LoRa network.</p>
-								</header>
+									<header>
+										<h2>Field Modules</h2>
+										<p>Low Power modules for your LoRa network.</p>
+									</header>
+										<!-- head image -->
+									<center>
+										<span class="image responsive"><img src="images/Modules/lora-mods1.jpg" alt="" /></span>
+									</center>
 								
-								<!-- head image -->
-								<center>
-								<span class="image responsive"><img src="images/Modules/lora-mods1.jpg" alt="" /></span>
-								</center>
-								
-								<!-- Introduction -->
-								<h3>Introduction</h3>
-									<p>	
-									In this part we will discuss the boards that we used and the shield put on them
-									to create our network and AGGIUNGERE.<br>			
-									The topics are:
-										<li><a href="#boards">Boards</a>
-										<li><a href="#shield">Shield</a>
-										<li><a href="#ide">IDE</a>
-										<li><a href="#code">CODE</a>
-									</p>
-
-								<!-- Boards -->
-								<section id="boards">
-								<h3>Boards</h3>
-								<p>
-								We used the STM32 Nucleo-64 boards because are very flexibles and has
-								a good combination of performance and low consumption.<br>
-								In particular we used these boards:
-									<li><a href="">NUCLEO-L053RB</a>
-									<li><a href="https://www.st.com/en/evaluation-tools/nucleo-l152re.html">NUCLEO-L152RE</a>
-									<li><a href="">NUCLEO-L452RE-P</a><br>
-								</p>
-								
-								<p>
-								As you can see here from this image takes from ST site, our board are developed
-								for works in ultra low power, what it changes is only the flash memory.
-								
-								<center>
-								<span class="image responsive"><img src="images/Modules/stm32_nucleo.jpg" alt="" /></span>
-								</center>
-								</p>
-
-								<!-- Boards -->
-								<section id="shield">
-								<h3>Shield</h3>
-								<p>
-								For the shield we used 
-								<a href="https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html">P-NUCLEO-LRWAN1</a>
-								because is compatible with our modules.
-								
-								PREGO AGGIUNGERE ULTERIORI INFO
-								</p>
-								</section>
-								
-								<!-- IDE -->
-								<section id="ide">
-								<h3>IDE</h3>
-								To run our code we preferred use Arduino IDE, because is very useful, 
-								by default this IDE is not compatible with ST Boards, so to manage our boards
-								we used stm32duino, that's a official porting by STMicroelectronics.<br>
-								On the Settings Panel of the IDE, you must copy this string:<br>
-								
-								<blockquote>https://github.com/stm32duino/BoardManagerFiles/raw/master/package_stmicroelectronics_index.json</blockquote>
-								
-								On additional URLs section.
-								
-								</section>
-								
-								<!-- Code -->
-								<section id="code">
-								<h3>Code</h3>
-								
-								<p>
-								AGGIUNGERE DESCRIZIONE CODICE CON IMMAGINI
-								</p>
-								
-								</section>
+									<!-- Introduction -->
+									<h3>Hardware</h3>
+										<p>	
+											In this part we will discuss the boards that we used and the shield put on them
+											to read data from numerous sensors in the agricultural field and 
+											send the data via LoRa to our gatawey.<br>			
+										</p>
+										<p>
+										We used the STM32 Nucleo-64 boards because are very flexibles and has
+										a good combination of performance and low consumption. In particular the <a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html">STM32L0 Series.</a><br>
+										For a better development we used the P-NUCLEO-LRWAN1. This is a dev board that include a STM32 Nucleo with a STM32 L0 series MCU and a LoRa expansion board. This last board contains the SX1272 transceiver 
+										developed and produced by Semtech.<br>
+										Using Semtech’s patented LoRa modulation technique SX1272 can achieve a sensitivity of over -137dBm. It's a lot a features as: +20dBm at 100mW constant RF output vs. V supply,
+										+14dBm high efficiency PA (programmable amplifier), programmable bit rate up to 300kbps ...	<br>
+										Transiver programming is done through the SPI interface and using the DIO pins for enabling various functions.
+										</p>
 							</article>
+							</div>
+							</div>
 						</div>
 					</div>
 				</section>
-
 			<!-- Footer -->
 				<div id="footer">
 					<div class="container">
