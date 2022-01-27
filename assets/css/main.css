@@ -3367,11 +3367,11 @@ input, select, textarea {
 		width: 100%;
 		z-index: 1;
 	}
-	
+	/*
 	.service-stick-mode{
 		margin-top:80px;
 	}
-	
+	*/
 	h1 {
 		font-size: 1.6em;
 		letter-spacing: -0.025em;
