@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Field  Modules</title>
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+						<h1>Smart Agriculture <em>a sensors network with LoRa</em></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="lora-technology.html">LoRa Technology</a></li>
+								<li class="current">
+									<a href="#">Project</a>
+									<ul>
+										<li><a href="field-modules.html">Field modules</a></li>
+										<li><a href="gateway-and-node-red-interface.html">Gateway and Node-Red Interface</a></li>
+										<li><a href="sensors.html">Sensors</a></li>
+										<li><a href="regarding-security.html">Regarding Security</a></li>
+									</ul>
+								</li>
+								<li><a href="future-development.html">Future Developments</a></li>
+								<li><a href="#footer">Contacts</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div class="row gtr-200">
+							<div class="col-4 col-12-narrower">
+								<div id="sidebar">
+
+									<!-- left Sidebar -->
+									<section>
+											<h3>Helpful links</h3>
+											<ul class="links">
+												<li><a href="https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html">P-NUCLEO-LRWAN1</a></li>
+												<li><a href="https://www.semtech.com/products/wireless-rf/lora-core/sx1272">Semtech SX1272</a></li>
+												<li><a href="https://github.com/stm32duino/Arduino_Core_STM32">STM32duino</a></li>
+												<li><a href="https://github.com/stm32duino/STM32LowPower">STM32LowPower</a></li>
+												<li><a href="https://github.com/jgromes/RadioLib">RadioLib</a></li>
+												<li><a href="https://github.com/ricaun/LoRaWanPacket">LoRaWanPacket</a></li>
+											</ul>
+									</section>
+								</div>
+							</div>
+						<div class="col-8  col-12-narrower imp-narrower">
+							<div id="content">
+							<article>
+									<header>
+										<h2>Field Modules</h2>
+										<p>Low Power modules for your LoRa network.</p>
+									</header>
+										<!-- head image -->
+									<center>
+										<span class="image responsive"><img src="images/Modules/lora-mods1.jpg" alt="" /></span>
+									</center>
+								
+									<!-- Introduction -->
+									<h3>Hardware</h3>
+										<p>	
+											In this part we will discuss the boards that we used and the shield put on them
+											to read data from numerous sensors in the agricultural field and 
+											send the data via LoRa to our gatawey.<br>			
+										</p>
+										<p>
+										We used the <b>STM32 Nucleo-64</b> boards because are very flexibles and has
+										a good combination of performance and low consumption. In particular the <a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html">STM32L0 Series.</a><br>
+										For a better development we used the P-NUCLEO-LRWAN1. This is a dev board that include a STM32 Nucleo with a STM32 L0 series MCU and a LoRa expansion board. This last board contains the <b>SX1272</b> transceiver 
+										developed and produced by Semtech.<br>
+										Using Semtech’s patented LoRa modulation technique SX1272 can achieve a sensitivity of over -137dBm. It's a lot a features as: +20dBm at 100mW constant RF output vs. V supply,
+										+14dBm high efficiency PA (programmable amplifier), programmable bit rate up to 300kbps ...	<br>
+										Transiver programming is done through the SPI interface and using the DIO pins for enabling various functions.
+										</p>
+									<h3>Software</h3>
+										<p>
+										For the programming the STM32 MCU a first choice is to use the STM32Cube, which is STMicroelectronics’s original initiative to ease and accelerate the development cycle of embedded products. STM32Cube covers the STM32 portfolio of microcontrollers, it also include the he STM32Cube Hardware Abstraction Layer (HAL), an STM32 abstraction layer embedded software ensuring maximized portability across the STM32 microcontroller. The HAL is available for all the hardware peripherals.<br>
+										Since that using HAL is not the most comfortable thing, especially if at an early stage of the project we used the STM32duino, a STM32 core support for Arduino.<br>
+										In the STM32duino there is the STM32LowPower, an Arduino Low Power library for STM32. This allows us to use the low power features available from the microcontroller. 
+										</p>
+										<p>
+										For the activation and configuration of the radio module we used the <b>RadioLib</b>, "Universal wireless communication library for Arduino". This library supports a lot of Wireless Modules and Protocols, in particular the SX127x series LoRa module.
+										This library makes it easy to set up and use the radio module. Using arduino ide you can use all the libraries that support arduino.<br>
+										As you can see in the repository at the bottom of the page, we have imported the library:<br>
+										<ul>
+										<li>#include &lt;RadioLib.h&gt; </li>
+										</ul> 
+										</p>
+										<p>Provide the pin setup to the library:
+										<li>SX1272 radio = new Module(10, 2, 19, 3);</li>
+										</p>
+										<p>LoRa modem initialization method:
+										<li>int state = radio.begin(869.8, 125.0, 12);</li>
+										</p>
+										<p>
+										We have discovered, through the <a href="https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HUTS/VNtCWQnPmzxR6sEW4qO2bgJfpEDX3lnEz8Ow7Gy50hg">datasheet</a> of the dev bard of the radio module, that the pin PA_BOOST is not connected but is use RFO pin, for this, through the function available from the Radiolib library, setOutputPower() we have set the transmission output power, which is a function of the pin used in this way:<br>
+										<ul>
+										<li>radio.setOutputPower(14, true);</li>
+										</ul>
+										</p>
+										<p>To send the packets through an encryption layer we have chosen to decode them according to the LoRaWAN standard, this is easy using the <b>LoRaWanPacket</b> library.<br>
+										By setting a devAddr, nwkSKey and appSKey it is possible to send packets over the LoRaWAN standard. For a verification of the packets you can de-encode them via this <a href="https://lorawan-packet-decoder-0ta6puiniaut.runkit.sh/">website</a>.
+
+										</p>
+							</article>
+							</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<h2>Links to Stuff</h2>
+								<ul class="links">
+									<li><a href="https://www.uniud.it/it">University of Udine</a></li>
+									<li><a href="http://www.diegm.uniud.it/bernardini/Laboratorio_Didattico/">Didactic Laboratory of Information Engineering</a></li>
+									<li><a href="https://lora-alliance.org/">LoRa alliance</a></li>
+									<li><a href="https://www.st.com/content/st_com/en.html">ST site</a></li>
+								</ul>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<h2>Contacts</h2>
+								<a href="#" class="icon brands fa-github"> GitHub Repository<span class="label">GitHub</span></a>
+								<br>
+								<br>
+								<h4>Email</h4>
+									<a href="mailto:zaccomer.lorenzo@spes.uniud.it" class="fas fa-at"> zaccomer.lorenzo@spes.uniud.it</a> <br/>
+									<a href="mailto:shyti.klaid@spes.uniud.it" class="fas fa-at"> shyti.klaid@spes.uniud.it</a> <br/>
+									<a href="mailto:dibetta.ivan@spes.uniud.it" class="fas fa-at"> dibetta.ivan@spes.uniud.it</a>
+							</section>
+						</div>
+					</div>
+
+					<!-- Icons -->
+
+					<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; 2021 University of Udine<br>Polytechnic Department of Engineering and Architechture<br>Didactic Laboratory of Information Engineering</li>
+								<li>&nbsp <br>Design: <a href="http://html5up.net">HTML5 UP</a><br> &nbsp</li>
+							</ul>
+						</div>
+
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+			// When the user scrolls the page, execute myFunction
+			window.onscroll = function() {myFunction()};
+
+			// Get the navbar
+			var navbar = document.getElementById("nav");
+			
+			var serviceWrapper = document.getElementById("page-wrapper")
+
+			// Get the offset position of the navbar
+			var sticky = navbar.offsetTop;
+
+			// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+			function myFunction() {
+			  if (window.pageYOffset >= sticky) {
+				navbar.classList.add("sticky");
+				serviceWrapper.classList.add("service-stick-mode");
+			  } else {
+				navbar.classList.remove("sticky");
+				serviceWrapper.classList.remove("service-stick-mode");
+			  }
+			}
+			</script>
+
+	</body>
+</html>
