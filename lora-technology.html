@@ -84,7 +84,7 @@
 											</center>
 											<p>LoRa is purely a physical (PHY), or “bits” layer implementation.<br>
 												LoRa transmits over license-free sub-gigahertz radio frequency bands like 169 MHz, 433 MHz, 868 MHz (Europe) and 915 MHz (North America).<br>
-												LoRa uses a proprietary spread spectrum modulation that is similar to a derivative of chirp spread spectrum (<a href="https://en.wikipedia.org/wiki/Chirp_spread_spectrum">CSS</a>) modulation. 
+												LoRa uses a proprietary spread spectrum modulation that's like to a derivative of chirp spread spectrum (<a href="https://en.wikipedia.org/wiki/Chirp_spread_spectrum">CSS</a>) modulation. 
 												The basic premise of spread spectrum is that each bit of information is encoded as multiple chips. The value of Spreading Factor (SF) determines how many chips used to represent a symbol.<br>
 												Bandwidth is the frequency range of the chirp signal used to carry the baseband data. Allowed values are 125, 250 and 500 kHz.<br>
 												LoRa modulation also includes a variable error correction scheme that improves the robustness of the transmitted signal at the expense of redundancy.<br>
@@ -130,13 +130,18 @@
 											
 											<!-- Security Keys -->
 											<h3>Security Keys</h3>
-											<p>LoRaWAN specifies three security keys: <b>NwkSKey</b> (Network Session Key), <b>AppSKey</b> (Application Session
-												Keys) and <b>AppKey</b> (Application Key). All keys have a length of 128 bits and 128-bit AES encryption algorithm is used, similar to the algorithm used in the 802.15.4 standard. When a device connects to the network (this is called a join or activation) an AppSKey and a NwkSKey are generated.<br>
-												The NwkSkey is shared by both the end device and the network server to generate and verify the message integrity code (MIC).<br>
-												The AppSKey is used for encryption and decryption of the payload.<br>
-												The AppKey is only known by the device and by the application.<br>
-												LoRaWAN specifies a number of identifiers for devices.
-												All end-devices have a 64-bit unique identifier called <b>DevEUI</b> (Device Identifier). In addition, all communication is done using 32 bit device address (<b>DevAddr</b>). <b>AppEUI</b> (Application Identifier) is another identifier which uniquely identifies the application provider of the end-device.
+											<p>LoRaWAN specifies three security keys: 
+											<b>NwkSKey</b> (Network Session Key), 
+											<b>AppSKey</b> (Application Session Keys) and <b>AppKey</b> (Application Key). 
+											All keys have a length of 128 bits and 128-bit AES encryption algorithm is used, 
+											similar to the algorithm used in the 802.15.4 standard. 
+											When a device connects to the network (this is called a join or activation) an AppSKey and a NwkSKey are generated.<br>
+											The NwkSkey is shared by both the end device and the network server to generate and verify the message integrity code (MIC).<br>
+											The AppSKey is used for encryption and decryption of the payload, is only known by the device and by the application.<br>
+											LoRaWAN specifies a number of identifiers for devices.
+											All end-devices have a 64-bit unique identifier called <b>DevEUI</b> (Device Identifier). 
+											In addition, all communication is done using 32-bit device address (<b>DevAddr</b>). 
+											<b>AppEUI</b> (Application Identifier) is another identifier which uniquely identifies the application provider of the end-device.
 											</p>
 											<center>
 											<span class="image responsive"><img src="images/LoraWANpacket.png" alt="" /></span>
