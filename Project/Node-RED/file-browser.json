@@ -28,12 +28,19 @@
             "28ca3f49ced90328",
             "a59365d30703d79c",
             "6fac21fc027c7062",
-            "9f1e33634a44e94d"
+            "9f1e33634a44e94d",
+            "db35fd7840331fe0",
+            "ed214ebb5ac685f6",
+            "a78ec0c1ad71c210",
+            "4e43945a8e9be1f3",
+            "9bef063762f0e901",
+            "d935354946ea92ef",
+            "d1f77a446921f535"
         ],
         "x": 14,
         "y": 599,
-        "w": 1152,
-        "h": 122
+        "w": 1192,
+        "h": 382
     },
     {
         "id": "8fed48c2efd2e77f",
@@ -80,11 +87,13 @@
             "cfec32a416d86f48",
             "16469284c00f523d",
             "390b4620f6c9cb20",
-            "35170259ffd74208"
+            "35170259ffd74208",
+            "13b097bbd35fab98",
+            "1b356dbf86bff0fc"
         ],
         "x": 14,
         "y": 39,
-        "w": 1212,
+        "w": 1292,
         "h": 542
     },
     {
@@ -176,15 +185,16 @@
         "type": "ui_dropdown",
         "z": "cb035cb2681b76fc",
         "g": "8fed48c2efd2e77f",
-        "name": "File Selector",
+        "name": "File Selector for graph",
         "label": "",
         "tooltip": "",
         "place": "Select a file",
-        "group": "160e81fb.f1c86e",
-        "order": 10,
+        "group": "1ee8684c3daf831f",
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
+        "multiple": false,
         "options": [
             {
                 "label": "",
@@ -194,7 +204,8 @@
         ],
         "payload": "",
         "topic": "",
-        "x": 910,
+        "topicType": "str",
+        "x": 940,
         "y": 180,
         "wires": [
             [
@@ -215,7 +226,8 @@
         "y": 180,
         "wires": [
             [
-                "f295b2a6c22318bf"
+                "f295b2a6c22318bf",
+                "13b097bbd35fab98"
             ]
         ]
     },
@@ -226,7 +238,7 @@
         "g": "8fed48c2efd2e77f",
         "group": "160e81fb.f1c86e",
         "name": "",
-        "order": 8,
+        "order": 10,
         "width": 0,
         "height": 0,
         "format": "<div ng-bind-html=\"msg.payload\" height=\"400\" style=\"height: 400px;\"><br/>\n</div>\n\n",
@@ -284,7 +296,7 @@
         "g": "8fed48c2efd2e77f",
         "name": "",
         "group": "160e81fb.f1c86e",
-        "order": 7,
+        "order": 9,
         "width": 2,
         "height": 1,
         "passthru": false,
@@ -458,11 +470,11 @@
         "type": "ui_button",
         "z": "cb035cb2681b76fc",
         "g": "bfe1e8d0023c3a3f",
-        "name": "",
-        "group": "160e81fb.f1c86e",
-        "order": 11,
-        "width": 2,
-        "height": 1,
+        "name": "botton graph",
+        "group": "1ee8684c3daf831f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
         "passthru": false,
         "label": "Graph",
         "tooltip": "",
@@ -472,7 +484,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 90,
+        "topicType": "str",
+        "x": 110,
         "y": 680,
         "wires": [
             [
@@ -543,8 +556,8 @@
         "type": "debug",
         "z": "cb035cb2681b76fc",
         "g": "bfe1e8d0023c3a3f",
-        "name": "",
-        "active": true,
+        "name": "all payload",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -552,7 +565,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
+        "x": 1090,
         "y": 640,
         "wires": []
     },
@@ -562,7 +575,7 @@
         "z": "cb035cb2681b76fc",
         "g": "bfe1e8d0023c3a3f",
         "name": "Format data for chart",
-        "func": "var chart = [{\n    \"series\":[],\n    \"data\":[],\n    \"labels\":[msg.filename]\n}];\n\n\n/*\nvar pressure = [];\nvar out2 = [];\n\nfor (var i=0; i<msg.payload.length; i++) {\n    pressure.push({\"x\":msg.payload[i].timestamp, \"y\":msg.payload[i].pressure});\n    out2.push({\"x\":msg.payload[i].timestamp, \"y\":msg.payload[i].out2*200});\n\n}\nchart[0].data.push(pressure);\nchart[0].data.push(out2);\n*/\n\nlet columns = 0;\n\nfor(var series in msg.payload[0]) {\n    if(series!==\"timestamp\") {\n        chart[0].series.push(series);\n        chart[0].data.push([]);\n        columns++;\n    }\n}\n\nfor (var j=0; j<msg.payload.length; j++) {\n   for(var i=0;i<columns;i++) {\n       if(Number.isInteger(msg.payload[j][chart[0].series[i]]))\n        chart[0].data[i].push({\"x\":msg.payload[j].timestamp, \"y\":msg.payload[j][chart[0].series[i]]});\n   } \n}\n\nmsg.payload = chart;\n\nreturn msg;",
+        "func": "var chart = [{\n    \"series\":[],\n    \"data\":[],\n    \"labels\":[msg.filename]\n}];\n\nlet columns = 0;\n\nfor(var series in msg.payload[0]) {\n    if(series!==\"timestamp\") {\n        chart[0].series.push(series);\n        chart[0].data.push([]);\n        columns++;\n    }\n}\n\nfor (var j=0; j<msg.payload.length; j++) {\n   for(var i=0;i<columns;i++) \n   {\n       value = msg.payload[j][chart[0].series[i]]\n       timestamp = msg.payload[j].timestamp\n       // integer\n        if(typeof(value) =='number')\n            chart[0].data[i].push({\"x\":timestamp, \"y\":value});\n\n   } \n}\n\nmsg.payload = chart;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -573,7 +586,9 @@
         "wires": [
             [
                 "28ca3f49ced90328",
-                "6fac21fc027c7062"
+                "6fac21fc027c7062",
+                "db35fd7840331fe0",
+                "ed214ebb5ac685f6"
             ]
         ]
     },
@@ -582,14 +597,14 @@
         "type": "ui_chart",
         "z": "cb035cb2681b76fc",
         "g": "bfe1e8d0023c3a3f",
-        "name": "",
-        "group": "160e81fb.f1c86e",
-        "order": 15,
-        "width": 6,
-        "height": "14",
-        "label": "",
+        "name": "chart all series",
+        "group": "1ee8684c3daf831f",
+        "order": 3,
+        "width": "6",
+        "height": "12",
+        "label": "{{msg.payload[0].labels[0]}}",
         "chartType": "line",
-        "legend": "false",
+        "legend": "true",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
@@ -597,7 +612,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "100",
+        "removeOlderPoints": "50",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -615,7 +630,7 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "x": 1070,
+        "x": 1100,
         "y": 680,
         "wires": [
             []
@@ -734,7 +749,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Folder:",
+        "label": "Path",
         "format": "{{msg.payload.start}}",
         "layout": "row-left",
         "x": 500,
@@ -775,7 +790,7 @@
         "g": "8fed48c2efd2e77f",
         "name": "",
         "group": "160e81fb.f1c86e",
-        "order": 6,
+        "order": 8,
         "width": 2,
         "height": 1,
         "passthru": false,
@@ -871,12 +886,13 @@
         "name": "Folder Selector",
         "label": "",
         "tooltip": "",
-        "place": "Select a folder",
+        "place": "Select a desired folder",
         "group": "160e81fb.f1c86e",
-        "order": 9,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
+        "multiple": false,
         "options": [
             {
                 "label": "",
@@ -886,6 +902,7 @@
         ],
         "payload": "",
         "topic": "",
+        "topicType": "str",
         "x": 920,
         "y": 280,
         "wires": [
@@ -931,7 +948,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1120,
+        "x": 1200,
         "y": 180,
         "wires": [
             []
@@ -972,7 +989,7 @@
         "label": "Hidden",
         "tooltip": "Show hidden files or not",
         "group": "160e81fb.f1c86e",
-        "order": 5,
+        "order": 7,
         "width": 2,
         "height": 1,
         "passthru": false,
@@ -1007,14 +1024,333 @@
         "wires": []
     },
     {
-        "id": "e52d8ab384c001d6",
-        "type": "ui_spacer",
+        "id": "13b097bbd35fab98",
+        "type": "ui_dropdown",
         "z": "cb035cb2681b76fc",
-        "name": "spacer",
+        "g": "8fed48c2efd2e77f",
+        "name": "File Selector",
+        "label": "",
+        "tooltip": "",
+        "place": "Select a file",
         "group": "160e81fb.f1c86e",
-        "order": 12,
-        "width": 4,
-        "height": 1
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "x": 910,
+        "y": 140,
+        "wires": [
+            [
+                "1b356dbf86bff0fc"
+            ]
+        ]
+    },
+    {
+        "id": "1b356dbf86bff0fc",
+        "type": "change",
+        "z": "cb035cb2681b76fc",
+        "g": "8fed48c2efd2e77f",
+        "name": "Save selection",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fileselected",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1200,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "db35fd7840331fe0",
+        "type": "debug",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "labels",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload[0].labels[0]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "ed214ebb5ac685f6",
+        "type": "function",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "multiple chart from file",
+        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\n//series = msg.payload[0].series\n//node.warn(series.length)\n\nvar chart_series1 = [{\n    \"series\":   [msg.payload[0].series[0]],\n    \"data\":     [msg.payload[0].data[0]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series2 = [{\n    \"series\":   [msg.payload[0].series[1]],\n    \"data\":     [msg.payload[0].data[1]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series3 = [{\n    \"series\":   [msg.payload[0].series[2]],\n    \"data\":     [msg.payload[0].data[2]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series4 = [{\n    \"series\":   [msg.payload[0].series[3]],\n    \"data\":     [msg.payload[0].data[3]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series5 = [{\n    \"series\":   [msg.payload[0].series[4]],\n    \"data\":     [msg.payload[0].data[4]],\n    \"labels\":   [msg.filename]\n}];\n\n//node.warn(\"chart post for\")\n//node.warn(chart)\n\nmsg1.topic =    msg.payload[0].series[0]\nmsg1.payload =  chart_series1\n\nmsg2.topic =    msg.payload[0].series[1]\nmsg2.payload = chart_series2\n\nmsg3.topic =    msg.payload[0].series[2]\nmsg3.payload = chart_series3\n\nmsg4.topic =    msg.payload[0].series[3]\nmsg4.payload = chart_series4\n\nmsg5.topic =    msg.payload[0].series[4]\nmsg5.payload = chart_series5\n\nnode.send([msg1, msg2, msg3, msg4, msg5])",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 800,
+        "wires": [
+            [
+                "a78ec0c1ad71c210"
+            ],
+            [
+                "4e43945a8e9be1f3"
+            ],
+            [
+                "9bef063762f0e901"
+            ],
+            [
+                "d935354946ea92ef"
+            ],
+            [
+                "d1f77a446921f535"
+            ]
+        ]
+    },
+    {
+        "id": "a78ec0c1ad71c210",
+        "type": "ui_chart",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "series 1",
+        "group": "1ee8684c3daf831f",
+        "order": 4,
+        "width": "6",
+        "height": "12",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff830f",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1120,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4e43945a8e9be1f3",
+        "type": "ui_chart",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "series 2",
+        "group": "1ee8684c3daf831f",
+        "order": 5,
+        "width": "6",
+        "height": "12",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1120,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9bef063762f0e901",
+        "type": "ui_chart",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "series 3",
+        "group": "1ee8684c3daf831f",
+        "order": 6,
+        "width": "6",
+        "height": "12",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1120,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d935354946ea92ef",
+        "type": "ui_chart",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "series 4",
+        "group": "1ee8684c3daf831f",
+        "order": 7,
+        "width": "6",
+        "height": "12",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1120,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1f77a446921f535",
+        "type": "ui_chart",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "series 5",
+        "group": "1ee8684c3daf831f",
+        "order": 8,
+        "width": "6",
+        "height": "12",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1120,
+        "y": 940,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "160e81fb.f1c86e",
@@ -1024,7 +1360,17 @@
         "order": 2,
         "disp": true,
         "width": "6",
-        "collapse": false
+        "collapse": true
+    },
+    {
+        "id": "1ee8684c3daf831f",
+        "type": "ui_group",
+        "name": "Graph",
+        "tab": "b63d1f91.68095",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": true
     },
     {
         "id": "b63d1f91.68095",
