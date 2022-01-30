@@ -11,12 +11,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-        <style type="text/css">
-            .justify {
-                text-align: justify;
-                text-justify: inter-word;
-            }
-        </style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -70,7 +64,7 @@
 								</div>
 							</div>
 						<div class="col-8  col-12-narrower imp-narrower">
-							<div id="content" class="justify">
+							<div id="content">
 							<article>
 									<header>
 										<h2>Field Modules</h2>
@@ -86,70 +80,56 @@
 										<p>	
 											In this part we will discuss the boards that we used and the shield put on them
 											to read data from numerous sensors in the agricultural field and 
-											send the data via LoRa to our gateway.<br>			
+											send the data via LoRa to our gatawey.<br>			
 										</p>
 										<p>
 										We used the <b>STM32 Nucleo-64</b> boards because are very flexibles and has
-										a good combination of performance and low consumption, in particular the 
-										<a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html">STM32L0 Series.</a><br>
-										For a better development we used the P-NUCLEO-LRWAN1, 
-										it’s a dev board that include a STM32 Nucleo with a STM32 L0 series MCU and a LoRa expansion board, 
-										the last one contains the <b>SX1272</b> transceiver developed and produced by Semtech.<br>
-										Using Semtech’s patented LoRa modulation technique SX1272 can achieve a sensitivity of over -137dBm. <br>
-										It's a lot a features as: +20dBm at 100mW constant RF output vs. V supply,
+										a good combination of performance and low consumption. In particular the <a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html">STM32L0 Series.</a><br>
+										For a better development we used the P-NUCLEO-LRWAN1. This is a dev board that include a STM32 Nucleo with a STM32 L0 series MCU and a LoRa expansion board. This last board contains the <b>SX1272</b> transceiver 
+										developed and produced by Semtech.<br>
+										Using Semtech’s patented LoRa modulation technique SX1272 can achieve a sensitivity of over -137dBm. It's a lot a features as: +20dBm at 100mW constant RF output vs. V supply,
 										+14dBm high efficiency PA (programmable amplifier), programmable bit rate up to 300kbps ...	<br>
-										Transceiver programming is done through the SPI interface and using the DIO pins for enabling 
-										various functions.
+										Transiver programming is done through the SPI interface and using the DIO pins for enabling various functions.
 										</p>
 									<h3>Software</h3>
 										<p>
-										For the programming the STM32 MCU a first choice is to use the STM32Cube, 
-										which is STMicroelectronics’s original initiative to ease and accelerate the development cycle 
-										of embedded products. <br>
-										STM32Cube covers the STM32 portfolio of microcontrollers, 
-										it also includes the STM32Cube Hardware Abstraction Layer (HAL), 
-										an STM32 abstraction layer embedded software ensuring maximized portability across the 
-										STM32 microcontroller. <br>
-										The HAL is available for all the hardware peripherals.<br>
-										Since that using HAL is not the most comfortable thing, especially if at an 
-										early stage of the project we used the STM32duino, a STM32 core support for Arduino.<br>
-										In the STM32duino there is the STM32LowPower, an Arduino Low Power library for STM32, 
-										this allows us to use the low power features available from the microcontroller. 
+										For the programming the STM32 MCU a first choice is to use the STM32Cube, which is STMicroelectronics’s original initiative to ease and accelerate the development cycle of embedded products. STM32Cube covers the STM32 portfolio of microcontrollers, it also include the he STM32Cube Hardware Abstraction Layer (HAL), an STM32 abstraction layer embedded software ensuring maximized portability across the STM32 microcontroller. The HAL is available for all the hardware peripherals.<br>
+										Since that using HAL is not the most comfortable thing, especially if at an early stage of the project we used the STM32duino, a STM32 core support for Arduino.<br>
+										In the STM32duino there is the STM32LowPower, an Arduino Low Power library for STM32. This allows us to use the low power features available from the microcontroller. 
 										</p>
 										<p>
-										For the activation and configuration of the radio module we used the <b>RadioLib</b>, 
-										"Universal wireless communication library for Arduino".<br>
-										This library supports a lot of Wireless Modules and Protocols, 
-										in particular the SX127x series LoRa module,
-										that makes it easy to set up and use the radio module. 
-										Using Arduino IDE you can use all the libraries that support Arduino.<br>
+										For the activation and configuration of the radio module we used the <b>RadioLib</b>, "Universal wireless communication library for Arduino". This library supports a lot of Wireless Modules and Protocols, in particular the SX127x series LoRa module.
+										This library makes it easy to set up and use the radio module. Using arduino ide you can use all the libraries that support arduino.<br>
 										As you can see in the repository at the bottom of the page, we have imported the library:<br>
 										<ul>
-										<blockquote>#include &lt;RadioLib.h&gt; </blockquote>
+										<li>#include &lt;RadioLib.h&gt; </li>
 										</ul> 
 										</p>
 										<p>Provide the pin setup to the library:
-										<blockquote>SX1272 radio = new Module(10, 2, 19, 3);</blockquote>
+										<li>SX1272 radio = new Module(10, 2, 19, 3);</li>
 										</p>
 										<p>LoRa modem initialization method:
-										<blockquote>int state = radio.begin(869.8, 125.0, 12);</blockquote>
+										<li>int state = radio.begin(869.8, 125.0, 12);</li>
 										</p>
 										<p>
-										We have discovered, through the 
-										<a href="https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HUTS/VNtCWQnPmzxR6sEW4qO2bgJfpEDX3lnEz8Ow7Gy50hg">datasheet</a> 
-										of the dev bard of the radio module, that the pin PA_BOOST is not connected but is use RFO pin, for this, 
-										through the function available from the Radiolib library, setOutputPower() we have set the transmission output power, 
-										which is a function of the pin used in this way:<br>
+										We have discovered, through the <a href="https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HUTS/VNtCWQnPmzxR6sEW4qO2bgJfpEDX3lnEz8Ow7Gy50hg">datasheet</a> of the dev bard of the radio module, that the pin PA_BOOST is not connected but is use RFO pin, for this, through the function available from the Radiolib library, setOutputPower() we have set the transmission output power, which is a function of the pin used in this way:<br>
 										<ul>
-										<blockquote>radio.setOutputPower(14, true);</blockquote>
+										<li>radio.setOutputPower(14, true);</li>
 										</ul>
 										</p>
+										<p>To send the packets through an encryption layer we have chosen to decode them according to the LoRaWAN standard, this is easy using the <b>LoRaWanPacket</b> library.<br>
+										By setting a devAddr, nwkSKey and appSKey it is possible to send packets over the LoRaWAN standard. For a verification of the packets you can de-encode them via this <a href="https://lorawan-packet-decoder-0ta6puiniaut.runkit.sh/">website</a>.
+										</p>
 										<p>
-										To send the packets through an encryption layer we have chosen 
-										to decode them according to the LoRaWAN standard, this is easy using the <b>LoRaWanPacket</b> library.<br>
-										By setting a devAddr, nwkSKey and appSKey it is possible to send packets over the LoRaWAN standard. 
-										For a verification of the packets, you can de-encode them via this 
-										<a href="https://lorawan-packet-decoder-0ta6puiniaut.runkit.sh/">website</a>.
+										To use the lowpower features provided by the chosen dev board we used the <b>STM32LowPower</b> library, an Arduino library to support low power save primitives features of STM32 based boards.<br>
+										With this we can set four hardware states:
+										<ul>
+											<li><b>Idle</b>: Memories and voltage supplies are retained. Minimal power saving mainly on the core itself.</li>
+											<li><b>Sleep</b>: Minimal power saving mainly on the core itself but higher than idle mode.</li>
+											<li><b>Deep sleep</b>: That used, Clocks are gated to reduced. Memories and voltage supplies are retained.</li>
+											<li><b>Shutdown </b>: Voltage supplies are cut except always-on domain, memory content are lost and system basically reboots.</li>
+										</ul>
+										
 										</p>
 							</article>
 							</div>
