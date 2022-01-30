@@ -34,8 +34,8 @@
         },
         "nodes": [
             "c9425f13b4ed86b4",
-            "8f514c14127ad023",
-            "43af839a011c3a5a"
+            "43af839a011c3a5a",
+            "8f514c14127ad023"
         ],
         "x": 634,
         "y": 39,
@@ -288,20 +288,20 @@
         "g": "edf9114eb9210545",
         "name": "",
         "group": "079320e954c3aba0",
-        "order": 11,
-        "width": "0",
-        "height": "0",
+        "order": 10,
+        "width": 6,
+        "height": 12,
         "label": "all charts",
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
-        "dot": false,
+        "dot": true,
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "",
+        "removeOlderPoints": "100",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -323,24 +323,6 @@
         "y": 80,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "8f514c14127ad023",
-        "type": "link in",
-        "z": "e67e3fd839ae84ae",
-        "g": "edf9114eb9210545",
-        "name": "all charts",
-        "links": [
-            "43af839a011c3a5a",
-            "a5333fd4e0e020f2"
-        ],
-        "x": 775,
-        "y": 80,
-        "wires": [
-            [
-                "c9425f13b4ed86b4"
-            ]
         ]
     },
     {
@@ -721,7 +703,7 @@
         "name": "not used",
         "group": "079320e954c3aba0",
         "order": 6,
-        "width": "3",
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "<i class=\"fa fa-minus\" aria-hidden=\"true\"></i>",
@@ -1027,9 +1009,9 @@
         "g": "fd23f5e50154cb22",
         "name": "",
         "group": "079320e954c3aba0",
-        "order": 9,
-        "width": "0",
-        "height": "0",
+        "order": 8,
+        "width": 0,
+        "height": 0,
         "gtype": "gage",
         "title": "{{msg.topic}}",
         "label": "",
@@ -1166,20 +1148,20 @@
         "g": "fd23f5e50154cb22",
         "name": "",
         "group": "079320e954c3aba0",
-        "order": 10,
-        "width": "0",
-        "height": "0",
+        "order": 9,
+        "width": 6,
+        "height": 12,
         "label": "{{msg.topic}}",
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
-        "dot": false,
+        "dot": true,
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "",
+        "removeOlderPoints": "100",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -1250,9 +1232,9 @@
         "g": "fd23f5e50154cb22",
         "name": "",
         "group": "079320e954c3aba0",
-        "order": 8,
-        "width": "0",
-        "height": "0",
+        "order": 7,
+        "width": 0,
+        "height": 0,
         "passthru": false,
         "label": "clear all",
         "tooltip": "",
@@ -1452,12 +1434,12 @@
         "z": "e67e3fd839ae84ae",
         "g": "0d1a04a5d0e92611",
         "name": "",
-        "filename": "log_AAABB14A.csv",
+        "filename": "log_AAABBB14A.csv",
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 410,
+        "x": 420,
         "y": 1180,
         "wires": [
             []
@@ -1490,6 +1472,24 @@
         "x": 140,
         "y": 1040,
         "wires": []
+    },
+    {
+        "id": "8f514c14127ad023",
+        "type": "link in",
+        "z": "e67e3fd839ae84ae",
+        "g": "edf9114eb9210545",
+        "name": "all charts",
+        "links": [
+            "43af839a011c3a5a",
+            "a5333fd4e0e020f2"
+        ],
+        "x": 775,
+        "y": 80,
+        "wires": [
+            [
+                "c9425f13b4ed86b4"
+            ]
+        ]
     },
     {
         "id": "4b609445d310e23c",
