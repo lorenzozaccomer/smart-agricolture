@@ -97,27 +97,32 @@
 
 											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 
-											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-											consequat etiam lorem ipsum dolor sit amet nullam.</p>
+											<p>Each iot application will have different sensors, or even in the case of solutions for agriculture
+											you can have different types of setup depending on the specific application. We will illustrate here the sensors
+											used and the data obtained from them.</p>
 
-											<h3>And Yet Another Subheading</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-											justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-											ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-											vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-											Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-											rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-											Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-											Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
-
-											<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-											quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-											Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-											fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-											Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-											Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+											<h3>Sensors for Agriculture application</h3>
+											<p>As ours is a prototype, we opted for a generic setup that would be useful and suitable for as many applications as possible.
+											The fixed sensor core that we have built consists of:
+											<li>Temperature, pressure and humidity sensor, providing general information about the environment around the plants, as well as,
+											in the case of a greenhouse, giving information on automatic heating and humidification systems.</li>
+											<li>Uv light sensor, allows you to monitor ultraviolet levels, which in high doses can inhibit photosynthesis and cause visible
+											damage to the crop, a real risk especially in plastic greenhouses.</li>
+											<li>Soil moisture sensor, whose information enables automatic watering of plants only when needed, instead of at periodic intervals,
+											reducing water consumption and avoiding waste.</li>
+											<br>
+											In addition, in the case of the module designed for outdoors, we have also implemented an:
+											<li>Rain sensor, which informs us about the weather conditions on our land if it is located 
+											far from where we live or in another microclimate.</li>
+											</p>
+											
+											<h3>Collected data</h3>
+											
+											<p>The data collected by the sensors, which are presented in this form "<em>Data = T:20.29 $ P:995.28 $ H:56.65 $ S:0 $ R:295 $ U:0</em>", 
+											are sent by external modules to the gateway and added to a file that can serve as a daily or weekly history of the data obtained, 
+											with a graphical interface that creates adaptive graphs to represent them.</p>
+											
+											<p>Here are some examples of how the graphs can be displayed:</p>
 										</article>
 
 								</div>
