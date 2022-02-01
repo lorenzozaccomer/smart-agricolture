@@ -3,7 +3,7 @@ Repository per il progetto del corso di laboratorio didattico,
 sviluppato da:
 
 Lorenzo Zaccomer (@lorenzozaccomer)
-Ivan Di Betta (@Nasopieno)
+Ivan Di Betta (@Ivan-DB)
 Klaid Shyti (klacs)
 
 
