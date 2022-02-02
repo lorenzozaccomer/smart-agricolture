@@ -51,21 +51,21 @@
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
-						<div class="row gtr-200">
-							<div class="col-4 col-12-narrower">
-								<div id="sidebar">
+						<!-- <div class="row gtr-200"> -->
+							<!-- <div class="col-4 col-12-narrower"> -->
+								<!-- <div id="sidebar"> -->
 
 									<!-- left Sidebar -->
-									<section>
-											<h3>Reference to used Node-RED flows</h3>
-											<ul class="links">
-												<li><a href="https://flows.nodered.org/node/node-red-contrib-lorawan-packet-decrypt-nwkey-appkey">LoRaWAN Packet Decryptor</a></li>
-												<li><a href="https://flows.nodered.org/flow/44bc7ad491aacb4253dd8a5f757b5407">File Browser in Dashboard</a></li>
-												<li><a href="https://flows.nodered.org/flow/fa6e4749ff7f9067fd6b5330bc54f9e3">Raspberry System Monitoring</a></li>
-											</ul>
-									</section>
-								</div>
-							</div>
+									<!-- <section> -->
+											<!-- <h3>Reference to used Node-RED flows</h3> -->
+											<!-- <ul class="links"> -->
+												<!-- <li><a href="https://flows.nodered.org/node/node-red-contrib-lorawan-packet-decrypt-nwkey-appkey">LoRaWAN Packet Decryptor</a></li> -->
+												<!-- <li><a href="https://flows.nodered.org/flow/44bc7ad491aacb4253dd8a5f757b5407">File Browser in Dashboard</a></li> -->
+												<!-- <li><a href="https://flows.nodered.org/flow/fa6e4749ff7f9067fd6b5330bc54f9e3">Raspberry System Monitoring</a></li> -->
+											<!-- </ul> -->
+									<!-- </section> -->
+								<!-- </div> -->
+							<!-- </div> -->
 
 							<!-- Content -->
 							<div class="col-8  col-12-narrower imp-narrower">
@@ -89,7 +89,8 @@
 												In this part we will discuss these topics:
 													<li><a href="#raspberry">Description about our Gateway and its shield to receive the data</a></li>
 													<li><a href="#node-red-introduction">Node-RED Introduction</a></li>
-													<li><a href="#smart-agriculture-dashboard">How Smart-Agriculture Dashboard works</a></li>
+													<li><a href="#node-red-control-panel">Node-RED Control Panel</a></li>
+													<li><a href="#dashboard-presentation">Smart-Agriculture Dashboard Presentation</a></li>
 												</p>
 											<p>
 												If you did not fully understand some parts of this paragraph or you want to learn more, you can watch this video:
@@ -187,11 +188,12 @@
 										</p>
 										</section>
 
-										<!-- How Smart-Agriculture Dashboard works -->
-										<section id="smart-agriculture-dashboard">
-										<h3>How Smart-Agriculture Dashboard works</h3>
+										<!-- Node-RED Control Panel -->
+										<section id="node-red-control-panel">
+										<h3>Node-RED Control Panel</h3>
 										<p>
-											In this part we describe the main flow with the same name of the project, 
+											In this part we describe from the Node-RED Control Panel 
+											the main flow, 
 											where the script will launch and data’s management, so let’s start.
 										</p>
 										
@@ -262,10 +264,97 @@
 										<p style="text-align:center;">Figure 7</p>
 										</center>
 										</section>
+									
+										<!-- How Smart-Agriculture Dashboard works -->
+										<section id="dashboard-presentation">
+										<h3>Smart-Agriculture Dashboard Presentation</h3>
+										<p>
+											Here we describe the GUI of our Dashboard.
+										</p>
+										
+										<!-- Home -->
+										<h4>Home</h4>
+										<p>
+											Here you can visualize all the main information from your module,
+											as the DevAddr, and the data that it transmit, and also you can manage
+											the script with two buttons and visualize the situation of it.
+											With the two arrows on the left you can move from the previos tab (left) or
+											the next tab (right).
+										</p>
+										<!-- Figure 1 -->
+										<center>
+											<span class="image responsive"><img src="images/Node-RED/home.png" alt="" /></span>
+											<p style="text-align:center;">Home Tab</p>
+										</center>
+										
+										<!-- Devices -->
+										<h4>Devices</h4>
+										<p>
+											Here you can visualize all the devices that you have configured previously.
+											In this case, our modules use the same sensors, so if you click on one of them,
+											you have multiple buttons to change the visualization of the chart and gauge,
+											for example by default we set the temperature, so you have the chart and gauge 
+											of the temperature, but if you change you choice, these two will update with the
+											new choice.<br>
+											Under of them there's the chart with all the parameters.<br>
+											
+											Remeber: to add/remove device you need to modify the flow from the control panel.
+										</p>
+										<center>
+											<iframe src="images/Node-RED/device-tab.gif" width="480" height="256" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+											<p style="text-align:center;">Devices Tab</p>
+										</center>
+										
+										<!-- Charts -->
+										<h4>Charts</h4>
+										<p>
+											In this tab you can visualize all the chart's parameters, 
+											with the buttons you can visualize/hide them one by one.<br>
+											
+											Remeber: to add/remove parameters you need to modify the flow from the control panel.
+										</p>
+										<center>
+											<iframe src="images/Node-RED/chart-tab.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+											<p style="text-align:center;">Charts Tab</p>
+										</center>
+										
+										<!-- RPi Control -->
+										<h4>RPi Control</h4>
+										<p>
+											Here you can manage the gateway, visualize the main parameters,
+											and reboot or shutdown it remotly.<br>
+										</p>
+										<center>
+											<iframe src="images/Node-RED/rpi.gif" width="480" height="256" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+											<p style="text-align:center;">RPi Control Tab</p>
+										</center>
+										
+										<!-- Files -->
+										<h4>Files</h4>
+										<p>
+											Here you can visualize and manage all the log files that your modules creates on RPi,
+											for example you can download the log files on your desktop or you can delete them.
+											From another tab (Graph) with a drop down list you can visualize the file on the charts,
+											as you can see on this example.
+										</p>
+										<!-- AGGIUNGI UNA GIF -->
+										<center>
+											<iframe src="images/Node-RED/file.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+											<p style="text-align:center;">Files Tab</p>
+										</center>
+										</section>
+									
+										<h3>Reference to used Node-RED flows</h3>
+										<ul class="links">
+											<li><a href="https://flows.nodered.org/node/node-red-contrib-lorawan-packet-decrypt-nwkey-appkey">LoRaWAN Packet Decryptor</a></li>
+											<li><a href="https://flows.nodered.org/flow/44bc7ad491aacb4253dd8a5f757b5407">File Browser in Dashboard</a></li>
+											<li><a href="https://flows.nodered.org/flow/fa6e4749ff7f9067fd6b5330bc54f9e3">Raspberry System Monitoring</a></li>
+										</ul>
+									
 									</article>
 								</div>
 							</div>
-						</div>
+						<!-- </div> -->
 					</div>
 				</section>
 
