@@ -91,7 +91,7 @@
 											<p>LoRa is purely a physical (PHY), or “bits” layer implementation.<br>
 												LoRa transmits over license-free sub-gigahertz radio frequency bands like 169 MHz, 433 MHz, 868 MHz (Europe) and 915 MHz (North America).<br>
 												LoRa uses a proprietary spread spectrum modulation that's like to a derivative of chirp spread spectrum (<a href="https://en.wikipedia.org/wiki/Chirp_spread_spectrum">CSS</a>) modulation. 
-												The basic premise of spread spectrum is that each bit of information is encoded as multiple chips. The value of Spreading Factor (SF) determines how many chips used to represent a symbol.<br>
+												The basic premise of spread spectrum is that each bit of information is encoded as multiple chirps. The value of Spreading Factor (SF) determines how many chirps are used to represent a symbol.<br>
 												Bandwidth is the frequency range of the chirp signal used to carry the baseband data. Allowed values are 125, 250 and 500 kHz.<br>
 												LoRa modulation also includes a variable error correction scheme that improves the robustness of the transmitted signal at the expense of redundancy.<br>
 												We can define the nominal bit rate of the data signal as:
@@ -118,7 +118,7 @@
 											<span class="image responsive"><img src="images/LoRaWANArchitectureR.png" alt="" /></span>
 											</center>
 											<ul>
-												<li><b>End devices</b>: A LoRaWAN end device can be a sensor, an actuator...They are often battery operated.</li>
+												<li><b>End devices</b>: A LoRaWAN end device can be a sensor, an actuator... They are often battery operated.</li>
 												<li><b>Gateways</b>: A gateway receives LoRa messages from end devices and simply forwards them to the LoRaWAN network server. Gateways are embedded with a multi-channel and multi-data rate radio-frequency device that can scan and detect packets on any of the active channels. Are often battery-powered.</li>
 												<li><b>Network Server</b>: The LoRaWAN Network Server is the brain and the controller of a LoRaWAN network. It guarantees a lot of <a href="https://www.thethingsnetwork.org/docs/lorawan/architecture/#network-server">features.</a></li>
 												<li><b>Application Server</b>: The Application Server takes care instead of receiving and analyzing the data sent by the nodes. It also generates all the application-layer downlink payloads and sends them to the connected end devices through the Network Server.</li>	
