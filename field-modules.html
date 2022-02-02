@@ -80,11 +80,11 @@
 										<p>	
 											In this part we will discuss the boards that we used and the shield put on them
 											to read data from numerous sensors in the agricultural field and 
-											send the data via LoRa to our gatawey.<br>			
+											send the data via LoRa to our gateway.<br>			
 										</p>
 										<p>
-										We used the <b>STM32 Nucleo-64</b> boards because are very flexibles and has
-										a good combination of performance and low consumption. In particular the <a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html">STM32L0 Series.</a><br>
+										We used the <b>STM32 Nucleo-64</b> boards because they are very flexibles and has
+										a good combination of performance and low consumption, in particular the <a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html">STM32L0 Series.</a><br>
 										For a better development we used the P-NUCLEO-LRWAN1. This is a dev board that include a STM32 Nucleo with a STM32 L0 series MCU and a LoRa expansion board. This last board contains the <b>SX1272</b> transceiver 
 										developed and produced by Semtech.<br>
 										Using Semtech’s patented LoRa modulation technique SX1272 can achieve a sensitivity of over -137dBm. It's a lot a features as: +20dBm at 100mW constant RF output vs. V supply,
@@ -112,7 +112,7 @@
 										<li>int state = radio.begin(869.8, 125.0, 12);</li>
 										</p>
 										<p>
-										We have discovered, through the <a href="https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HUTS/VNtCWQnPmzxR6sEW4qO2bgJfpEDX3lnEz8Ow7Gy50hg">datasheet</a> of the dev bard of the radio module, that the pin PA_BOOST is not connected but is use RFO pin, for this, through the function available from the Radiolib library, setOutputPower() we have set the transmission output power, which is a function of the pin used in this way:<br>
+										We have discovered, through the <a href="https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HUTS/VNtCWQnPmzxR6sEW4qO2bgJfpEDX3lnEz8Ow7Gy50hg">datasheet</a> of the dev bard of the radio module, that the PA_BOOST pin that was used in the library is not connected so to make the antenna work it is necessary to go through the RFO pin, using the function available from the Radiolib library setOutputPower(), thanks to which we have set the output transmission in this way:<br>
 										<ul>
 										<li>radio.setOutputPower(14, true);</li>
 										</ul>
