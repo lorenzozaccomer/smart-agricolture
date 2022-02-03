@@ -321,10 +321,10 @@
 											the next tab (right).
 										</p>
 										<!-- Figure 1 -->
-										<center>
-											<span class="image responsive"><img src="images/Node-RED/home.png" alt="" /></span>
-											<p style="text-align:center;">Home Tab</p>
-										</center>
+										<!-- <center> -->
+											<!-- <span class="image responsive"><img src="images/Node-RED/home.png" alt="" /></span> -->
+											<!-- <p style="text-align:center;">Home Tab</p> -->
+										<!-- </center> -->
 											
 										<div class="slideshow-container">
 
@@ -332,7 +332,7 @@
 										  <div class="mySlides2 fade">
 											<div class="numbertext">1 / 5</div>
 											<center>
-											<img src="images/Node-RED/home.png" style="width:65%">
+											<img src="images/Node-RED/home.png">
 											</center>
 											<div class="text">Home Tab</div>
 										  </div>
@@ -340,7 +340,7 @@
 										  <div class="mySlides2 fade">
 											<div class="numbertext">2 / 5</div>
 											<center>
-											<img src="images/Node-RED/device-tab.gif" style="width:65%">
+											<img src="images/Node-RED/device-tab.gif" width="480" height="270">
 											</center>
 											<div class="text">Device Tab</div>
 										  </div>
@@ -348,7 +348,7 @@
 										  <div class="mySlides2 fade">
 											<div class="numbertext">3 / 5</div>
 											<center>
-											<img src="images/Node-RED/chart-tab.gif" style="width:65%">
+											<img src="images/Node-RED/chart-tab.gif" width="480" height="270">
 											</center>
 											<div class="text">Chart Tab</div>
 										  </div>
@@ -356,7 +356,7 @@
 										  <div class="mySlides2 fade">
 											<div class="numbertext">4 / 5</div>
 											<center>
-											<img src="images/Node-RED/rpi.gif" style="width:65%">
+											<img src="images/Node-RED/rpi.gif" width="480" height="270">
 											</center>
 											<div class="text">RPi Control Tab</div>
 										  </div>
@@ -364,7 +364,7 @@
 										  <div class="mySlides2 fade">
 											<div class="numbertext">5 / 5</div>
 											<center>
-											<img src="images/Node-RED/file.gif" style="width:65%">
+											<img src="images/Node-RED/file.gif" width="480" height="270">
 											</center>
 											<div class="text">Files Tab</div>
 										  </div>
@@ -394,25 +394,29 @@
 											of the temperature, but if you change your choice, these two will update with the
 											new choice, under of them there's the chart with all the parameters.<br><br>
 											
+											All the values that you can see on this charts and on the gauge are <b>ON LIVE</b>,
+											so don't worry, this information are stored on a csv file.
+											
 											<b>Remeber:</b> to add/remove device you need to modify the flow from the control panel.
 										</p>
-										<center>
-											<iframe src="images/Node-RED/device-tab.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-											<p style="text-align:center;">Devices Tab</p>
-										</center>
+										<!-- <center> -->
+											<!-- <iframe src="images/Node-RED/device-tab.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+											<!-- <p style="text-align:center;">Devices Tab</p> -->
+										<!-- </center> -->
 										
 										<!-- Charts -->
 										<h4>Charts</h4>
 										<p>
-											In this tab you can visualize all the chart's parameters, 
-											with the buttons you can visualize/hide them one by one.<br><br>
+											In this tab you can visualize all the chart's parameters <b>ON LIVE</b> for all your devices,
+											this information will be saved on a csv file, that you can watch in an appropriate tab.
+											With the buttons as you can see on the animated gif you can visualize/hide them one by one.<br><br>
 											
 											<b>Remeber:</b> to add/remove parameters you need to modify the flow from the control panel.
 										</p>
-										<center>
-											<iframe src="images/Node-RED/chart-tab.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-											<p style="text-align:center;">Charts Tab</p>
-										</center>
+										<!-- <center> -->
+											<!-- <iframe src="images/Node-RED/chart-tab.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+											<!-- <p style="text-align:center;">Charts Tab</p> -->
+										<!-- </center> -->
 										
 										<!-- RPi Control -->
 										<h4>RPi Control</h4>
@@ -420,23 +424,22 @@
 											Here you can manage the gateway, visualize the main parameters, 
 											and reboot or shutdown it remotly, for these two there's a "security button" to not click them without waiting to.<br>
 										</p>
-										<center>
-											<iframe src="images/Node-RED/rpi.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-											<p style="text-align:center;">RPi Control Tab</p>
-										</center>
+										<!-- <center> -->
+											<!-- <iframe src="images/Node-RED/rpi.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+											<!-- <p style="text-align:center;">RPi Control Tab</p> -->
+										<!-- </center> -->
 										
 										<!-- Files -->
-										<h4>Files</h4>
+										<h4>File Manager</h4>
 										<p>
-											Here you can visualize and manage all the log files that your modules creates on RPi,
-											for example you can download the log files on your desktop or you can delete them.
-											From another tab (Graph) with a drop down list you can visualize the file on the charts,
-											as you can see on this example.
+											Here you have two section, on <b>File Browser</b> you can manage the file that your log files,
+											you can download it on your desktop and delete them.
+											On <b>Graph</b> you can visualize your log files with multiple charts (at least 5).
 										</p>
-										<center>
-											<iframe src="images/Node-RED/file.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-											<p style="text-align:center;">Files Tab</p>
-										</center>
+										<!-- <center> -->
+											<!-- <iframe src="images/Node-RED/file.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+											<!-- <p style="text-align:center;">Files Tab</p> -->
+										<!-- </center> -->
 										</section>
 										
 										<section id="reference">
