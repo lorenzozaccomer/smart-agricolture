@@ -206,7 +206,7 @@
 										</p>
 										<div class="slideshow-container">
 										  <!-- Full-width images with number and caption text -->
-										  <div class="mySlides fade">
+										  <div class="mySlides1 fade">
 											<div class="numbertext">1 / 7</div>
 											<center>
 											<img src="images/Node-RED/immagine1.png">
@@ -214,7 +214,7 @@
 											<div class="text">Figure 1</div>
 										  </div>
 
-										  <div class="mySlides fade">
+										  <div class="mySlides1 fade">
 											<div class="numbertext">2 / 7</div>
 											<center>
 											<img src="images/Node-RED/immagine2.png">
@@ -222,7 +222,7 @@
 											<div class="text">Figure 2</div>
 										  </div>
 
-										  <div class="mySlides fade">
+										  <div class="mySlides1 fade">
 											<div class="numbertext">3 / 7</div>
 											<center>
 											<img src="images/Node-RED/immagine3.png">
@@ -230,7 +230,7 @@
 											<div class="text">Figure 3</div>
 										  </div>
 											
-										  <div class="mySlides fade">
+										  <div class="mySlides1 fade">
 											<div class="numbertext">4 / 7</div>
 											<center>
 											<img src="images/Node-RED/immagine4.png">
@@ -238,7 +238,7 @@
 											<div class="text">Figure 4</div>
 										  </div>
 											
-										  <div class="mySlides fade">
+										  <div class="mySlides1 fade">
 											<div class="numbertext">5 / 7</div>
 											<center>
 											<img src="images/Node-RED/immagine5.png">
@@ -246,7 +246,7 @@
 											<div class="text">Figure 5</div>
 										  </div>
 											
-										  <div class="mySlides fade">
+										  <div class="mySlides1 fade">
 											<div class="numbertext">6 / 7</div>
 											<center>
 											<img src="images/Node-RED/immagine6.png">
@@ -254,7 +254,7 @@
 											<div class="text">Figure 6</div>
 										  </div>
 											
-										  <div class="mySlides fade">
+										  <div class="mySlides1 fade">
 											<div class="numbertext">7 / 7</div>
 											<center>
 											<img src="images/Node-RED/immagine7.png">
@@ -263,20 +263,20 @@
 										  </div>
 
 										  <!-- Next and previous buttons -->
-										  <a class="prev" onclick="plusSlides(-1)" style="outline: transparent; background-color: transparent; border: 0px solid black;">&#10094;</a>
-										  <a class="next" onclick="plusSlides(1)" style="outline: transparent; background-color: transparent; border: 0px solid black;">&#10095;</a>
+										  <a class="prev" onclick="plusSlides(-1, 0)" style="outline: transparent; background-color: transparent; border: 0px solid black;">&#10094;</a>
+										  <a class="next" onclick="plusSlides(1, 0)" style="outline: transparent; background-color: transparent; border: 0px solid black;">&#10095;</a>
 										</div>
 										<br>
 
 										<!-- The dots/circles -->
 										<div style="text-align:center">
-										  <span class="dot" onclick="currentSlide(1)"></span>
-										  <span class="dot" onclick="currentSlide(2)"></span>
-										  <span class="dot" onclick="currentSlide(3)"></span>
-										  <span class="dot" onclick="currentSlide(4)"></span>
-										  <span class="dot" onclick="currentSlide(5)"></span>
-										  <span class="dot" onclick="currentSlide(6)"></span>
-										  <span class="dot" onclick="currentSlide(7)"></span>
+										  <span class="dot1" onclick="currentSlide(1, 0)"></span>
+										  <span class="dot1" onclick="currentSlide(2, 0)"></span>
+										  <span class="dot1" onclick="currentSlide(3, 0)"></span>
+										  <span class="dot1" onclick="currentSlide(4, 0)"></span>
+										  <span class="dot1" onclick="currentSlide(5, 0)"></span>
+										  <span class="dot1" onclick="currentSlide(6, 0)"></span>
+										  <span class="dot1" onclick="currentSlide(7, 0)"></span>
 										</div>
 										
 										<p>
@@ -325,6 +325,64 @@
 											<span class="image responsive"><img src="images/Node-RED/home.png" alt="" /></span>
 											<p style="text-align:center;">Home Tab</p>
 										</center>
+											
+										<div class="slideshow-container">
+
+										  <!-- Full-width images with number and caption text -->
+										  <div class="mySlides2 fade">
+											<div class="numbertext">1 / 5</div>
+											<center>
+											<img src="images/Node-RED/home.png" style="width:65%">
+											</center>
+											<div class="text">Home Tab</div>
+										  </div>
+
+										  <div class="mySlides2 fade">
+											<div class="numbertext">2 / 5</div>
+											<center>
+											<img src="images/Node-RED/device-tab.gif" style="width:65%">
+											</center>
+											<div class="text">Device Tab</div>
+										  </div>
+
+										  <div class="mySlides2 fade">
+											<div class="numbertext">3 / 5</div>
+											<center>
+											<img src="images/Node-RED/chart-tab.gif" style="width:65%">
+											</center>
+											<div class="text">Chart Tab</div>
+										  </div>
+											
+										  <div class="mySlides2 fade">
+											<div class="numbertext">4 / 5</div>
+											<center>
+											<img src="images/Node-RED/rpi.gif" style="width:65%">
+											</center>
+											<div class="text">RPi Control Tab</div>
+										  </div>
+
+										  <div class="mySlides2 fade">
+											<div class="numbertext">5 / 5</div>
+											<center>
+											<img src="images/Node-RED/file.gif" style="width:65%">
+											</center>
+											<div class="text">Files Tab</div>
+										  </div>
+
+										  <!-- Next and previous buttons -->
+										  <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+										  <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+										</div>
+										<br>
+
+										<!-- The dots/circles -->
+										<div style="text-align:center">
+										  <span class="dot2" onclick="currentSlide(1, 1)"></span>
+										  <span class="dot2" onclick="currentSlide(2, 1)"></span>
+										  <span class="dot2" onclick="currentSlide(3, 1)"></span>
+										  <span class="dot2" onclick="currentSlide(4, 1)"></span>
+										  <span class="dot2" onclick="currentSlide(5, 1)"></span>
+										</div>
 										
 										<!-- Devices -->
 										<h4>Devices</h4>
@@ -468,33 +526,35 @@
 			}
 			</script>
 			<script>
-			var slideIndex = 1;
-			showSlides(slideIndex);
+			var slideIndex = [1,1];
+			/* Class the members of each slideshow group with different CSS classes */
+			var slideId = ["mySlides1", "mySlides2"]
+			var dotId = ["dot1","dot2"]
+			showSlides(1, 0);
+			showSlides(1, 1);
 
-			// Next/previous controls
-			function plusSlides(n) {
-			  showSlides(slideIndex += n);
+			function plusSlides(n, no) {
+			  showSlides(slideIndex[no] += n, no);
+			}
+			
+			function currentSlide(n, no) {
+			  showSlides(slideIndex[no] = n, no);
 			}
 
-			// Thumbnail image controls
-			function currentSlide(n) {
-			  showSlides(slideIndex = n);
-			}
-
-			function showSlides(n) {
+			function showSlides(n, no) {
 			  var i;
-			  var slides = document.getElementsByClassName("mySlides");
-			  var dots = document.getElementsByClassName("dot");
-			  if (n > slides.length) {slideIndex = 1}
-			  if (n < 1) {slideIndex = slides.length}
-			  for (i = 0; i < slides.length; i++) {
-				  slides[i].style.display = "none";
+			  var x = document.getElementsByClassName(slideId[no]);
+			  var dots = document.getElementsByClassName(dotId[no]);
+			  if (n > x.length) {slideIndex[no] = 1}
+			  if (n < 1) {slideIndex[no] = x.length}
+			  for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
 			  }
 			  for (i = 0; i < dots.length; i++) {
 				  dots[i].className = dots[i].className.replace(" active", "");
 			  }
-			  slides[slideIndex-1].style.display = "block";
-			  dots[slideIndex-1].className += " active";
+			  x[slideIndex[no]-1].style.display = "block";
+			  dots[slideIndex[no]-1].className += " active";
 			}
 			</script>
 
