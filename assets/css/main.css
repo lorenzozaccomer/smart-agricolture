@@ -3411,7 +3411,7 @@ input, select, textarea {
 	}
 
 	/* Hide the images by default */
-	.mySlides {
+	.mySlides1, .mySlides2 {
 	  display: none;
 	}
 
@@ -3463,7 +3463,7 @@ input, select, textarea {
 	}
 
 	/* The dots/bullets/indicators */
-	.dot {
+	.dot1, .dot2 {
 	  cursor: pointer;
 	  height: 15px;
 	  width: 15px;
@@ -3474,7 +3474,11 @@ input, select, textarea {
 	  transition: background-color 0.6s ease;
 	}
 
-	.active, .dot:hover {
+	.active, .dot1:hover {
+	  background-color: #717171;
+	}
+
+	.active, .dot2:hover {
 	  background-color: #717171;
 	}
 
