@@ -124,6 +124,75 @@
 											with a graphical interface that creates adaptive graphs to represent them.</p>
 											
 											<p>Here are some examples of how the graphs can be displayed:</p>
+									
+											<!-- Slideshow container -->
+											<div class="slideshow-container">
+
+											  <!-- Full-width images with number and caption text -->
+											  <div class="mySlides1 fade">
+												<div class="numbertext">1 / 6</div>
+												<center>
+												<img src="images/Sensors/temperature.png" style="width:60%">
+												</center>
+												<div class="text">Caption Text</div>
+											  </div>
+
+											  <div class="mySlides1 fade">
+												<div class="numbertext">2 / 6</div>
+												<center>
+												<img src="images/Sensors/pressure.png" style="width:60%">
+												</center>
+												<div class="text">Caption Text</div>
+											  </div>
+
+											  <div class="mySlides1 fade">
+												<div class="numbertext">3 / 6</div>
+												<center>
+												<img src="images/Sensors/humidity.png" style="width:60%">
+												</center>
+												<div class="text">Caption Text</div>
+											  </div>
+											 
+											 <div class="mySlides1 fade">
+												<div class="numbertext">4 / 6</div>
+												<center>
+												<img src="images/Sensors/uv.png" style="width:60%">
+												</center>
+												<div class="text">Caption Text</div>
+											  </div>
+
+											  <div class="mySlides1 fade">
+												<div class="numbertext">5 / 6</div>
+												<center>
+												<img src="images/Sensors/humidity-soil.png" style="width:60%">
+												</center>
+												<div class="text">Caption Text</div>
+											  </div>
+
+											  <div class="mySlides1 fade">
+												<div class="numbertext">6 / 6</div>
+												<center>
+												<img src="images/Sensors/all.png" style="width:60%">
+												</center>
+												<div class="text">Caption Text</div>
+											  </div>
+
+											  <!-- Next and previous buttons -->
+											  <a class="prev" onclick="plusSlides(-1, 0)" style="outline: transparent; background-color: transparent; border: 0px solid black;">&#10094;</a>
+										  	  <a class="next" onclick="plusSlides(1, 0)" style="outline: transparent; background-color: transparent; border: 0px solid black;">&#10095;</a>
+											</div>
+											<br>
+
+											<!-- The dots/circles -->
+											<div style="text-align:center">
+											  <span class="dot1" onclick="currentSlide(1, 0)"></span>
+											  <span class="dot1" onclick="currentSlide(2, 0)"></span>
+											  <span class="dot1" onclick="currentSlide(3, 0)"></span>
+											  <span class="dot1" onclick="currentSlide(4, 0)"></span>
+											  <span class="dot1" onclick="currentSlide(5, 0)"></span>
+											  <span class="dot1" onclick="currentSlide(6, 0)"></span>
+											</div>
+											
 										</article>
 
 								</div>
@@ -200,6 +269,38 @@
 				navbar.classList.remove("sticky");
 				serviceWrapper.classList.remove("service-stick-mode");
 			  }
+			}
+			</script>
+			<script>
+			var slideIndex = [1,1];
+			/* Class the members of each slideshow group with different CSS classes */
+			var slideId = ["mySlides1", "mySlides2"]
+			var dotId = ["dot1","dot2"]
+			showSlides(1, 0);
+			showSlides(1, 1);
+
+			function plusSlides(n, no) {
+			  showSlides(slideIndex[no] += n, no);
+			}
+			
+			function currentSlide(n, no) {
+			  showSlides(slideIndex[no] = n, no);
+			}
+
+			function showSlides(n, no) {
+			  var i;
+			  var x = document.getElementsByClassName(slideId[no]);
+			  var dots = document.getElementsByClassName(dotId[no]);
+			  if (n > x.length) {slideIndex[no] = 1}
+			  if (n < 1) {slideIndex[no] = x.length}
+			  for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			  }
+			  for (i = 0; i < dots.length; i++) {
+				  dots[i].className = dots[i].className.replace(" active", "");
+			  }
+			  x[slideIndex[no]-1].style.display = "block";
+			  dots[slideIndex[no]-1].className += " active";
 			}
 			</script>
 
