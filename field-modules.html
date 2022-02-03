@@ -101,20 +101,32 @@
 										For the activation and configuration of the radio module we used the <b>RadioLib</b>, "Universal wireless communication library for Arduino". This library supports a lot of Wireless Modules and Protocols, in particular the SX127x series LoRa module.
 										This library makes it easy to set up and use the radio module. Using arduino ide you can use all the libraries that support arduino.<br>
 										As you can see in the repository at the bottom of the page, we have imported the library:<br>
-										<ul>
-										<li>#include &lt;RadioLib.h&gt; </li>
-										</ul> 
+										<blockquote>#include &lt;RadioLib.h&gt;</blockquote> 
 										</p>
 										<p>Provide the pin setup to the library:
-										<li>SX1272 radio = new Module(10, 2, 19, 3);</li>
+										<blockquote>SX1272 radio = new Module(10, 2, 19, 3);</blockquote>
+										Where:<ul>
+										NSS pin: 10<br>
+										DIO0 pin: 2<br>
+										RESET pin: 19<br>
+										DIO1 pin: 3<br>
+										</ul>
 										</p>
 										<p>LoRa modem initialization method:
-										<li>int state = radio.begin(869.8, 125.0, 12);</li>
+										<blockquote>int state = radio.begin(869.8, 125.0, 12);</blockquote>
+										Where: <ul>
+										869.8 is the Carrier frequency in MHz.<br>
+										125.0 is the LoRa link bandwidth in kHz.<br>
+										12 is the LoRa link spreading factor.
+										</ul>
 										</p>
 										<p>
 										We have discovered, through the <a href="https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HUTS/VNtCWQnPmzxR6sEW4qO2bgJfpEDX3lnEz8Ow7Gy50hg">datasheet</a> of the dev bard of the radio module, that the PA_BOOST pin that was used in the library is not connected so to make the antenna work it is necessary to go through the RFO pin, using the function available from the Radiolib library setOutputPower(), thanks to which we have set the output transmission in this way:<br>
-										<ul>
-										<li>radio.setOutputPower(14, true);</li>
+										
+										<blockquote>radio.setOutputPower(14, true);</blockquote>
+										Where: <ul>
+										14 is the Transmission output power in dBm.<br>
+										true is to use the RFO pin<br>
 										</ul>
 										</p>
 										<p>To send the packets through an encryption layer we have chosen to decode them according to the LoRaWAN standard, this is easy using the <b>LoRaWanPacket</b> library.<br>
