@@ -35,7 +35,8 @@
             "4e43945a8e9be1f3",
             "9bef063762f0e901",
             "d935354946ea92ef",
-            "d1f77a446921f535"
+            "d1f77a446921f535",
+            "588045745ebfa36f"
         ],
         "x": 14,
         "y": 599,
@@ -89,12 +90,13 @@
             "390b4620f6c9cb20",
             "35170259ffd74208",
             "13b097bbd35fab98",
-            "1b356dbf86bff0fc"
+            "1b356dbf86bff0fc",
+            "e3d96bd0a81f0db6"
         ],
         "x": 14,
-        "y": 39,
+        "y": 19,
         "w": 1292,
-        "h": 542
+        "h": 562
     },
     {
         "id": "89128c31d438cc6c",
@@ -104,7 +106,7 @@
         "name": "File Browser",
         "info": "1) Update the default folder in the Init node\n2) Update the default folder in the Reset node as well\n3) You can duplicate the Reset nodes and use them as saved shortcuts\n4) Check the Convert Timestamps function node if you want to see your dates in a different format. I just used the Javascript toISOString format.\n5) The Graph button can read any CSV file which have any number of values, but the first column always contains a timestamp column with javascript timestamp of the data point.",
         "x": 110,
-        "y": 80,
+        "y": 60,
         "wires": []
     },
     {
@@ -146,7 +148,7 @@
         "payload": "/home/pi",
         "payloadType": "str",
         "x": 110,
-        "y": 140,
+        "y": 100,
         "wires": [
             [
                 "08f27379e976a7fc"
@@ -473,8 +475,8 @@
         "name": "botton graph",
         "group": "1ee8684c3daf831f",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Graph",
         "tooltip": "",
@@ -599,9 +601,9 @@
         "g": "bfe1e8d0023c3a3f",
         "name": "chart all series",
         "group": "1ee8684c3daf831f",
-        "order": 3,
-        "width": "6",
-        "height": "12",
+        "order": 4,
+        "width": 6,
+        "height": 12,
         "label": "{{msg.payload[0].labels[0]}}",
         "chartType": "line",
         "legend": "true",
@@ -612,7 +614,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "50",
+        "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -1106,29 +1108,34 @@
         "z": "cb035cb2681b76fc",
         "g": "bfe1e8d0023c3a3f",
         "name": "multiple chart from file",
-        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\n//series = msg.payload[0].series\n//node.warn(series.length)\n\nvar chart_series1 = [{\n    \"series\":   [msg.payload[0].series[0]],\n    \"data\":     [msg.payload[0].data[0]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series2 = [{\n    \"series\":   [msg.payload[0].series[1]],\n    \"data\":     [msg.payload[0].data[1]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series3 = [{\n    \"series\":   [msg.payload[0].series[2]],\n    \"data\":     [msg.payload[0].data[2]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series4 = [{\n    \"series\":   [msg.payload[0].series[3]],\n    \"data\":     [msg.payload[0].data[3]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series5 = [{\n    \"series\":   [msg.payload[0].series[4]],\n    \"data\":     [msg.payload[0].data[4]],\n    \"labels\":   [msg.filename]\n}];\n\n//node.warn(\"chart post for\")\n//node.warn(chart)\n\nmsg1.topic =    msg.payload[0].series[0]\nmsg1.payload =  chart_series1\n\nmsg2.topic =    msg.payload[0].series[1]\nmsg2.payload = chart_series2\n\nmsg3.topic =    msg.payload[0].series[2]\nmsg3.payload = chart_series3\n\nmsg4.topic =    msg.payload[0].series[3]\nmsg4.payload = chart_series4\n\nmsg5.topic =    msg.payload[0].series[4]\nmsg5.payload = chart_series5\n\nnode.send([msg1, msg2, msg3, msg4, msg5])",
+        "func": "\nlet msg1 = {};\nlet msg2 = {};\nlet msg3 = {};\nlet msg4 = {};\nlet msg5 = {};\nlet msg6 = {};\n\n//series = msg.payload[0].series\n//node.warn(series.length)\n\nvar chart_series1 = [{\n    \"series\":   [msg.payload[0].series[0]],\n    \"data\":     [msg.payload[0].data[0]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series2 = [{\n    \"series\":   [msg.payload[0].series[1]],\n    \"data\":     [msg.payload[0].data[1]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series3 = [{\n    \"series\":   [msg.payload[0].series[2]],\n    \"data\":     [msg.payload[0].data[2]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series4 = [{\n    \"series\":   [msg.payload[0].series[3]],\n    \"data\":     [msg.payload[0].data[3]],\n    \"labels\":   [msg.filename]\n}];\nvar chart_series5 = [{\n    \"series\":   [msg.payload[0].series[4]],\n    \"data\":     [msg.payload[0].data[4]],\n    \"labels\":   [msg.filename]\n}];\n\n// series 1\nif(msg.payload[0].series[0] != undefined)\n{\n    msg1.topic =    msg.payload[0].series[0]\n    msg1.payload =  chart_series1\n}\nelse\n    msg1.payload = []\n\n// series 2\nif(msg.payload[0].series[1] != undefined)\n{\n    msg2.topic =    msg.payload[0].series[1]\n    msg2.payload = chart_series2\n}\nelse\n    msg2.payload = []\n\n// series 3\nif(msg.payload[0].series[2] != undefined)\n{\n    msg3.topic =    msg.payload[0].series[2]\n    msg3.payload = chart_series3\n}\nelse\n    msg3.payload = []\n\n// series 4\nif(msg.payload[0].series[3] != undefined)\n{\n    msg4.topic =    msg.payload[0].series[3]\n    msg4.payload = chart_series4\n}\nelse\n    msg4.payload = []\n\n// series 5\nif(msg.payload[0].series[4] != undefined)\n{\n    msg5.topic =    msg.payload[0].series[4]\n    msg5.payload = chart_series5\n}\nelse\n    msg5.payload = []\n\n\nnode.send([msg1, msg2, msg3, msg4, msg5])",
         "outputs": 5,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 800,
+        "x": 760,
+        "y": 860,
         "wires": [
             [
-                "a78ec0c1ad71c210"
+                "a78ec0c1ad71c210",
+                "588045745ebfa36f"
             ],
             [
-                "4e43945a8e9be1f3"
+                "4e43945a8e9be1f3",
+                "588045745ebfa36f"
             ],
             [
-                "9bef063762f0e901"
+                "9bef063762f0e901",
+                "588045745ebfa36f"
             ],
             [
-                "d935354946ea92ef"
+                "d935354946ea92ef",
+                "588045745ebfa36f"
             ],
             [
-                "d1f77a446921f535"
+                "d1f77a446921f535",
+                "588045745ebfa36f"
             ]
         ]
     },
@@ -1139,9 +1146,9 @@
         "g": "bfe1e8d0023c3a3f",
         "name": "series 1",
         "group": "1ee8684c3daf831f",
-        "order": 4,
-        "width": "6",
-        "height": "12",
+        "order": 5,
+        "width": 6,
+        "height": 12,
         "label": "",
         "chartType": "line",
         "legend": "true",
@@ -1152,7 +1159,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "50",
+        "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -1183,9 +1190,9 @@
         "g": "bfe1e8d0023c3a3f",
         "name": "series 2",
         "group": "1ee8684c3daf831f",
-        "order": 5,
-        "width": "6",
-        "height": "12",
+        "order": 6,
+        "width": 6,
+        "height": 12,
         "label": "",
         "chartType": "line",
         "legend": "true",
@@ -1196,7 +1203,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "50",
+        "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -1227,9 +1234,9 @@
         "g": "bfe1e8d0023c3a3f",
         "name": "series 3",
         "group": "1ee8684c3daf831f",
-        "order": 6,
-        "width": "6",
-        "height": "12",
+        "order": 7,
+        "width": 6,
+        "height": 12,
         "label": "",
         "chartType": "line",
         "legend": "true",
@@ -1240,7 +1247,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "50",
+        "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -1271,9 +1278,9 @@
         "g": "bfe1e8d0023c3a3f",
         "name": "series 4",
         "group": "1ee8684c3daf831f",
-        "order": 7,
-        "width": "6",
-        "height": "12",
+        "order": 8,
+        "width": 6,
+        "height": 12,
         "label": "",
         "chartType": "line",
         "legend": "true",
@@ -1284,7 +1291,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "50",
+        "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -1315,9 +1322,9 @@
         "g": "bfe1e8d0023c3a3f",
         "name": "series 5",
         "group": "1ee8684c3daf831f",
-        "order": 8,
-        "width": "6",
-        "height": "12",
+        "order": 9,
+        "width": 6,
+        "height": 12,
         "label": "",
         "chartType": "line",
         "legend": "true",
@@ -1328,7 +1335,7 @@
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "50",
+        "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -1353,6 +1360,52 @@
         ]
     },
     {
+        "id": "e3d96bd0a81f0db6",
+        "type": "ui_button",
+        "z": "cb035cb2681b76fc",
+        "g": "8fed48c2efd2e77f",
+        "name": "",
+        "group": "1ee8684c3daf831f",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "refresh",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "refresh",
+        "topicType": "str",
+        "x": 100,
+        "y": 140,
+        "wires": [
+            [
+                "08f27379e976a7fc"
+            ]
+        ]
+    },
+    {
+        "id": "588045745ebfa36f",
+        "type": "debug",
+        "z": "cb035cb2681b76fc",
+        "g": "bfe1e8d0023c3a3f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 780,
+        "wires": []
+    },
+    {
         "id": "160e81fb.f1c86e",
         "type": "ui_group",
         "name": "File Browser",
@@ -1366,17 +1419,26 @@
         "id": "1ee8684c3daf831f",
         "type": "ui_group",
         "name": "Graph",
-        "tab": "b63d1f91.68095",
+        "tab": "e5550a9b7795c946",
         "order": 3,
         "disp": true,
         "width": "6",
-        "collapse": true
+        "collapse": false
     },
     {
         "id": "b63d1f91.68095",
         "type": "ui_tab",
-        "name": "Files",
+        "name": "File Manager",
         "icon": "fa-hdd-o",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e5550a9b7795c946",
+        "type": "ui_tab",
+        "name": "Graph Visualizator",
+        "icon": "fa-eye",
         "order": 6,
         "disabled": false,
         "hidden": false
