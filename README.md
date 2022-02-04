@@ -1,5 +1,8 @@
 # smart-agricolture
 
+On this website you can watch our project presentation.
+https://lorenzozaccomer.github.io/smart-agriculture/
+
 # ITA
 
 Repository per il progetto del corso di laboratorio didattico, 
