@@ -20,8 +20,3 @@ developed by:
 Lorenzo Zaccomer (@lorenzozaccomer)
 Ivan Di Betta (@Ivan-DB)
 Klaid Shyti (klacs)
-
-## P-NUCLEO-LRWAN1
-### [RadioLib](https://github.com/jgromes/RadioLib)
-### [LoRaWanPacket Encode / Decoder](https://github.com/ricaun/LoRaWanPacket)
-
