@@ -1,4 +1,7 @@
 # smart-agricolture
+
+# ITA
+
 Repository per il progetto del corso di laboratorio didattico, 
 sviluppato da:
 
@@ -6,7 +9,7 @@ Lorenzo Zaccomer (@lorenzozaccomer)
 Ivan Di Betta (@Ivan-DB)
 Klaid Shyti (klacs)
 
---- ENG ---
+# ENG
 
 Repository for the teaching laboratory course project, 
 developed by:
