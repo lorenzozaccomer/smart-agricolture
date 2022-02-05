@@ -77,8 +77,7 @@
 										<!-- Header image -->
 										<section>
 											<center>
-											<span class="image responsive"><img src="images/Node-RED/node1.jpeg" alt="" /></span>
-											<p style="text-align:center;">immagine di test, ne metterò una reale</p>
+											<span class="image responsive"><img src="images/Node-RED/node-red-raspberry-pi.png" alt="" /></span>
 											</center>
 										</section>
 										<!-- Intro -->
@@ -320,17 +319,12 @@
 											With the two arrows on the left you can move from the previos tab (left) or
 											the next tab (right).
 										</p>
-										<!-- Figure 1 -->
-										<!-- <center> -->
-											<!-- <span class="image responsive"><img src="images/Node-RED/home.png" alt="" /></span> -->
-											<!-- <p style="text-align:center;">Home Tab</p> -->
-										<!-- </center> -->
 											
 										<div class="slideshow-container">
 
 										  <!-- Full-width images with number and caption text -->
 										  <div class="mySlides2 fade">
-											<div class="numbertext">1 / 5</div>
+											<div class="numbertext">1 / 6</div>
 											<center>
 											<span class="image responsive"><img src="images/Node-RED/home.png" height="75%" /></span>
 											</center>
@@ -338,7 +332,7 @@
 										  </div>
 
 										  <div class="mySlides2 fade">
-											<div class="numbertext">2 / 5</div>
+											<div class="numbertext">2 / 6</div>
 											<center>
 											<span class="image responsive"><img src="images/Node-RED/device-tab.gif"></span>
 											</center>
@@ -346,7 +340,7 @@
 										  </div>
 
 										  <div class="mySlides2 fade">
-											<div class="numbertext">3 / 5</div>
+											<div class="numbertext">3 / 6</div>
 											<center>
 											<span class="image responsive"><img src="images/Node-RED/chart-tab.gif"></span>
 											</center>
@@ -354,7 +348,7 @@
 										  </div>
 											
 										  <div class="mySlides2 fade">
-											<div class="numbertext">4 / 5</div>
+											<div class="numbertext">4 / 6</div>
 											<center>
 											<span class="image responsive"><img src="images/Node-RED/rpi.gif"></span>
 											</center>
@@ -362,11 +356,19 @@
 										  </div>
 
 										  <div class="mySlides2 fade">
-											<div class="numbertext">5 / 5</div>
+											<div class="numbertext">5 / 6</div>
 											<center>
 											<span class="image responsive"><img src="images/Node-RED/file.gif"></span>
 											</center>
-											<div class="text">Files Tab</div>
+											<div class="text">File Manager Tab</div>
+										  </div>
+										  
+										  <div class="mySlides2 fade">
+											<div class="numbertext">6 / 6</div>
+											<center>
+											<span class="image responsive"><img src="images/Node-RED/file-visualizator.gif"></span>
+											</center>
+											<div class="text">File Visualizator Tab</div>
 										  </div>
 
 										  <!-- Next and previous buttons -->
@@ -382,6 +384,7 @@
 										  <span class="dot2" onclick="currentSlide(3, 1)"></span>
 										  <span class="dot2" onclick="currentSlide(4, 1)"></span>
 										  <span class="dot2" onclick="currentSlide(5, 1)"></span>
+										  <span class="dot2" onclick="currentSlide(6, 1)"></span>
 										</div>
 										
 										<!-- Devices -->
@@ -399,10 +402,6 @@
 											
 											<b>Remeber:</b> to add/remove device you need to modify the flow from the control panel.
 										</p>
-										<!-- <center> -->
-											<!-- <iframe src="images/Node-RED/device-tab.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-											<!-- <p style="text-align:center;">Devices Tab</p> -->
-										<!-- </center> -->
 										
 										<!-- Charts -->
 										<h4>Charts</h4>
@@ -413,10 +412,6 @@
 											
 											<b>Remeber:</b> to add/remove parameters you need to modify the flow from the control panel.
 										</p>
-										<!-- <center> -->
-											<!-- <iframe src="images/Node-RED/chart-tab.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-											<!-- <p style="text-align:center;">Charts Tab</p> -->
-										<!-- </center> -->
 										
 										<!-- RPi Control -->
 										<h4>RPi Control</h4>
@@ -424,22 +419,29 @@
 											Here you can manage the gateway, visualize the main parameters, 
 											and reboot or shutdown it remotly, for these two there's a "security button" to not click them without waiting to.<br>
 										</p>
-										<!-- <center> -->
-											<!-- <iframe src="images/Node-RED/rpi.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-											<!-- <p style="text-align:center;">RPi Control Tab</p> -->
-										<!-- </center> -->
 										
-										<!-- Files -->
+										<!-- File Manager -->
 										<h4>File Manager</h4>
 										<p>
-											Here you have two section, on <b>File Browser</b> you can manage the file that your log files,
-											you can download it on your desktop and delete them.
-											On <b>Graph</b> you can visualize your log files with multiple charts (at least 5).
+											Here you can manage the log files that your devices generates,
+											you can download it on your desktop or delete them.
+											About the log files, the format is:
+											<blockquote>timestamp,temperature,pressure,humidity,humidity soil,uv</blockquote>
+											al you can see here, all the values are separated by a comma.<br>
+											The timestamp is taken from the gateway, in our case the RPi, so if you have problems with the datetime
+											take a look on your RPi!
+											
 										</p>
-										<!-- <center> -->
-											<!-- <iframe src="images/Node-RED/file.gif" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-											<!-- <p style="text-align:center;">Files Tab</p> -->
-										<!-- </center> -->
+										<!-- File Visualizator -->
+										<h4>File Visualizator</h4>
+										<p>
+											Also here you can simply visualize your log files as charts (at least 5),
+											if your module has less than 5 sensors the unused chart will be empty.<br>
+											All our modules use the same sensors, but if you use a different sensor(s) go on
+											the appropriate device tab, there's a subgroup called "Auto Logger", here you need to change,
+											on the <b>Set Data</b> node, the payload and also, in the following node called <b>csv</b>, the name
+											of the related column(s).
+										</p>
 										</section>
 										
 										<section id="reference">
