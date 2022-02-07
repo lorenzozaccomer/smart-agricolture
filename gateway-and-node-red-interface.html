@@ -89,6 +89,7 @@
 													<li><a href="#node-red-introduction">Node-RED Introduction</a></li>
 													<li><a href="#node-red-control-panel">Node-RED Control Panel</a></li>
 													<li><a href="#dashboard-presentation">Smart-Agriculture Dashboard Presentation</a></li>
+													<li><a href="#python-script">Python Script Description</a></li>
 													<li><a href="#reference">Reference to used Node-RED flows</a></li>
 												</p>
 											<p>
@@ -445,6 +446,63 @@
 										</p>
 										</section>
 										
+										<!-- Python Script -->
+										<section id="python-script">
+										<h3>Python Script Description</h3>
+										<p>At the end of this paragraph, 
+										we will shortly describe our python script that we put on our gateway.
+										</p>
+										
+										<p>
+										Initially we set:
+										<blockquote>
+										response = lora.set_config('lora:work_mode:1')<br>
+										for r in response:<br>
+											&nbsp &nbsp &nbsp print(r)<br>
+										mode_text = lora.set_config('lorap2p:transfer_mode:1')<br>
+										</blockquote>
+										for <b>work_mode</b> we set it as for LoRaP2P communication, because we don't use the LoRaWAN network,
+										so for <b>transfer_mode</b> we set it as receiver, because
+										we use our module as gateway, how we describe in the previos lines.
+										</p>
+										
+										<p>
+										In this part we define the RF configuration
+										<blockquote>
+										freq = 869.800<br>
+										sf = 12<br>
+										bw = 0  # 125KHz<br>
+										ci = 3  # 4/7<br>
+										pre = 8<br>
+										pwr = 20<br>
+										</blockquote>
+										
+										Remeber to set the same <b><i>frequency</i></b>, 
+										<b><i>spreading factor</i></b> (sf) and 
+										<b><i>bandwidth</i></b> (bw)
+										on all your devices, and the other parameters are coding rate, preamble, transmission power respectively.
+										
+										<blockquote>
+										lora.set_config(f'lorap2p:{int(freq*1000*1000)}:{sf}:{bw}:{ci}:{pre}:{pwr}')<br>
+										print('ok')<br>
+										while True:<br>
+											&nbsp lora.receive_p2p(1000)<br>
+											&nbsp while lora.nb_downlinks > 0:<br>
+												&nbsp &nbsp &nbsp message = lora.get_downlink()<br>
+												&nbsp &nbsp &nbsp data = message['data'].decode('UTF-8').errors('ignore')<br>
+												&nbsp &nbsp &nbsp print(data)<br>
+										</blockquote>
+										
+										<p>
+										In this last block code, we are ready to receive our information's.<br>
+										We have observed in our first test, that if the packet is corrupt (too large distance or interference in the middle), 
+										the script crashes because it can't decode the message as UTF-8, so you need to restart the script
+										from Node-RED platform, to solve this problem the add this line <b><i>errors('ignore')</i></b> 
+										to skip the corrupted message.
+										</p>
+										</section>
+										
+										<!-- Reference Links -->
 										<section id="reference">
 										<h3>Reference to used Node-RED flows</h3>
 										<ul class="links">
