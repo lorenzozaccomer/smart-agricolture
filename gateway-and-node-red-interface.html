@@ -461,7 +461,7 @@
 											&nbsp &nbsp &nbsp print(r)<br>
 										mode_text = lora.set_config('lorap2p:transfer_mode:1')<br>
 										</blockquote>
-										where for <b>work_mode</b> we set it as for LoRaP2P communication, because we don't use the LoRaWAN network,
+										where for <b>work_mode</b> we set it for LoRaP2P communication, because we don't use the LoRaWAN network,
 										and for <b>transfer_mode</b> we set it as receiver, because
 										we use our module as gateway, how we describe in the previos lines.
 										</p>
@@ -480,8 +480,12 @@
 										Remeber to set the same <b><i>frequency</i></b>, 
 										<b><i>spreading factor</i></b> (sf) and 
 										<b><i>bandwidth</i></b> (bw)
-										on all your devices, the other parameters are coding rate, preamble, transmission power respectively.
+										on all your devices,
+										the other parameters are <i>coding rate</i>, <i>preamble</i> and <i>transmission power</i> respectively.<br>
+										</p>
 										
+										<p>
+										In this last block code, we are ready to receive our information's:
 										<blockquote>
 										lora.set_config(f'lorap2p:{int(freq*1000*1000)}:{sf}:{bw}:{ci}:{pre}:{pwr}')<br>
 										print('ok')<br>
@@ -493,8 +497,6 @@
 												&nbsp &nbsp &nbsp print(data)<br>
 										</blockquote>
 										
-										<p>
-										In this last block code, we are ready to receive our information's.<br>
 										We have observed in our first test, that if the packet is corrupt (too large distance or interference in the middle), 
 										the script crashes because it can't decode the message as UTF-8, so you need to restart the script
 										from Node-RED platform, to solve this problem the add this line <b><i>errors('ignore')</i></b> 
