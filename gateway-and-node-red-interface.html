@@ -461,13 +461,13 @@
 											&nbsp &nbsp &nbsp print(r)<br>
 										mode_text = lora.set_config('lorap2p:transfer_mode:1')<br>
 										</blockquote>
-										for <b>work_mode</b> we set it as for LoRaP2P communication, because we don't use the LoRaWAN network,
-										so for <b>transfer_mode</b> we set it as receiver, because
+										where for <b>work_mode</b> we set it as for LoRaP2P communication, because we don't use the LoRaWAN network,
+										and for <b>transfer_mode</b> we set it as receiver, because
 										we use our module as gateway, how we describe in the previos lines.
 										</p>
 										
 										<p>
-										In this part we define the RF configuration
+										In this part we define the RF configuration parameters:
 										<blockquote>
 										freq = 869.800<br>
 										sf = 12<br>
@@ -480,7 +480,7 @@
 										Remeber to set the same <b><i>frequency</i></b>, 
 										<b><i>spreading factor</i></b> (sf) and 
 										<b><i>bandwidth</i></b> (bw)
-										on all your devices, and the other parameters are coding rate, preamble, transmission power respectively.
+										on all your devices, the other parameters are coding rate, preamble, transmission power respectively.
 										
 										<blockquote>
 										lora.set_config(f'lorap2p:{int(freq*1000*1000)}:{sf}:{bw}:{ci}:{pre}:{pwr}')<br>
