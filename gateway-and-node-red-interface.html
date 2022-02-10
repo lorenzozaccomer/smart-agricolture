@@ -430,8 +430,11 @@
 											About the log files, the format is:
 											<blockquote>timestamp,temperature,pressure,humidity,humidity soil,uv</blockquote>
 											al you can see here, all the values are separated by a comma.<br>
-											The timestamp is taken from the gateway, in our case the RPi, so if you have problems with the datetime
-											take a look on your RPi!
+											The timestamp is taken from the gateway, in our case the RPi, 
+											so if you have problems with the datetime take a look on your RPi, 
+											because it hasn't a clock hardware like Notebook or PC Desktop, to take down the
+											the clock it needs to connect at Network Time Protocl (NTP) server, 
+											but if for some reason the connection to this server will not work,your clock will be wrong.
 											
 										</p>
 										<!-- File Visualizator -->
@@ -499,7 +502,7 @@
 										
 										We have observed in our first test, that if the packet is corrupt (too large distance or interference in the middle), 
 										the script crashes because it can't decode the message as UTF-8, so you need to restart the script
-										from Node-RED platform, to solve this problem the add this line <b><i>errors('ignore')</i></b> 
+										from Node-RED platform, to solve this problem there's this line <b><i>errors('ignore')</i></b> 
 										to skip the corrupted message.
 										</p>
 										</section>
