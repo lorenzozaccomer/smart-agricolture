@@ -102,13 +102,27 @@
 									<!-- Figure 2 -->
 									<center>
 										<span class="image responsive"><img src="images/Security/2.png" alt="" /></span>
-										<p style="text-align:center;">settings.js example</p>
+										<p style="text-align:center;">adminAuth example</p>
 									</center>
 									
 									<p>
 									Now you need to create your personal password, what you see on the previous image
 									in a hashed password.<br>
 									To hash your password open a CLI on a new window:<br>
+									</p>
+									
+									<p>Also if you uncomment <i>httpNodeAuth</i>:
+									<!-- Figure 3 -->
+									<center>
+										<span class="image responsive"><img src="images/Security/3.png" alt="" /></span>
+										<p style="text-align:center;">httpNodeAuth example</p>
+									</center>
+									
+									<p>
+									You can use a <b>different</b> couple username-password for your project.<br>
+									This solution is implemented for the end-user to access <i>only</i> 
+									on the graphical interface (Dashboard) of your Node-RED Project,
+									it can't access with this credential on the Control Panel and visualize/change the flows.
 									</p>
 									
 									<blockquote>node-red admin hash-pw</blockquote>
@@ -122,9 +136,9 @@
 									You can also access from your end device (like smartphone, PC, etc ..) to
 									Node-RED Dashboard.<br>
 									To do that we install <a href="https://ngrok.com/">ngrok</a> on our RPi 3
-									and tested its service with the Free Plan, it works like a VPN, 
-									it creates a encrypted tunnelling connection of the service 
-									that you like from the "gateway" (e.g. RPi3) to your end device.<br>
+									and tested its service with the Free Plan, 
+									it allows you to connect to your local service (as Node-RED) externally as 
+									if you were inside the local network itself from your end device (as your smartphone).<br>
 									After installed it, from CLI windows if you put:
 									
 									<blockquote>ngrok http https://localhost:1880</blockquote>
