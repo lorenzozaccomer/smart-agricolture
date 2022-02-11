@@ -14,3 +14,4 @@ keyword: Smart Agriculture
 keyword: Low Power
 keyword: Internet Of Things
 keyword: Sensor Network
+thumbnail: images/banner2.jpg
