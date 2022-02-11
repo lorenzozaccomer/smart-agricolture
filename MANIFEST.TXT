@@ -2,7 +2,7 @@ title: Smart Agriculture AA 20/21
 author: Ivan Di Betta (ivan.dibetta@spes.uniud.it)
 author: Klaid Shyti (shyti.klaid@spes.uniud.it)
 author: Lorenzo Zaccomer (zaccomer.lorenzo@spes.uniud.it)
-sources: https://lorenzozaccomer.github.io/smart-agriculture/
+sources: https://github.com/lorenzozaccomer/smart-agriculture/tree/main
 home: index.html
 keyword: LoRa
 keyword: LoRaWAN
