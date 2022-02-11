@@ -1,0 +1,16 @@
+title: Smart Agriculture AA 20/21
+author: Ivan Di Betta (ivan.dibetta@spes.uniud.it)
+author: Klaid Shyti (shyti.klaid@spes.uniud.it)
+author: Lorenzo Zaccomer (zaccomer.lorenzo@spes.uniud.it)
+sources: https://lorenzozaccomer.github.io/smart-agriculture/
+home: index.html
+keyword: LoRa
+keyword: LoRaWAN
+keyword: Gateway
+keyword: Node-RED
+keyword: STMicroelectronics
+keyword: Open Source
+keyword: Smart Agriculture
+keyword: Low Power
+keyword: Internet Of Things
+keyword: Sensor Network
